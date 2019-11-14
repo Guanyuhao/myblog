@@ -1,3 +1,5 @@
+const sidebar = require('../../config/sidebar');
+console.log(sidebar)
 module.exports = {
   title: 'Guanyuhao',
   description: '前端',
@@ -41,21 +43,6 @@ module.exports = {
         ]
       }
     ],
-    sidebar: [{
-        title: '介绍',
-        path: '/guide',
-        children: [
-          '/',
-        ]
-      },
-      {
-        title: '前端面试',
-        path: '/Interview',
-        children: [
-          '/Interview/test',
-          // 自动加.md 每个子选项的标题 是该md文件中的第一个h1/h2/h3标题
-        ]
-      }
-    ]
+    sidebar,
   }
 };
