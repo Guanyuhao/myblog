@@ -22,7 +22,7 @@ fileDirectoryName = fs.readdirSync(docs);
 console.log(fileDirectoryName); // [...目录]
 ```
 
-::: success
+::: warning 提问
 👆 结果出现的原因很简单，因为异步了。readdirSync 发生了阻塞了而 readdir 没有。
 ❓ 引出一个问题 node.js 实现阻塞？
 :::
@@ -88,7 +88,7 @@ fibers 的运行并不在 node 进程中，所以在 fibers 内部实现阻塞�
 
 于是我们在调用 http.get 后使用 Fiber.yield()中断此 fiber。在对 response 的监听中，如果触发 end 事件表明数据传输完成，于是在 end 的回调函数中，调用 Fiber.current.run()恢复 fiber，这样，后续的代码就以同步的方式拿到 http.get 请求的数据
 
-::: warning
+::: warning 提问
 👆 很顺利我们实现了，但是上面两种方法都只是一个环境中阻塞并不像 readdir 与 readdirSync
 ❓ 如何让他像上门以异可以在全局环境中阻塞呢？
 :::
