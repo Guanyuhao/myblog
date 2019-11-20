@@ -1,20 +1,21 @@
 /**
- * 获取一个目录下的所有文件名
- * 使用方法：var filehelper = require('./getFilenames.js')
- * filehelper.getFileName("/Users/fangzheng/JavaDev/blog/docs/BigData/Flume/")
+ * 文件名字的获取
  */
 
 const fs = require('fs');
 // 排除检查的文件
-var excludes = ['.DS_Store', '.vuepress']
+const excludes = ['.DS_Store', '.vuepress']
 
-var filehelper = {
-  getFileName: function (rpath) {
+class filehelper {
+  constructor() {
+
+  }
+  getFileName(rpath) {
     let filenames = [];
     fs.readdirSync(rpath).forEach(file => {
       if (excludes.indexOf(file) < 0) {
-        fullpath = rpath + "/" + file
-        var fileinfo = fs.statSync(fullpath)
+        let fullpath = rpath + "/" + file
+        let fileinfo = fs.statSync(fullpath)
         if (fileinfo.isFile()) {
           if (file === 'README.md') {
             file = '';
@@ -29,5 +30,24 @@ var filehelper = {
     filenames.sort(); // 排序
     return filenames;
   }
+  getFileDirectory(rpath) {
+    let fileDirectoryName = [];
+    fs.readdirSync(rpath).forEach(file => {
+      let fullpath = (rpath + "/" + file);
+      if (excludes.indexOf(file) < 0 && this.isDir(fullpath)) {
+        fileDirectoryName.push(file)
+      }
+    })
+    fileDirectoryName.sort(); // 排序
+    return fileDirectoryName
+  }
+  exists(path) {
+    return fs.existsSync(path) || path.existsSync(path)
+  }
+  isDir(path) {
+    return this.exists(path) && fs.statSync(path).isDirectory()
+  }
 }
-module.exports = filehelper;
+
+
+module.exports = new filehelper();

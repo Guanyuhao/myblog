@@ -1,17 +1,53 @@
-const path = require("path")
-const rootpath = path.dirname(__dirname) //执行一次dirname将目录定位到docs的上级目录，也就是博客根目录
-const docs = rootpath + "/docs/"
-const utils = require(rootpath + '/utils/index.js');
-const filehelper = require(rootpath + '/utils/getFilenames.js');
+const path = require("path");
+const rootpath = path.dirname(__dirname); //执行一次dirname将目录定位到docs的上级目录，也就是博客根目录
+const docs = rootpath + "/docs/";
+const { genSidebar, thunkify } = require(rootpath + "/utils/index.js");
+const filehelper = require(rootpath + "/utils/getFilenames.js");
+// const {
+//   // youdao,
+//   baidu
+//   // google
+// } = require("translation.js");
+// const async = require("async");
+// async function generateObj() {
+//   let obj = {};
+//   let docDirArr = filehelper.getFileDirectory(docs);
+//   let cnDocNameArr = [];
+//   for (const docName of docDirArr) {
+//     let cn_Name = await google.translate(`${docName}`);
+//     cnDocNameArr.push(cn_Name.result[0]);
+//   }
+//   docDirArr.forEach((element, index) => {
+//     let val = cnDocNameArr[index];
+//     obj[`/${element}/`] = genSidebar(
+//       val,
+//       filehelper.getFileName(`${docs}${element}/`),
+//       false
+//     );
+//   });
+//   return obj;
+// }
 
-
-module.exports = {
-  '/guide/': utils.genSidebar('介绍', filehelper.getFileName(docs + "/guide/"), false),
-  '/interview/': utils.genSidebar('前端面试', filehelper.getFileName(docs + "/interview/"), false),
-  '/BlockChain/': utils.genSidebar('区块链', filehelper.getFileName(docs + "/BlockChain/"), false),
+function generateObj(cnDocNameArr) {
+  let obj = {};
+  let docDirArr = filehelper.getFileDirectory(docs);
+  docDirArr.forEach((element, index) => {
+    let val = cnDocNameArr[index];
+    obj[`/${element}/`] = genSidebar(
+      val,
+      filehelper.getFileName(`${docs}${element}/`),
+      false
+    );
+  });
+  return obj;
   // 关于我
-  //  '/About/': utils.genSidebar('关于我', filehelper.getFileName(docs + "/About/"), false),
+  //  '/About/': genSidebar('关于我', filehelper.getFileName(docs + "/About/"), false),
   // 一定要放在最后！！！
   // 根目录下的 sidebar, 对于所有未匹配到的都会应用该 sidebar
   // '/': [''] // 此处选择禁用
+}
+
+module.exports = {
+  sidebar: generateObj(["区块链", "前端", "算法", "指南", "面试"]),
+  enArr: filehelper.getFileDirectory(docs)
 };

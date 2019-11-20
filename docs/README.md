@@ -4,11 +4,9 @@ heroImage: /yuhao.jpg
 actionText: Go →
 actionLink: /guide/
 features:
-  - title: 简洁至上
-    details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-  - title: Vue驱动
-    details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-  - title: 高性能
-    details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+  - title: 认真苟且，开心有趣
+    details: 生活本就随波逐流，沾花惹草意外湿了衣袖
+  - title: pretend until you succeed
+    details: Vividly imagine yourself as a loser, which makes you unable to win; vividly imagine yourself as a winner, will bring incalculable energy
 footer: MIT Licensed | Copyright © guanyuhao
 ---

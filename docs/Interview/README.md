@@ -1,4 +1,6 @@
-# 前端面试
+# 面试
+
+## 前端
 
 - 防抖和节流
 - 垃圾回收机制
@@ -15,6 +17,6 @@
 - 内存泄漏
 - 算法及排序
 - EventLoop
-  <!-- - 链接：https://juejin.im/post/5c6bab91f265da2dd94c9f9e -->
+- [链接](https://juejin.im/post/5c6bab91f265da2dd94c9f9e)
 
 ---

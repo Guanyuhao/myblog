@@ -32,68 +32,65 @@
 
 ##### 实现代码及思路
 
-```
+```js
 //非立即执行版
 //首先准备我们需要使用的回调函数
-function shotCat(content){
-    console.log('赞！！！')
+function shotCat(content) {
+  console.log("赞！！！");
 }
 //包装函数
 //1 保存定时器标识
 //2 返回闭包函数 1)对定时器的判断清除;2)一般还需要保存函数的参数(一般就是事件返回的对象)和上下文(定时器存在this隐式丢失,详情可以看我不知道的js上)
 //最后补充一句,这里不建议通过定义一个全局变量来替代闭包保存定时器标识.
 function debounce(fun, delay = 500) {
-//let timer = null 保存定时器
-    return function (args) {
-        let that = this
-        let _args = args
-		//这里对定时器的设置有两种方法,第一种就是将定时器保存在函数(函数也是对象)的属性上,
-		//这种写法,很简便,但不是很常用
-        clearTimeout(fun.timer)
-        fun.timer = setTimeout(function () {
-            fun.call(that, _args)
-        }, delay)
-		//另外一种写法就是我们比较常见的
-		//if (timer) clearTimeout(timer);     相比上面的方法,这里多一个判断
-		//timer = setTimeout(function () {
-        //    fun.call(that, _args)
-        //}, delay)
-    }
+  //let timer = null 保存定时器
+  return function(args) {
+    let that = this;
+    let _args = args;
+    //这里对定时器的设置有两种方法,第一种就是将定时器保存在函数(函数也是对象)的属性上,
+    //这种写法,很简便,但不是很常用
+    clearTimeout(fun.timer);
+    fun.timer = setTimeout(function() {
+      fun.call(that, _args);
+    }, delay);
+    //另外一种写法就是我们比较常见的
+    //if (timer) clearTimeout(timer);     相比上面的方法,这里多一个判断
+    //timer = setTimeout(function () {
+    //    fun.call(that, _args)
+    //}, delay)
+  };
 }
- //接着用变量保存保存 debounce 返回的带有延时功能的函数
-let debounceShotCat = debounce(shotCat, 500)
+//接着用变量保存保存 debounce 返回的带有延时功能的函数
+let debounceShotCat = debounce(shotCat, 500);
 
 //最后添加事件监听 回调debounceShotCat 并传入事件返回的对象
-let input = document.getElementById('debounce')
-input.addEventListener('keyup', function (e) {
-        debounceShotCat(e.target.value)
-})
-
+let input = document.getElementById("debounce");
+input.addEventListener("keyup", function(e) {
+  debounceShotCat(e.target.value);
+});
 
 //带有立即执行选项的防抖函数:
 //思路和上面的大致相同,如果是立即执行,则定时器中不再包含回调函数,而是在回调函数执行后,仅起到延时和重置定时器标识的作用
-function debounce(fun, delay = 500,immediate = true) {
-    let timer = null //保存定时器
-    return function (args) {
-        let that = this
-        let _args = args
-		if (timer) clearTimeout(timer);  //不管是否立即执行都需要首先清空定时器
-        if (immediate) {
-		    if ( !timer) fun.apply(that, _args)  //如果定时器不存在,则说明延时已过,可以立即执行函数
-			//不管上一个延时是否完成,都需要重置定时器
-            timer = setTimeout(function(){
-                timer = null; //到时间后,定时器自动设为null,不仅方便判断定时器状态还能避免内存泄露
-            }, delay)
-        }
-        else {
-		//如果是非立即执行版,则重新设定定时器,并将回调函数放入其中
-            timer = setTimeout(function(){
-                fun.call(that, _args)
-            }, delay);
-        }
+function debounce(fun, delay = 500, immediate = true) {
+  let timer = null; //保存定时器
+  return function(args) {
+    let that = this;
+    let _args = args;
+    if (timer) clearTimeout(timer); //不管是否立即执行都需要首先清空定时器
+    if (immediate) {
+      if (!timer) fun.apply(that, _args); //如果定时器不存在,则说明延时已过,可以立即执行函数
+      //不管上一个延时是否完成,都需要重置定时器
+      timer = setTimeout(function() {
+        timer = null; //到时间后,定时器自动设为null,不仅方便判断定时器状态还能避免内存泄露
+      }, delay);
+    } else {
+      //如果是非立即执行版,则重新设定定时器,并将回调函数放入其中
+      timer = setTimeout(function() {
+        fun.call(that, _args);
+      }, delay);
     }
+  };
 }
-
 ```
 
 ## 节流
@@ -131,60 +128,56 @@ function debounce(fun, delay = 500,immediate = true) {
 
 ##### 实现代码及思路
 
-```
+```js
 //时间戳版：
 //这里fun指的就是回调函数,我就不写出来了
 function throttle(fun, delay = 500) {
-    let previous = 0;  //记录上一次触发的时间戳.这里初始设为0,是为了确保第一次触发产生回调
-    return function(args) {
-        let now = Date.now(); //记录此刻触发时的时间戳
-        let that = this;
-        let _args = args;
-        if (now - previous > delay) {  //如果时间差大于规定时间,则触发
-            fun.apply(that, _args);
-            previous = now;
-        }
+  let previous = 0; //记录上一次触发的时间戳.这里初始设为0,是为了确保第一次触发产生回调
+  return function(args) {
+    let now = Date.now(); //记录此刻触发时的时间戳
+    let that = this;
+    let _args = args;
+    if (now - previous > delay) {
+      //如果时间差大于规定时间,则触发
+      fun.apply(that, _args);
+      previous = now;
     }
+  };
 }
-
 
 //定时器版:
 function throttle(fun, delay = 500) {
-    let timer;
-    return function(args) {
-        let that = this;
-        let _args = args;
-        if (!timer) {  //如果定时器不存在,则设置新的定时器,到时后,才执行回调,并将定时器设为null
-            timer = setTimeout(function(){
-                timer = null;
-                fun.apply(that, _args)
-            }, delay)
-        }
-
+  let timer;
+  return function(args) {
+    let that = this;
+    let _args = args;
+    if (!timer) {
+      //如果定时器不存在,则设置新的定时器,到时后,才执行回调,并将定时器设为null
+      timer = setTimeout(function() {
+        timer = null;
+        fun.apply(that, _args);
+      }, delay);
     }
+  };
 }
-
-
-
 
 //时间戳+定时器版: 实现第一次触发可以立即响应,结束触发后也能有响应 (该版才是最符合实际工作需求)
 //该版主体思路还是时间戳版,定时器的作用仅仅是执行最后一次回调
 function throttle(fun, delay = 500) {
-     let timer = null;
-     let previous = 0;
-     return function(args) {
-             let now = Date.now();
-             let remaining = delay - (now - previous); //距离规定时间,还剩多少时间
-             let that = this;
-             let _args = args;
-             clearTimeout(timer);  //清除之前设置的定时器
-              if (remaining <= 0) {
-                    fun.apply(that, _args);
-                    previous = Date.now();
-              } else {
-                    timer = setTimeout(fun, remaining); //因为上面添加的clearTimeout.实际这个定时器只有最后一次才会执行
-              }
-      }
+  let timer = null;
+  let previous = 0;
+  return function(args) {
+    let now = Date.now();
+    let remaining = delay - (now - previous); //距离规定时间,还剩多少时间
+    let that = this;
+    let _args = args;
+    clearTimeout(timer); //清除之前设置的定时器
+    if (remaining <= 0) {
+      fun.apply(that, _args);
+      previous = Date.now();
+    } else {
+      timer = setTimeout(fun, remaining); //因为上面添加的clearTimeout.实际这个定时器只有最后一次才会执行
+    }
+  };
 }
-
 ```
