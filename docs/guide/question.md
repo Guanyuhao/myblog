@@ -41,7 +41,9 @@ node.js 的单线程仅仅指 javascript 引擎是单线程的，无论如何我
 
 话说到这儿，我想申明一点：node.js 不应该被阻塞；能异步处理的方法异步处理（如使用 fs.readFile()，而非 fs.syncReadFile()fs.readFileSync()方法）。
 
-node 中不能阻塞，并不代表 node 外不能阻塞[原文](/http://www.nodeclass.com/articles/310731)。
+node 中不能阻塞，并不代表 node 外不能阻塞
+
+- [原文](http://www.nodeclass.com/articles/310731)。
 
 ```js
 /*
@@ -90,5 +92,5 @@ fibers 的运行并不在 node 进程中，所以在 fibers 内部实现阻塞�
 
 ::: warning 提问
 👆 很顺利我们实现了，但是上面两种方法都只是一个环境中阻塞并不像 readdir 与 readdirSync
-❓ 如何让他像上门以异可以在全局环境中阻塞呢？
+❓ 如何像 readdirSync 中在 node 中实现阻塞？
 :::

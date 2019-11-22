@@ -27,6 +27,4 @@ vuepress build .
 
 - [前端](/FrontEnd)
 - [面试](/interview)
-- [区块链](/BlockChain)
-
----
+- [区块链](/Blockchain)
