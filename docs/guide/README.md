@@ -4,7 +4,7 @@
 - [面试](/interview)
 - [区块链](/Blockchain)
 
-## 搭建一个类 Vue 文档风格的技术文档/博客
+## 搭建一个类 Vue 文档风格的技术文档/博客 test
 
 - 建议先看一下[官方文档](https://vuepress.vuejs.org/zh/)
 
