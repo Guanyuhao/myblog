@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 // 排除检查的文件
-const excludes = ['.DS_Store', '.vuepress']
+const excludes = ['.vuepress']
 
 class filehelper {
   constructor() {

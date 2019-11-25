@@ -1,4 +1,7 @@
-const { sidebar, enArr } = require("../../config/sidebar");
+const {
+  sidebar,
+  enArr
+} = require("../../config/sidebar");
 console.log(enArr, "--");
 module.exports = {
   title: "Guanyuhao",
@@ -15,7 +18,7 @@ module.exports = {
   ],
   base: "/", // 这是部署到github相关的配置 下面会讲
   markdown: {
-    lineNumbers: true // 代码块显示行号
+    lineNumbers: false // 代码块显示行号
   },
   //指定额外的需要被监听的文件
   extraWatchFiles: [
@@ -26,8 +29,7 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: "Last Updated", // 文档更新时间：每个文件git最后提交的时间
-    nav: [
-      {
+    nav: [{
         text: "前端算法",
         link: "/algorithm/"
       }, // 内部链接 以docs为根目录
@@ -37,8 +39,7 @@ module.exports = {
       // }, // 外部链接
       {
         text: "GitHub",
-        items: [
-          {
+        items: [{
             text: "GitHub地址",
             link: "https://github.com/guanyuhao"
           }
