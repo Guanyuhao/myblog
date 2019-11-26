@@ -1,5 +1,12 @@
 const { sidebar, enArr } = require("../../config/sidebar");
-console.log(enArr, "--");
+const baseUrl = (() => {
+  if (process.env.BASE_URL) {
+    return process.env.BASE_URL;
+  }
+  return "/";
+})();
+console.log(enArr, "--", baseUrl);
+
 module.exports = {
   title: "Guanyuhao",
   description: "前端",
@@ -13,7 +20,7 @@ module.exports = {
       }
     ] // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  base: "/myblog/", // 这是部署到github相关的配置 下面会讲
+  base: baseUrl, // 这是部署到github相关的配置 下面会讲
   markdown: {
     lineNumbers: false // 代码块显示行号
   },
