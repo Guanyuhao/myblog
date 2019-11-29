@@ -1,4 +1,7 @@
-const { sidebar, enArr } = require("../../config/sidebar");
+const {
+  sidebar,
+  enArr
+} = require("../../config/sidebar");
 const baseUrl = (() => {
   if (process.env.BASE_URL) {
     return process.env.BASE_URL;
@@ -24,6 +27,28 @@ module.exports = {
   markdown: {
     lineNumbers: false // 代码块显示行号
   },
+  plugins: [
+    // 官方回到顶部插件
+    '@vuepress/back-to-top',
+    //官方图片放大组件 目前是所有img都可以点击放大。具体配置见https://v1.vuepress.vuejs.org/zh/plugin/official/plugin-medium-zoom.html
+    ['@vuepress/medium-zoom', {
+      selector: 'img'
+    }],
+    // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/
+    // ['@vssue/vuepress-plugin-vssue', {
+    //   // 设置 `platform` 而不是 `api` 我这里是在github平台
+    //   platform: 'github',
+
+    //   // owner与repo配置 https://github.com/${owner}/${repo}
+    //   owner: 'guanyuhao',
+    //   repo: 'myblog',
+    //   // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
+    //   clientId: 'clientId',
+    //   clientSecret: 'clientSecret',
+    //   locale: 'zh', //使用的语言  这里是简体中文
+    //   baseURL: 'https://github.com'
+    // }] //平台的 base URL
+  ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [
     // '.vuepress/foo.js', // 使用相对路径
@@ -33,8 +58,7 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: "Last Updated", // 文档更新时间：每个文件git最后提交的时间
-    nav: [
-      {
+    nav: [{
         text: "前端算法",
         link: "/algorithm/"
       }, // 内部链接 以docs为根目录
@@ -44,8 +68,7 @@ module.exports = {
       // }, // 外部链接
       {
         text: "GitHub",
-        items: [
-          {
+        items: [{
             text: "GitHub地址",
             link: "https://github.com/guanyuhao"
           }
