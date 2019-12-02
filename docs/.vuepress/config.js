@@ -8,7 +8,14 @@ const baseUrl = (() => {
   }
   return "/";
 })();
-console.log(enArr, "--", baseUrl);
+
+const Vssue = (() => {
+  return {
+    clientId: process.env.VSSUE_CLIENT_ID,
+    clientSecret: process.env.VSSUE_CLIENT_SECRET
+  }
+})();
+
 
 module.exports = {
   title: "Guanyuhao",
@@ -29,25 +36,32 @@ module.exports = {
   },
   plugins: [
     // 官方回到顶部插件
-    '@vuepress/back-to-top',
+    "@vuepress/back-to-top",
+    // 页面滚动时自动激活侧边栏链接的插件
+    "@vuepress/active-header-links",
     //官方图片放大组件 目前是所有img都可以点击放大。具体配置见https://v1.vuepress.vuejs.org/zh/plugin/official/plugin-medium-zoom.html
-    ['@vuepress/medium-zoom', {
-      selector: 'img'
-    }],
+    [
+      "@vuepress/medium-zoom",
+      {
+        selector: "img"
+      }
+    ],
     // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/
-    // ['@vssue/vuepress-plugin-vssue', {
-    //   // 设置 `platform` 而不是 `api` 我这里是在github平台
-    //   platform: 'github',
-
-    //   // owner与repo配置 https://github.com/${owner}/${repo}
-    //   owner: 'guanyuhao',
-    //   repo: 'myblog',
-    //   // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
-    //   clientId: 'clientId',
-    //   clientSecret: 'clientSecret',
-    //   locale: 'zh', //使用的语言  这里是简体中文
-    //   baseURL: 'https://github.com'
-    // }] //平台的 base URL
+    Vssue.clientId ? [
+      "@vssue/vuepress-plugin-vssue",
+      {
+        // 设置 `platform` 而不是 `api` 我这里是在github平台
+        platform: "github",
+        // owner与repo配置 https://github.com/${owner}/${repo}
+        owner: "guanyuhao",
+        repo: "myblog",
+        // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
+        clientId: Vssue.clientId,
+        clientSecret: Vssue.clientSecret,
+        locale: "zh", //使用的语言  这里是简体中文
+        baseURL: "https://github.com/guanyuhao/myblog"
+      }
+    ] : [] //平台的 base URL
   ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [
