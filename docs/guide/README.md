@@ -1,8 +1,8 @@
 # 指南
 
-- [前端](/FrontEnd)
-- [面试](/interview)
-- [区块链](/Blockchain)
+- [前端](../FrontEnd)
+- [面试](../interview)
+- [区块链](../Blockchain)
 
 ## 搭建一个类 Vue 文档风格的技术文档/博客 test
 
@@ -10,7 +10,7 @@
 
 - 可能你会搭建出一个类似这样的[文档](https://guanyuhao.github.io/)
 
-- [vuePress 进阶](/guid/博客进阶)
+- [vuePress 进阶](./博客进阶)
 
 ### 全局安装 VuePress
 
