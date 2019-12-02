@@ -47,7 +47,7 @@ module.exports = {
       }
     ],
     // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/
-    Vssue.clientId ? [
+    (Vssue.clientId ? [
       "@vssue/vuepress-plugin-vssue",
       {
         // 设置 `platform` 而不是 `api` 我这里是在github平台
@@ -61,7 +61,7 @@ module.exports = {
         locale: "zh", //使用的语言  这里是简体中文
         baseURL: "https://github.com/guanyuhao/myblog"
       }
-    ] : [] //平台的 base URL
+    ] : {}) //平台的 base URL
   ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [
