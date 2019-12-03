@@ -11,8 +11,8 @@ const baseUrl = (() => {
 
 const Vssue = (() => {
   return {
-    clientId: process.env.VSSUE_CLIENT_ID,
-    clientSecret: process.env.VSSUE_CLIENT_SECRET
+    clientId: process.env.VSSUE_CLIENT_ID || '',
+    clientSecret: process.env.VSSUE_CLIENT_SECRET || ''
   }
 })();
 
@@ -73,24 +73,23 @@ module.exports = {
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: "Last Updated", // 文档更新时间：每个文件git最后提交的时间
     nav: [{
-        text: "前端算法",
-        link: "/algorithm/"
-      }, // 内部链接 以docs为根目录
-      // {
-      //   text: '博客',
-      //   link: 'http://obkoro1.com/'
-      // }, // 外部链接
+        text: "面试",
+        items: [{
+            text: "计算机通识",
+            link: "/cs/"
+          },
+          {
+            text: "前端",
+            link: "/FrontEnd/"
+          }
+        ]
+      },
       {
         text: "GitHub",
         items: [{
-            text: "GitHub地址",
-            link: "https://github.com/guanyuhao"
-          }
-          // {
-          //   text: '算法仓库',
-          //   link: 'https://github.com/OBKoro1/Brush_algorithm'
-          // }
-        ]
+          text: "GitHub地址",
+          link: "https://github.com/guanyuhao"
+        }]
       }
     ],
     sidebar

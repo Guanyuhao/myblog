@@ -1,5 +1,5 @@
 const utils = {
-  genSidebar(title, children = [""], collapsable = true, sidebarDepth = 2) {
+  genSidebar(title, children = [""], collapsable = false, sidebarDepth = 2) {
     var arr = new Array();
     arr.push({
       title,
@@ -13,7 +13,7 @@ const utils = {
     return Array.from(new Set(arr));
   },
   thunkify(fn) {
-    return function() {
+    return function () {
       var args = new Array(arguments.length);
       var ctx = this;
 
@@ -21,10 +21,10 @@ const utils = {
         args[i] = arguments[i];
       }
 
-      return function(done) {
+      return function (done) {
         var called;
 
-        args.push(function() {
+        args.push(function () {
           if (called) return;
           called = true;
           done.apply(null, arguments);
