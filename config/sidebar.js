@@ -22,7 +22,7 @@ function generateObj(cnDocNameArr) {
 }
 console.log(filehelper.getFileDirectory(docs))
 module.exports = {
-  sidebar: generateObj(["区块链", "前端", "计算机通识", , "算法", "指南"]),
+  sidebar: generateObj(["区块链", "前端", "算法", "计算机通识", "指南"]),
   enArr: filehelper.getFileDirectory(docs)
 };
 
