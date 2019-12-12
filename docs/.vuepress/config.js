@@ -1,7 +1,4 @@
-const {
-  sidebar,
-  enArr
-} = require("../../config/sidebar");
+const { sidebar, enArr } = require("../../config/sidebar");
 const baseUrl = (() => {
   if (process.env.BASE_URL) {
     return process.env.BASE_URL;
@@ -11,11 +8,10 @@ const baseUrl = (() => {
 
 const Vssue = (() => {
   return {
-    clientId: process.env.VSSUE_CLIENT_ID || '',
-    clientSecret: process.env.VSSUE_CLIENT_SECRET || ''
-  }
+    clientId: process.env.VSSUE_CLIENT_ID || "",
+    clientSecret: process.env.VSSUE_CLIENT_SECRET || ""
+  };
 })();
-
 
 module.exports = {
   title: "Guanyuhao",
@@ -47,21 +43,23 @@ module.exports = {
       }
     ],
     // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/
-    (Vssue.clientId ? [
-      "@vssue/vuepress-plugin-vssue",
-      {
-        // 设置 `platform` 而不是 `api` 我这里是在github平台
-        platform: "github",
-        // owner与repo配置 https://github.com/${owner}/${repo}
-        owner: "guanyuhao",
-        repo: "myblog",
-        // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
-        clientId: Vssue.clientId,
-        clientSecret: Vssue.clientSecret,
-        locale: "zh", //使用的语言  这里是简体中文
-        baseURL: "https://github.com/guanyuhao/myblog"
-      }
-    ] : {}) //平台的 base URL
+    Vssue.clientId
+      ? [
+          "@vssue/vuepress-plugin-vssue",
+          {
+            // 设置 `platform` 而不是 `api` 我这里是在github平台
+            platform: "github",
+            // owner与repo配置 https://github.com/${owner}/${repo}
+            owner: "guanyuhao",
+            repo: "myblog",
+            // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
+            clientId: Vssue.clientId,
+            clientSecret: Vssue.clientSecret,
+            locale: "zh" //使用的语言  这里是简体中文
+            // baseURL: "https://github.com/guanyuhao/myblog"
+          }
+        ]
+      : {} //平台的 base URL
   ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [
@@ -72,9 +70,11 @@ module.exports = {
   themeConfig: {
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: "Last Updated", // 文档更新时间：每个文件git最后提交的时间
-    nav: [{
+    nav: [
+      {
         text: "面试",
-        items: [{
+        items: [
+          {
             text: "计算机通识",
             link: "/cs/"
           },
@@ -86,10 +86,12 @@ module.exports = {
       },
       {
         text: "GitHub",
-        items: [{
-          text: "GitHub地址",
-          link: "https://github.com/guanyuhao"
-        }]
+        items: [
+          {
+            text: "GitHub地址",
+            link: "https://github.com/guanyuhao"
+          }
+        ]
       }
     ],
     sidebar
