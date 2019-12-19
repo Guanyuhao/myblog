@@ -18,8 +18,8 @@ function generateObj(cnDocNameArr) {
     );
   });
   return obj;
-
 }
+
 console.log(filehelper.getFileDirectory(docs))
 module.exports = {
   sidebar: generateObj(["区块链", "前端", "算法", "计算机通识", "指南"]),

@@ -1,8 +1,10 @@
 # 指南
 
+- [计算机通识](../cs)
 - [前端](../FrontEnd)
-- [区块链](../Blockchain)
-- 种草[Postwoman](https://postwoman.io/)
+  <!-- - [区块链](../Blockchain) -->
+- [算法学习](../algorithm)
+- [Postwoman](https://postwoman.io/)
 
 ## 搭建一个类 Vue 文档风格的技术文档/博客 test
 
