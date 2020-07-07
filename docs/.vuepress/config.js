@@ -15,7 +15,7 @@ const Vssue = (() => {
 
 module.exports = {
   title: "Guanyuhao",
-  description: "前端",
+  description: "365天，每天都是一天",
   // 注入到当前页面的 HTML <head> 中的标签
   head: [
     [
@@ -95,5 +95,6 @@ module.exports = {
       }
     ],
     sidebar
-  }
+  },
+  scss: {}
 };

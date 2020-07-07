@@ -1,28 +1,28 @@
 {
-    "name": "myblog",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "fs": "^0.0.1-security",
-        "path": "^0.12.7"
-    },
-    "devDependencies": {
-        "@vssue/api-github-v3": "^1.1.2",
-        "@vssue/vuepress-plugin-vssue": "^1.2.2",
-        "@vuepress/plugin-active-header-links": "^1.2.0",
-        "@vuepress/plugin-back-to-top": "^1.2.0",
-        "@vuepress/plugin-medium-zoom": "^1.2.0"
-    },
-    "dslInfo": {
-        "dsl": "vue-standard"
-    }
+	"name": "myblog",
+	"version": "1.0.0",
+	"description": "365天，每天都是一天",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"docs:dev": "vuepress dev docs",
+		"docs:build": "vuepress build docs"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"fs": "^0.0.1-security",
+		"path": "^0.12.7"
+	},
+	"devDependencies": {
+		"@vssue/api-github-v3": "^1.1.2",
+		"@vssue/vuepress-plugin-vssue": "^1.2.2",
+		"@vuepress/plugin-active-header-links": "^1.2.0",
+		"@vuepress/plugin-back-to-top": "^1.2.0",
+		"@vuepress/plugin-medium-zoom": "^1.2.0"
+	},
+	"dslInfo": {
+		"dsl": "vue-standard"
+	}
 }
