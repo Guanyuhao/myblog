@@ -1,5 +1,189 @@
 # Vue
 
+# Vue 原理
+
+## Dep 消息订阅器
+
+```js
+class Dep {
+  constructor() {
+    this.subs = []
+  }
+  addSub(sub){
+    this.subs.push(sub)
+  }
+  removeSub(sub){
+    this.remove(this.subs, sub);
+  }
+  /*
+    标识 get 是否进行收集
+  */
+  depend() {
+    if (this.target) {
+      this.target.addDep(this)
+    }
+  }
+  remove(arr,item){
+    if(arr.length){
+      var index = arr.indexOf(item)
+      if(index > -1){
+        return arr.splice(index,1)
+      }
+    }
+  },
+  notify() {
+    var subs = this.subs.slice()
+    for (var i = 0, l = subs.length; i < l; i++) {
+      // 这里 update 是 Watcher 类中实现
+      subs[i].update()
+    }
+  }
+}
+/*
+  dep init 刚开始不用看 回头一看恍然大悟
+*/
+ var targetStack = [];
+
+function pushTarget (target) {
+  targetStack.push(target);
+  Dep.target = target;
+}
+
+function popTarget () {
+  targetStack.pop();
+  Dep.target = targetStack[targetStack.length - 1];
+}
+
+```
+
+## Observer 数据观测
+
+```js
+class Observer {
+  constructor(value) {
+    this.value = value
+    /*
+      消息订阅器
+    */
+    this.dep = new Dep()
+    this.walk(value)
+  }
+  walk(value) {
+    Object.keys(value).forEach(key => this.covert(key, value[key]))
+  }
+  covert(key, val) {
+    defineReactive(this.value, key, val)
+  }
+}
+
+function defineReactive(obj, key, val) {
+  var dep = new Dep()
+  var childOb = observe(val)
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get: () => {
+      if (Dep.target) {
+        dep.depend()
+        if (childOb) {
+          childOb.dep.depend()
+          if (Array.isArray(value)) {
+            dependArray(value)
+          }
+        }
+      }
+    },
+    set: newVal => {
+      childOb = observe(newVal)
+      dep.notify()
+    },
+  })
+}
+
+function observe(value, vm) {
+  if (!value || typeof value !== "object") {
+    return
+  }
+  return new Observer(value)
+}
+```
+
+## Watcher
+
+```js
+class Watcher {
+  constructor(vm, expOrFn, cb, options) {
+    this.cb = cb
+    this.vm = vm
+    this.expOrFn = expOrFn
+    if (options) {
+      this.lazy = !!options.lazy
+    } else {
+      this.lazy = false
+    }
+    /*
+      这里是 计算属性 跟 watch 的区别
+    */
+    this.dirty = this.lazy // for lazy watchers
+    this.value = this.lazy ? undefined : this.get()
+  }
+  get() {
+    // 通过 addSub 将 Watcher 加进去
+    pushTarget(this)
+    // 省略一推细节 区分表达式 deep 等等
+    popTarget()
+    return value
+  }
+  update() {
+    //
+    if (this.lazy) {
+      this.dirty = true
+    } else {
+      this.run()
+    }
+  }
+  run() {
+    var value = this.get()
+    if (value !== this.value) {
+      var oldValue = this.value
+      this.value = value
+      this.cb.call(this.vm, value, oldValue)
+    }
+  }
+  /*
+   这里关联 computed 计算属性的缓关键
+  */
+  evaluate() {
+    // 调用 get 函数求值
+    this.value = this.get()
+    // 把 dirty 标记为 false
+    this.dirty = false
+  }
+}
+```
+
+## computed 计算属性
+
+```js
+function createComputedGetter(key) {
+  return function computedGetter() {
+    var watcher = this._computedWatchers && this._computedWatchers[key]
+    if (watcher) {
+      // ✨ 注意！这里只有dirty了才会重新求值
+      if (watcher.dirty) {
+        // 这里会求值 调用 get
+        watcher.evaluate()
+      }
+      // 这里也很关键 还记得上面 Watcher 跟 dep 的关联吗 如此如此这般这般 。。
+      if (Dep.target) {
+        watcher.depend()
+      }
+      return watcher.value
+    }
+  }
+}
+```
+
 # NextTick 原理分析
 
 `nextTick` 可以让我们在下次 DOM 更新循环结束之后执行延迟回调，用于获得更新后的 DOM。
@@ -11,25 +195,25 @@
 ```js
 if (typeof setImmediate !== "undefined" && isNative(setImmediate)) {
   macroTimerFunc = () => {
-    setImmediate(flushCallbacks);
-  };
+    setImmediate(flushCallbacks)
+  }
 } else if (
   typeof MessageChannel !== "undefined" &&
   (isNative(MessageChannel) ||
     // PhantomJS
     MessageChannel.toString() === "[object MessageChannelConstructor]")
 ) {
-  const channel = new MessageChannel();
-  const port = channel.port2;
-  channel.port1.onmessage = flushCallbacks;
+  const channel = new MessageChannel()
+  const port = channel.port2
+  channel.port1.onmessage = flushCallbacks
   macroTimerFunc = () => {
-    port.postMessage(1);
-  };
+    port.postMessage(1)
+  }
 } else {
   /* istanbul ignore next */
   macroTimerFunc = () => {
-    setTimeout(flushCallbacks, 0);
-  };
+    setTimeout(flushCallbacks, 0)
+  }
 }
 ```
 
@@ -37,25 +221,25 @@ if (typeof setImmediate !== "undefined" && isNative(setImmediate)) {
 
 ```js
 export function nextTick(cb?: Function, ctx?: Object) {
-  let _resolve;
+  let _resolve
   // 将回调函数整合进一个数组中
   callbacks.push(() => {
     if (cb) {
       try {
-        cb.call(ctx);
+        cb.call(ctx)
       } catch (e) {
-        handleError(e, ctx, "nextTick");
+        handleError(e, ctx, "nextTick")
       }
     } else if (_resolve) {
-      _resolve(ctx);
+      _resolve(ctx)
     }
-  });
+  })
   if (!pending) {
-    pending = true;
+    pending = true
     if (useMacroTask) {
-      macroTimerFunc();
+      macroTimerFunc()
     } else {
-      microTimerFunc();
+      microTimerFunc()
     }
   }
   // 判断是否可以使用 Promise
@@ -63,8 +247,8 @@ export function nextTick(cb?: Function, ctx?: Object) {
   // 这样回调函数就能以 promise 的方式调用
   if (!cb && typeof Promise !== "undefined") {
     return new Promise(resolve => {
-      _resolve = resolve;
-    });
+      _resolve = resolve
+    })
   }
 }
 ```
@@ -78,16 +262,16 @@ export function nextTick(cb?: Function, ctx?: Object) {
 在初始化时，会调用以下代码，生命周期就是通过 `callHook` 调用的
 
 ```js
-Vue.prototype._init = function(options) {
-  initLifecycle(vm);
-  initEvents(vm);
-  initRender(vm);
-  callHook(vm, "beforeCreate"); // 拿不到 props data
-  initInjections(vm);
-  initState(vm);
-  initProvide(vm);
-  callHook(vm, "created");
-};
+Vue.prototype._init = function (options) {
+  initLifecycle(vm)
+  initEvents(vm)
+  initRender(vm)
+  callHook(vm, "beforeCreate") // 拿不到 props data
+  initInjections(vm)
+  initState(vm)
+  initProvide(vm)
+  callHook(vm, "created")
+}
 ```
 
 可以发现在以上代码中，`beforeCreate` 调用的时候，是获取不到 props 或者 data 中的数据的，因为这些数据的初始化都在 `initState` 中。
@@ -113,16 +297,16 @@ export function mountComponent {
 function flushSchedulerQueue() {
   // ...
   for (index = 0; index < queue.length; index++) {
-    watcher = queue[index];
+    watcher = queue[index]
     if (watcher.before) {
-      watcher.before(); // 调用 beforeUpdate
+      watcher.before() // 调用 beforeUpdate
     }
-    id = watcher.id;
-    has[id] = null;
-    watcher.run();
+    id = watcher.id
+    has[id] = null
+    watcher.run()
     // in dev build, check and stop circular updates.
     if (process.env.NODE_ENV !== "production" && has[id] != null) {
-      circular[id] = (circular[id] || 0) + 1;
+      circular[id] = (circular[id] || 0) + 1
       if (circular[id] > MAX_UPDATE_COUNT) {
         warn(
           "You may have an infinite update loop " +
@@ -130,21 +314,21 @@ function flushSchedulerQueue() {
               ? `in watcher with expression "${watcher.expression}"`
               : `in a component render function.`),
           watcher.vm
-        );
-        break;
+        )
+        break
       }
     }
   }
-  callUpdatedHooks(updatedQueue);
+  callUpdatedHooks(updatedQueue)
 }
 
 function callUpdatedHooks(queue) {
-  let i = queue.length;
+  let i = queue.length
   while (i--) {
-    const watcher = queue[i];
-    const vm = watcher.vm;
+    const watcher = queue[i]
+    const vm = watcher.vm
     if (vm._watcher === watcher && vm._isMounted) {
-      callHook(vm, "updated");
+      callHook(vm, "updated")
     }
   }
 }
@@ -155,45 +339,45 @@ function callUpdatedHooks(queue) {
 最后就是销毁组件的钩子函数了
 
 ```js
-Vue.prototype.$destroy = function() {
+Vue.prototype.$destroy = function () {
   // ...
-  callHook(vm, "beforeDestroy");
-  vm._isBeingDestroyed = true;
+  callHook(vm, "beforeDestroy")
+  vm._isBeingDestroyed = true
   // remove self from parent
-  const parent = vm.$parent;
+  const parent = vm.$parent
   if (parent && !parent._isBeingDestroyed && !vm.$options.abstract) {
-    remove(parent.$children, vm);
+    remove(parent.$children, vm)
   }
   // teardown watchers
   if (vm._watcher) {
-    vm._watcher.teardown();
+    vm._watcher.teardown()
   }
-  let i = vm._watchers.length;
+  let i = vm._watchers.length
   while (i--) {
-    vm._watchers[i].teardown();
+    vm._watchers[i].teardown()
   }
   // remove reference from data ob
   // frozen object may not have observer.
   if (vm._data.__ob__) {
-    vm._data.__ob__.vmCount--;
+    vm._data.__ob__.vmCount--
   }
   // call the last hook...
-  vm._isDestroyed = true;
+  vm._isDestroyed = true
   // invoke destroy hooks on current rendered tree
-  vm.__patch__(vm._vnode, null);
+  vm.__patch__(vm._vnode, null)
   // fire destroyed hook
-  callHook(vm, "destroyed");
+  callHook(vm, "destroyed")
   // turn off all instance listeners.
-  vm.$off();
+  vm.$off()
   // remove __vue__ reference
   if (vm.$el) {
-    vm.$el.__vue__ = null;
+    vm.$el.__vue__ = null
   }
   // release circular reference (#6759)
   if (vm.$vnode) {
-    vm.$vnode.parent = null;
+    vm.$vnode.parent = null
   }
-};
+}
 ```
 
 在执行销毁操作前会调用 `beforeDestroy` 钩子函数，然后进行一系列的销毁操作，如果有子组件的话，也会递归销毁子组件，所有子组件都销毁完毕后才会执行根组件的 `destroyed` 钩子函数。
@@ -213,26 +397,26 @@ Vue.prototype.$destroy = function() {
 
 ```js
 export function initUse(Vue: GlobalAPI) {
-  Vue.use = function(plugin: Function | Object) {
+  Vue.use = function (plugin: Function | Object) {
     // 判断重复安装插件
     const installedPlugins =
-      this._installedPlugins || (this._installedPlugins = []);
+      this._installedPlugins || (this._installedPlugins = [])
     if (installedPlugins.indexOf(plugin) > -1) {
-      return this;
+      return this
     }
-    const args = toArray(arguments, 1);
+    const args = toArray(arguments, 1)
     // 插入 Vue
-    args.unshift(this);
+    args.unshift(this)
     // 一般插件都会有一个 install 函数
     // 通过该函数让插件可以使用 Vue
     if (typeof plugin.install === "function") {
-      plugin.install.apply(plugin, args);
+      plugin.install.apply(plugin, args)
     } else if (typeof plugin === "function") {
-      plugin.apply(null, args);
+      plugin.apply(null, args)
     }
-    installedPlugins.push(plugin);
-    return this;
-  };
+    installedPlugins.push(plugin)
+    return this
+  }
 }
 ```
 
@@ -241,20 +425,20 @@ export function initUse(Vue: GlobalAPI) {
 ```js
 export function install(Vue) {
   // 确保 install 调用一次
-  if (install.installed && _Vue === Vue) return;
-  install.installed = true;
+  if (install.installed && _Vue === Vue) return
+  install.installed = true
   // 把 Vue 赋值给全局变量
-  _Vue = Vue;
+  _Vue = Vue
   const registerInstance = (vm, callVal) => {
-    let i = vm.$options._parentVnode;
+    let i = vm.$options._parentVnode
     if (
       isDef(i) &&
       isDef((i = i.data)) &&
       isDef((i = i.registerRouteInstance))
     ) {
-      i(vm, callVal);
+      i(vm, callVal)
     }
-  };
+  }
   // 给每个组件的钩子函数混入实现
   // 可以发现在 `beforeCreate` 钩子执行时
   // 会初始化路由
@@ -263,26 +447,26 @@ export function install(Vue) {
       // 判断组件是否存在 router 对象，该对象只在根组件上有
       if (isDef(this.$options.router)) {
         // 根路由设置为自己
-        this._routerRoot = this;
-        this._router = this.$options.router;
+        this._routerRoot = this
+        this._router = this.$options.router
         // 初始化路由
-        this._router.init(this);
+        this._router.init(this)
         // 很重要，为 _route 属性实现双向绑定
         // 触发组件渲染
-        Vue.util.defineReactive(this, "_route", this._router.history.current);
+        Vue.util.defineReactive(this, "_route", this._router.history.current)
       } else {
         // 用于 router-view 层级判断
-        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this;
+        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this
       }
-      registerInstance(this, this);
+      registerInstance(this, this)
     },
     destroyed() {
-      registerInstance(this);
-    }
-  });
+      registerInstance(this)
+    },
+  })
   // 全局注册组件 router-link 和 router-view
-  Vue.component("RouterView", View);
-  Vue.component("RouterLink", Link);
+  Vue.component("RouterView", View)
+  Vue.component("RouterLink", Link)
 }
 ```
 
@@ -293,9 +477,9 @@ export function install(Vue) {
 在安装插件后，对 VueRouter 进行实例化。
 
 ```js
-const Home = { template: "<div>home</div>" };
-const Foo = { template: "<div>foo</div>" };
-const Bar = { template: "<div>bar</div>" };
+const Home = { template: "<div>home</div>" }
+const Foo = { template: "<div>foo</div>" }
+const Bar = { template: "<div>bar</div>" }
 
 // 3. Create the router
 const router = new VueRouter({
@@ -304,9 +488,9 @@ const router = new VueRouter({
   routes: [
     { path: "/", component: Home }, // all paths are defined without the hash.
     { path: "/foo", component: Foo },
-    { path: "/bar", component: Bar }
-  ]
-});
+    { path: "/bar", component: Bar },
+  ],
+})
 ```
 
 来看一下 VueRouter 的构造函数
@@ -357,10 +541,10 @@ export function createMatcher(
   router: VueRouter
 ): Matcher {
   // 创建路由映射表
-  const { pathList, pathMap, nameMap } = createRouteMap(routes);
+  const { pathList, pathMap, nameMap } = createRouteMap(routes)
 
   function addRoutes(routes) {
-    createRouteMap(routes, pathList, pathMap, nameMap);
+    createRouteMap(routes, pathList, pathMap, nameMap)
   }
   // 路由匹配
   function match(
@@ -373,8 +557,8 @@ export function createMatcher(
 
   return {
     match,
-    addRoutes
-  };
+    addRoutes,
+  }
 }
 ```
 
@@ -391,29 +575,29 @@ export function createRouteMap(
 ): {
   pathList: Array<string>,
   pathMap: Dictionary<RouteRecord>,
-  nameMap: Dictionary<RouteRecord>
+  nameMap: Dictionary<RouteRecord>,
 } {
   // 创建映射表
-  const pathList: Array<string> = oldPathList || [];
-  const pathMap: Dictionary<RouteRecord> = oldPathMap || Object.create(null);
-  const nameMap: Dictionary<RouteRecord> = oldNameMap || Object.create(null);
+  const pathList: Array<string> = oldPathList || []
+  const pathMap: Dictionary<RouteRecord> = oldPathMap || Object.create(null)
+  const nameMap: Dictionary<RouteRecord> = oldNameMap || Object.create(null)
   // 遍历路由配置，为每个配置添加路由记录
   routes.forEach(route => {
-    addRouteRecord(pathList, pathMap, nameMap, route);
-  });
+    addRouteRecord(pathList, pathMap, nameMap, route)
+  })
   // 确保通配符在最后
   for (let i = 0, l = pathList.length; i < l; i++) {
     if (pathList[i] === "*") {
-      pathList.push(pathList.splice(i, 1)[0]);
-      l--;
-      i--;
+      pathList.push(pathList.splice(i, 1)[0])
+      l--
+      i--
     }
   }
   return {
     pathList,
     pathMap,
-    nameMap
-  };
+    nameMap,
+  }
 }
 // 添加路由记录
 function addRouteRecord(
@@ -425,15 +609,11 @@ function addRouteRecord(
   matchAs?: string
 ) {
   // 获得路由配置下的属性
-  const { path, name } = route;
+  const { path, name } = route
   const pathToRegexpOptions: PathToRegexpOptions =
-    route.pathToRegexpOptions || {};
+    route.pathToRegexpOptions || {}
   // 格式化 url，替换 /
-  const normalizedPath = normalizePath(
-    path,
-    parent,
-    pathToRegexpOptions.strict
-  );
+  const normalizedPath = normalizePath(path, parent, pathToRegexpOptions.strict)
   // 生成记录对象
   const record: RouteRecord = {
     path: normalizedPath,
@@ -451,28 +631,28 @@ function addRouteRecord(
         ? {}
         : route.components
         ? route.props
-        : { default: route.props }
-  };
+        : { default: route.props },
+  }
 
   if (route.children) {
     // 递归路由配置的 children 属性，添加路由记录
     route.children.forEach(child => {
       const childMatchAs = matchAs
         ? cleanPath(`${matchAs}/${child.path}`)
-        : undefined;
-      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs);
-    });
+        : undefined
+      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs)
+    })
   }
   // 如果路由有别名的话
   // 给别名也添加路由记录
   if (route.alias !== undefined) {
-    const aliases = Array.isArray(route.alias) ? route.alias : [route.alias];
+    const aliases = Array.isArray(route.alias) ? route.alias : [route.alias]
 
     aliases.forEach(alias => {
       const aliasRoute = {
         path: alias,
-        children: route.children
-      };
+        children: route.children,
+      }
       addRouteRecord(
         pathList,
         pathMap,
@@ -480,24 +660,24 @@ function addRouteRecord(
         aliasRoute,
         parent,
         record.path || "/" // matchAs
-      );
-    });
+      )
+    })
   }
   // 更新映射表
   if (!pathMap[record.path]) {
-    pathList.push(record.path);
-    pathMap[record.path] = record;
+    pathList.push(record.path)
+    pathMap[record.path] = record
   }
   // 命名路由添加记录
   if (name) {
     if (!nameMap[name]) {
-      nameMap[name] = record;
+      nameMap[name] = record
     } else if (process.env.NODE_ENV !== "production" && !matchAs) {
       warn(
         false,
         `Duplicate named routes definition: ` +
           `{ name: "${name}", path: "${record.path}" }`
-      );
+      )
     }
   }
 }
@@ -611,24 +791,24 @@ function match(
   // 会序列化路径为 /abc
   // 哈希为 #hello
   // 参数为 foo: 'bar', baz: 'qux'
-  const location = normalizeLocation(raw, currentRoute, false, router);
-  const { name } = location;
+  const location = normalizeLocation(raw, currentRoute, false, router)
+  const { name } = location
   // 如果是命名路由，就判断记录中是否有该命名路由配置
   if (name) {
-    const record = nameMap[name];
+    const record = nameMap[name]
     // 没找到表示没有匹配的路由
-    if (!record) return _createRoute(null, location);
+    if (!record) return _createRoute(null, location)
     const paramNames = record.regex.keys
       .filter(key => !key.optional)
-      .map(key => key.name);
+      .map(key => key.name)
     // 参数处理
     if (typeof location.params !== "object") {
-      location.params = {};
+      location.params = {}
     }
     if (currentRoute && typeof currentRoute.params === "object") {
       for (const key in currentRoute.params) {
         if (!(key in location.params) && paramNames.indexOf(key) > -1) {
-          location.params[key] = currentRoute.params[key];
+          location.params[key] = currentRoute.params[key]
         }
       }
     }
@@ -637,24 +817,24 @@ function match(
         record.path,
         location.params,
         `named route "${name}"`
-      );
-      return _createRoute(record, location, redirectedFrom);
+      )
+      return _createRoute(record, location, redirectedFrom)
     }
   } else if (location.path) {
     // 非命名路由处理
-    location.params = {};
+    location.params = {}
     for (let i = 0; i < pathList.length; i++) {
       // 查找记录
-      const path = pathList[i];
-      const record = pathMap[path];
+      const path = pathList[i]
+      const record = pathMap[path]
       // 如果匹配路由，则创建路由
       if (matchRoute(record.regex, location.path, location.params)) {
-        return _createRoute(record, location, redirectedFrom);
+        return _createRoute(record, location, redirectedFrom)
       }
     }
   }
   // 没有匹配的路由
-  return _createRoute(null, location);
+  return _createRoute(null, location)
 }
 ```
 
@@ -668,12 +848,12 @@ function _createRoute(
   redirectedFrom?: Location
 ): Route {
   if (record && record.redirect) {
-    return redirect(record, redirectedFrom || location);
+    return redirect(record, redirectedFrom || location)
   }
   if (record && record.matchAs) {
-    return alias(record, location, record.matchAs);
+    return alias(record, location, record.matchAs)
   }
-  return createRoute(record, location, redirectedFrom, router);
+  return createRoute(record, location, redirectedFrom, router)
 }
 
 export function createRoute(
@@ -682,11 +862,11 @@ export function createRoute(
   redirectedFrom?: ?Location,
   router?: VueRouter
 ): Route {
-  const stringifyQuery = router && router.options.stringifyQuery;
+  const stringifyQuery = router && router.options.stringifyQuery
   // 克隆参数
-  let query: any = location.query || {};
+  let query: any = location.query || {}
   try {
-    query = clone(query);
+    query = clone(query)
   } catch (e) {}
   // 创建路由对象
   const route: Route = {
@@ -697,23 +877,23 @@ export function createRoute(
     query,
     params: location.params || {},
     fullPath: getFullPath(location, stringifyQuery),
-    matched: record ? formatMatch(record) : []
-  };
+    matched: record ? formatMatch(record) : [],
+  }
   if (redirectedFrom) {
-    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery);
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery)
   }
   // 让路由对象不可修改
-  return Object.freeze(route);
+  return Object.freeze(route)
 }
 // 获得包含当前路由的所有嵌套路径片段的路由记录
 // 包含从根路由到当前路由的匹配记录，从上至下
 function formatMatch(record: ?RouteRecord): Array<RouteRecord> {
-  const res = [];
+  const res = []
   while (record) {
-    res.unshift(record);
-    record = record.parent;
+    res.unshift(record)
+    record = record.parent
   }
-  return res;
+  return res
 }
 ```
 
@@ -893,7 +1073,7 @@ const queue: Array<?NavigationGuard> = [].concat(
   activated.map(m => m.beforeEnter),
   // 解析异步路由组件
   resolveAsyncComponents(activated)
-);
+)
 ```
 
 第一步是先执行失活组件的钩子函数
@@ -901,7 +1081,7 @@ const queue: Array<?NavigationGuard> = [].concat(
 ```js
 function extractLeaveGuards(deactivated: Array<RouteRecord>): Array<?Function> {
   // 传入需要执行的钩子函数名
-  return extractGuards(deactivated, "beforeRouteLeave", bindGuard, true);
+  return extractGuards(deactivated, "beforeRouteLeave", bindGuard, true)
 }
 function extractGuards(
   records: Array<RouteRecord>,
@@ -911,17 +1091,17 @@ function extractGuards(
 ): Array<?Function> {
   const guards = flatMapComponents(records, (def, instance, match, key) => {
     // 找出组件中对应的钩子函数
-    const guard = extractGuard(def, name);
+    const guard = extractGuard(def, name)
     if (guard) {
       // 给每个钩子函数添加上下文对象为组件自身
       return Array.isArray(guard)
         ? guard.map(guard => bind(guard, instance, match, key))
-        : bind(guard, instance, match, key);
+        : bind(guard, instance, match, key)
     }
-  });
+  })
   // 数组降维，并且判断是否需要翻转数组
   // 因为某些钩子函数需要从子执行到父
-  return flatten(reverse ? guards.reverse() : guards);
+  return flatten(reverse ? guards.reverse() : guards)
 }
 export function flatMapComponents(
   matched: Array<RouteRecord>,
@@ -933,9 +1113,9 @@ export function flatMapComponents(
       // 将组件中的对象传入回调函数中，获得钩子函数数组
       return Object.keys(m.components).map(key =>
         fn(m.components[key], m.instances[key], m, key)
-      );
+      )
     })
-  );
+  )
 }
 ```
 
@@ -965,67 +1145,67 @@ function registerHook(list: Array<any>, fn: Function): Function {
 ```js
 export function resolveAsyncComponents(matched: Array<RouteRecord>): Function {
   return (to, from, next) => {
-    let hasAsync = false;
-    let pending = 0;
-    let error = null;
+    let hasAsync = false
+    let pending = 0
+    let error = null
     // 该函数作用之前已经介绍过了
     flatMapComponents(matched, (def, _, match, key) => {
       // 判断是否是异步组件
       if (typeof def === "function" && def.cid === undefined) {
-        hasAsync = true;
-        pending++;
+        hasAsync = true
+        pending++
         // 成功回调
         // once 函数确保异步组件只加载一次
         const resolve = once(resolvedDef => {
           if (isESModule(resolvedDef)) {
-            resolvedDef = resolvedDef.default;
+            resolvedDef = resolvedDef.default
           }
           // 判断是否是构造函数
           // 不是的话通过 Vue 来生成组件构造函数
           def.resolved =
             typeof resolvedDef === "function"
               ? resolvedDef
-              : _Vue.extend(resolvedDef);
+              : _Vue.extend(resolvedDef)
           // 赋值组件
           // 如果组件全部解析完毕，继续下一步
-          match.components[key] = resolvedDef;
-          pending--;
+          match.components[key] = resolvedDef
+          pending--
           if (pending <= 0) {
-            next();
+            next()
           }
-        });
+        })
         // 失败回调
         const reject = once(reason => {
-          const msg = `Failed to resolve async component ${key}: ${reason}`;
-          process.env.NODE_ENV !== "production" && warn(false, msg);
+          const msg = `Failed to resolve async component ${key}: ${reason}`
+          process.env.NODE_ENV !== "production" && warn(false, msg)
           if (!error) {
-            error = isError(reason) ? reason : new Error(msg);
-            next(error);
+            error = isError(reason) ? reason : new Error(msg)
+            next(error)
           }
-        });
-        let res;
+        })
+        let res
         try {
           // 执行异步组件函数
-          res = def(resolve, reject);
+          res = def(resolve, reject)
         } catch (e) {
-          reject(e);
+          reject(e)
         }
         if (res) {
           // 下载完成执行回调
           if (typeof res.then === "function") {
-            res.then(resolve, reject);
+            res.then(resolve, reject)
           } else {
-            const comp = res.component;
+            const comp = res.component
             if (comp && typeof comp.then === "function") {
-              comp.then(resolve, reject);
+              comp.then(resolve, reject)
             }
           }
         }
       }
-    });
+    })
     // 不是异步组件直接下一步
-    if (!hasAsync) next();
-  };
+    if (!hasAsync) next()
+  }
 }
 ```
 
@@ -1033,27 +1213,27 @@ export function resolveAsyncComponents(matched: Array<RouteRecord>): Function {
 
 ```js
 // 该回调用于保存 `beforeRouteEnter` 钩子中的回调函数
-const postEnterCbs = [];
-const isValid = () => this.current === route;
+const postEnterCbs = []
+const isValid = () => this.current === route
 // beforeRouteEnter 导航守卫钩子
-const enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
+const enterGuards = extractEnterGuards(activated, postEnterCbs, isValid)
 // beforeResolve 导航守卫钩子
-const queue = enterGuards.concat(this.router.resolveHooks);
+const queue = enterGuards.concat(this.router.resolveHooks)
 runQueue(queue, iterator, () => {
   if (this.pending !== route) {
-    return abort();
+    return abort()
   }
-  this.pending = null;
+  this.pending = null
   // 这里会执行 afterEach 导航守卫钩子
-  onComplete(route);
+  onComplete(route)
   if (this.router.app) {
     this.router.app.$nextTick(() => {
       postEnterCbs.forEach(cb => {
-        cb();
-      });
-    });
+        cb()
+      })
+    })
   }
-});
+})
 ```
 
 第六步是执行 `beforeRouteEnter` 导航守卫钩子，`beforeRouteEnter` 钩子不能访问 `this` 对象，因为钩子在导航确认前被调用，需要渲染的组件还没被创建。但是该钩子函数是唯一一个支持在回调中获取 `this` 对象的函数，回调会在路由确认执行。
@@ -1079,9 +1259,9 @@ function extractEnterGuards(
     activated,
     "beforeRouteEnter",
     (guard, _, match, key) => {
-      return bindEnterGuard(guard, match, key, cbs, isValid);
+      return bindEnterGuard(guard, match, key, cbs, isValid)
     }
-  );
+  )
 }
 function bindEnterGuard(
   guard: NavigationGuard,
@@ -1094,15 +1274,15 @@ function bindEnterGuard(
     return guard(to, from, cb => {
       // 判断 cb 是否是函数
       // 是的话就 push 进 postEnterCbs
-      next(cb);
+      next(cb)
       if (typeof cb === "function") {
         cbs.push(() => {
           // 循环直到拿到组件实例
-          poll(cb, match.instances, key, isValid);
-        });
+          poll(cb, match.instances, key, isValid)
+        })
       }
-    });
-  };
+    })
+  }
 }
 // 该函数是为了解决 issus #750
 // 当 router-view 外面包裹了 mode 为 out-in 的 transition 组件
@@ -1117,12 +1297,12 @@ function poll(
     instances[key] &&
     !instances[key]._isBeingDestroyed // do not reuse being destroyed instance
   ) {
-    cb(instances[key]);
+    cb(instances[key])
   } else if (isValid()) {
     // setTimeout 16ms 作用和 nextTick 基本相同
     setTimeout(() => {
-      poll(cb, instances, key, isValid);
-    }, 16);
+      poll(cb, instances, key, isValid)
+    }, 16)
   }
 }
 ```
@@ -1136,9 +1316,9 @@ function poll(
 ```js
 history.listen(route => {
   this.apps.forEach(app => {
-    app._route = route;
-  });
-});
+    app._route = route
+  })
+})
 ```
 
 以上回调会在 `updateRoute` 中调用
