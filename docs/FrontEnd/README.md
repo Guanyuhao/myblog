@@ -32,17 +32,17 @@ JS 中分为七种内置类型，七种内置类型又分为两大类型：基�
 对于基本类型来说，如果使用字面量的方式，那么这个变量只是个字面量，只有在必要的时候才会转换为对应的类型
 
 ```js
-let a = 111; // 这只是字面量，不是 number 类型
-a.toString(); // 使用时候才会转换为对象类型
+let a = 111 // 这只是字面量，不是 number 类型
+a.toString() // 使用时候才会转换为对象类型
 ```
 
 对象（Object）是引用类型，在使用过程中会遇到浅拷贝和深拷贝的问题。
 
 ```js
-let a = { name: "FE" };
-let b = a;
-b.name = "EF";
-console.log(a.name); // EF
+let a = { name: "FE" }
+let b = a
+b.name = "EF"
+console.log(a.name) // EF
 ```
 
 # Typeof
@@ -50,26 +50,26 @@ console.log(a.name); // EF
 `typeof` 对于基本类型，除了 `null` 都可以显示正确的类型
 
 ```js
-typeof 1; // 'number'
-typeof "1"; // 'string'
-typeof undefined; // 'undefined'
-typeof true; // 'boolean'
-typeof Symbol(); // 'symbol'
-typeof b; // b 没有声明，但是还会显示 undefined
+typeof 1 // 'number'
+typeof "1" // 'string'
+typeof undefined // 'undefined'
+typeof true // 'boolean'
+typeof Symbol() // 'symbol'
+typeof b // b 没有声明，但是还会显示 undefined
 ```
 
 `typeof` 对于对象，除了函数都会显示 `object`
 
 ```js
-typeof []; // 'object'
-typeof {}; // 'object'
-typeof console.log; // 'function'
+typeof [] // 'object'
+typeof {} // 'object'
+typeof console.log // 'function'
 ```
 
 对于 `null` 来说，虽然它是基本类型，但是会显示 `object`，这是一个存在很久了的 Bug
 
 ```js
-typeof null; // 'object'
+typeof null // 'object'
 ```
 
 PS：为什么会出现这种情况呢？因为在 JS 的最初版本中，使用的是 32 位系统，为了性能考虑使用低位存储了变量的类型信息，`000` 开头代表是对象，然而 `null` 表示为全零，所以将它错误的判断为 `object` 。虽然现在的内部类型判断代码已经改变了，但是对于这个 Bug 却是一直流传下来。
@@ -77,16 +77,16 @@ PS：为什么会出现这种情况呢？因为在 JS 的最初版本中，使�
 如果我们想获得一个变量的正确类型，可以通过 `Object.prototype.toString.call(xx)`。这样我们就可以获得类似 `[object Type]` 的字符串。
 
 ```js
-let a;
+let a
 // 我们也可以这样判断 undefined
-a === undefined;
+a === undefined
 // 但是 undefined 不是保留字，能够在低版本浏览器被赋值
-let undefined = 1;
+let undefined = 1
 // 这样判断就会出错
 // 所以可以用下面的方式来判断，并且代码量更少
 // 因为 void 后面随便跟上一个组成表达式
 // 返回就是 undefined
-a === void 0;
+a === void 0
 ```
 
 # 类型转换
@@ -102,9 +102,9 @@ a === void 0;
 ```js
 let a = {
   valueOf() {
-    return 0;
-  }
-};
+    return 0
+  },
+}
 ```
 
 当然你也可以重写 `Symbol.toPrimitive` ，该方法在转基本类型时调用优先级最高。
@@ -112,17 +112,17 @@ let a = {
 ```js
 let a = {
   valueOf() {
-    return 0;
+    return 0
   },
   toString() {
-    return "1";
+    return "1"
   },
   [Symbol.toPrimitive]() {
-    return 2;
-  }
-};
-1 + a; // => 3
-"1" + a; // => '12'
+    return 2
+  },
+}
+1 + a // => 3
+"1" + a // => '12'
 ```
 
 ## 四则运算符
@@ -130,9 +130,9 @@ let a = {
 只有当加法运算时，其中一方是字符串类型，就会把另一个也转为字符串类型。其他运算只要其中一方是数字，那么另一方就转为数字。并且加法运算会触发三种类型转换：将值转换为原始值，转换为数字，转换为字符串。
 
 ```js
-1 + "1"; // '11'
+1 + "1" // '11'
 2 * "2"[(1, 2)] + // 4
-  [2, 1]; // '1,22,1'
+  [2, 1] // '1,22,1'
 // [1, 2].toString() -> '1,2'
 // [2, 1].toString() -> '2,1'
 // '1,2' + '2,1' = '1,22,1'
@@ -141,7 +141,7 @@ let a = {
 对于加号需要注意这个表达式 `'a' + + 'b'`
 
 ```js
-"a" + +"b"; // -> "aNaN"
+"a" + +"b" // -> "aNaN"
 // 因为 + 'b' -> NaN
 // 你也许在一些代码中看到过 + '1' -> 1
 ```
@@ -197,15 +197,15 @@ ToPrimitive([]) == 0
 ```js
 function create() {
   // 创建一个空的对象
-  let obj = new Object();
+  let obj = new Object()
   // 获得构造函数
-  let Con = [].shift.call(arguments);
+  let Con = [].shift.call(arguments)
   // 链接到原型
-  obj.__proto__ = Con.prototype;
+  obj.__proto__ = Con.prototype
   // 绑定 this，执行构造函数
-  let result = Con.apply(obj, arguments);
+  let result = Con.apply(obj, arguments)
   // 确保 new 出来的是个对象
-  return typeof result === "object" ? result : obj;
+  return typeof result === "object" ? result : obj
 }
 ```
 
@@ -217,7 +217,7 @@ function create() {
 function Foo() {}
 // function 就是个语法糖
 // 内部等同于 new Function()
-let a = { b: 1 };
+let a = { b: 1 }
 // 这个字面量内部也是使用了 new Object()
 ```
 
@@ -225,17 +225,17 @@ let a = { b: 1 };
 
 ```js
 function Foo() {
-  return this;
+  return this
 }
-Foo.getName = function() {
-  console.log("1");
-};
-Foo.prototype.getName = function() {
-  console.log("2");
-};
+Foo.getName = function () {
+  console.log("1")
+}
+Foo.prototype.getName = function () {
+  console.log("2")
+}
 
-new Foo.getName(); // -> 1
-new Foo().getName(); // -> 2
+new Foo.getName() // -> 1
+new Foo().getName() // -> 2
 ```
 
 ![](https://yck-1254263422.cos.ap-shanghai.myqcloud.com/blog/2019-06-01-042626.png)
@@ -243,8 +243,8 @@ new Foo().getName(); // -> 2
 从上图可以看出，`new Foo()` 的优先级大于 `new Foo` ，所以对于上述代码来说可以这样划分执行顺序
 
 ```js
-new (Foo.getName())();
-new Foo().getName();
+new (Foo.getName())()
+new Foo().getName()
 ```
 
 对于第一个函数来说，先执行了 `Foo.getName()` ，所以结果为 1；对于后者来说，先执行 `new Foo()` 产生了一个实例，然后通过原型链找到了 `Foo` 上的 `getName` 函数，所以结果为 2。
@@ -258,14 +258,14 @@ new Foo().getName();
 ```js
 function instanceof(left, right) {
   // 获得类型的原型
-  let prototype = right.prototype;
+  let prototype = right.prototype
   // 获得对象的原型
-  left = left.__proto__;
+  left = left.__proto__
   // 判断对象的类型是否等于类型的原型
   while (true) {
-    if (left === null) return false;
-    if (prototype === left) return true;
-    left = left.__proto__;
+    if (left === null) return false
+    if (prototype === left) return true
+    left = left.__proto__
   }
 }
 ```
@@ -276,23 +276,23 @@ function instanceof(left, right) {
 
 ```js
 function foo() {
-  console.log(this.a);
+  console.log(this.a)
 }
-var a = 1;
-foo();
+var a = 1
+foo()
 
 var obj = {
   a: 2,
-  foo: foo
-};
-obj.foo();
+  foo: foo,
+}
+obj.foo()
 
 // 以上两者情况 `this` 只依赖于调用函数前的对象，优先级是第二个情况大于第一个情况
 
 // 以下情况是优先级最高的，`this` 只会绑定在 `c` 上，不会被任何方式修改 `this` 指向
-var c = new foo();
-c.a = 3;
-console.log(c.a);
+var c = new foo()
+c.a = 3
+console.log(c.a)
 
 // 还有种就是利用 call，apply，bind 改变 this，这个优先级仅次于 new
 ```
@@ -303,11 +303,11 @@ console.log(c.a);
 function a() {
   return () => {
     return () => {
-      console.log(this);
-    };
-  };
+      console.log(this)
+    }
+  }
 }
-console.log(a()()());
+console.log(a()()())
 ```
 
 箭头函数其实是没有 `this` 的，这个函数中的 `this` 只取决于他外面的第一个不是箭头函数的函数的 `this`。在这个例子中，因为调用 `a` 符合前面代码中的第一个情况，所以 `this` 是 `window`。并且 `this` 一旦绑定了上下文，就不会被任何代码改变。
@@ -327,17 +327,17 @@ console.log(a()()());
 - this
 
 ```js
-var a = 10;
+var a = 10
 function foo(i) {
-  var b = 20;
+  var b = 20
 }
-foo();
+foo()
 ```
 
 对于上述代码，执行栈中有两个上下文：全局上下文和函数 `foo` 上下文。
 
 ```js
-stack = [globalContext, fooContext];
+stack = [globalContext, fooContext]
 ```
 
 对于全局上下文来说，VO 大概是这样的
@@ -381,13 +381,13 @@ fooContext.Scope = [
 接下来让我们看一个老生常谈的例子，`var`
 
 ```js
-b(); // call b
-console.log(a); // undefined
+b() // call b
+console.log(a) // undefined
 
-var a = "Hello world";
+var a = "Hello world"
 
 function b() {
-  console.log("call b");
+  console.log("call b")
 }
 ```
 
@@ -396,15 +396,15 @@ function b() {
 在提升的过程中，相同的函数会覆盖上一个函数，并且函数优先于变量提升
 
 ```js
-b(); // call b second
+b() // call b second
 
 function b() {
-  console.log("call b fist");
+  console.log("call b fist")
 }
 function b() {
-  console.log("call b second");
+  console.log("call b second")
 }
-var b = "Hello world";
+var b = "Hello world"
 ```
 
 `var` 会产生很多错误，所以在 ES6 中引入了 `let`。`let` 不能在声明前使用，但是这并不是常说的 `let` 不会提升，`let` 提升了声明但没有赋值，因为临时死区导致了并不能在声明前使用。
@@ -414,10 +414,10 @@ var b = "Hello world";
 ```js
 var foo = 1(
   (function foo() {
-    foo = 10;
-    console.log(foo);
+    foo = 10
+    console.log(foo)
   })()
-); // -> ƒ foo() { foo = 10 ; console.log(foo) }
+) // -> ƒ foo() { foo = 10 ; console.log(foo) }
 ```
 
 因为当 JS 解释器在遇到非匿名的立即执行函数时，会创建一个辅助的特定对象，然后将函数名称作为这个对象的属性，因此函数内部才可以访问到 `foo`，但是这个值又是只读的，所以对它的赋值并不生效，所以打印的结果还是这个函数，并且外部的值也没有发生更改。
@@ -440,11 +440,11 @@ delete Scope[0]; // remove specialObject from the front of scope chain
 
 ```js
 function A() {
-  let a = 1;
+  let a = 1
   function B() {
-    console.log(a);
+    console.log(a)
   }
-  return B;
+  return B
 }
 ```
 
@@ -466,11 +466,11 @@ for ( var i=1; i<=5; i++) {
 
 ```js
 for (var i = 1; i <= 5; i++) {
-  (function(j) {
+  ;(function (j) {
     setTimeout(function timer() {
-      console.log(j);
-    }, j * 1000);
-  })(i);
+      console.log(j)
+    }, j * 1000)
+  })(i)
 }
 ```
 
@@ -480,11 +480,11 @@ for (var i = 1; i <= 5; i++) {
 for (var i = 1; i <= 5; i++) {
   setTimeout(
     function timer(j) {
-      console.log(j);
+      console.log(j)
     },
     i * 1000,
     i
-  );
+  )
 }
 ```
 
@@ -493,8 +493,8 @@ for (var i = 1; i <= 5; i++) {
 ```js
 for (let i = 1; i <= 5; i++) {
   setTimeout(function timer() {
-    console.log(i);
-  }, i * 1000);
+    console.log(i)
+  }, i * 1000)
 }
 ```
 
@@ -525,11 +525,11 @@ for (let i = 1; i <= 5; i++) {
 
 ```js
 let a = {
-  age: 1
-};
-let b = a;
-a.age = 2;
-console.log(b.age); // 2
+  age: 1,
+}
+let b = a
+a.age = 2
+console.log(b.age) // 2
 ```
 
 从上述例子中我们可以发现，如果给一个变量赋值一个对象，那么两者的值会是同一个引用，其中一方改变，另一方也会相应改变。
@@ -542,22 +542,22 @@ console.log(b.age); // 2
 
 ```js
 let a = {
-  age: 1
-};
-let b = Object.assign({}, a);
-a.age = 2;
-console.log(b.age); // 1
+  age: 1,
+}
+let b = Object.assign({}, a)
+a.age = 2
+console.log(b.age) // 1
 ```
 
 当然我们也可以通过展开运算符（…）来解决
 
 ```js
 let a = {
-  age: 1
-};
-let b = { ...a };
-a.age = 2;
-console.log(b.age); // 1
+  age: 1,
+}
+let b = { ...a }
+a.age = 2
+console.log(b.age) // 1
 ```
 
 通常浅拷贝就能解决大部分问题了，但是当我们遇到如下情况就需要使用到深拷贝了
@@ -566,12 +566,12 @@ console.log(b.age); // 1
 let a = {
   age: 1,
   jobs: {
-    first: "FE"
-  }
-};
-let b = { ...a };
-a.jobs.first = "native";
-console.log(b.jobs.first); // native
+    first: "FE",
+  },
+}
+let b = { ...a }
+a.jobs.first = "native"
+console.log(b.jobs.first) // native
 ```
 
 浅拷贝只解决了第一层的问题，如果接下去的值中还有对象的话，那么就又回到刚开始的话题了，两者享有相同的引用。要解决这个问题，我们需要引入深拷贝。
@@ -584,12 +584,12 @@ console.log(b.jobs.first); // native
 let a = {
   age: 1,
   jobs: {
-    first: "FE"
-  }
-};
-let b = JSON.parse(JSON.stringify(a));
-a.jobs.first = "native";
-console.log(b.jobs.first); // FE
+    first: "FE",
+  },
+}
+let b = JSON.parse(JSON.stringify(a))
+a.jobs.first = "native"
+console.log(b.jobs.first) // FE
 ```
 
 但是该方法也是有局限性的：
@@ -604,16 +604,16 @@ let obj = {
   a: 1,
   b: {
     c: 2,
-    d: 3
-  }
-};
-obj.c = obj.b;
-obj.e = obj.a;
-obj.b.c = obj.c;
-obj.b.d = obj.b;
-obj.b.e = obj.b.c;
-let newObj = JSON.parse(JSON.stringify(obj));
-console.log(newObj);
+    d: 3,
+  },
+}
+obj.c = obj.b
+obj.e = obj.a
+obj.b.c = obj.c
+obj.b.d = obj.b
+obj.b.e = obj.b.c
+let newObj = JSON.parse(JSON.stringify(obj))
+console.log(newObj)
 ```
 
 如果你有这么一个循环引用对象，你会发现你不能通过该方法深拷贝
@@ -626,11 +626,11 @@ console.log(newObj);
 let a = {
   age: undefined,
   sex: Symbol("male"),
-  jobs: function() {},
-  name: "yck"
-};
-let b = JSON.parse(JSON.stringify(a));
-console.log(b); // {name: "yck"}
+  jobs: function () {},
+  name: "",
+}
+let b = JSON.parse(JSON.stringify(a))
+console.log(b) // {name: "yck"}
 ```
 
 你会发现在上述情况中，该方法会忽略掉函数和 `undefined` 。
@@ -642,24 +642,24 @@ console.log(b); // {name: "yck"}
 ```js
 function structuralClone(obj) {
   return new Promise(resolve => {
-    const { port1, port2 } = new MessageChannel();
-    port2.onmessage = ev => resolve(ev.data);
-    port1.postMessage(obj);
-  });
+    const { port1, port2 } = new MessageChannel()
+    port2.onmessage = ev => resolve(ev.data)
+    port1.postMessage(obj)
+  })
 }
 
 var obj = {
   a: 1,
   b: {
-    c: b
-  }
+    c: b,
+  },
 }(
   // 注意该方法是异步的
   // 可以处理 undefined 和循环引用对象
   async () => {
-    const clone = await structuralClone(obj);
+    const clone = await structuralClone(obj)
   }
-)();
+)()
 ```
 
 # 模块化
@@ -671,10 +671,10 @@ var obj = {
 export function a() {}
 export function b() {}
 // file b.js
-export default function() {}
+export default function () {}
 
-import { a, b } from "./a.js";
-import XXX from "./b.js";
+import { a, b } from "./a.js"
+import XXX from "./b.js"
 ```
 
 ## CommonJS
@@ -684,38 +684,38 @@ import XXX from "./b.js";
 ```js
 // a.js
 module.exports = {
-  a: 1
-};
+  a: 1,
+}
 // or
-exports.a = 1;
+exports.a = 1
 
 // b.js
-var module = require("./a.js");
-module.a; // -> log 1
+var module = require("./a.js")
+module.a // -> log 1
 ```
 
 在上述代码中，`module.exports` 和 `exports` 很容易混淆，让我们来看看大致内部实现
 
 ```js
-var module = require("./a.js");
-module.a;
+var module = require("./a.js")
+module.a
 // 这里其实就是包装了一层立即执行函数，这样就不会污染全局变量了，
 // 重要的是 module 这里，module 是 Node 独有的一个变量
 module.exports = {
-  a: 1
-};
+  a: 1,
+}
 // 基本实现
 var module = {
-  exports: {} // exports 就是个空对象
-};
+  exports: {}, // exports 就是个空对象
+}
 // 这个是为什么 exports 和 module.exports 用法相似的原因
-var exports = module.exports;
-var load = function(module) {
+var exports = module.exports
+var load = function (module) {
   // 导出的东西
-  var a = 1;
-  module.exports = a;
-  return module.exports;
-};
+  var a = 1
+  module.exports = a
+  return module.exports
+}
 ```
 
 再来说说 `module.exports` 和 `exports`，用法其实是相似的，但是不能对 `exports` 直接赋值，不会有任何效果。
@@ -734,16 +734,16 @@ AMD 是由 `RequireJS` 提出的
 
 ```js
 // AMD
-define(["./a", "./b"], function(a, b) {
-  a.do();
-  b.do();
-});
-define(function(require, exports, module) {
-  var a = require("./a");
-  a.doSomething();
-  var b = require("./b");
-  b.doSomething();
-});
+define(["./a", "./b"], function (a, b) {
+  a.do()
+  b.do()
+})
+define(function (require, exports, module) {
+  var a = require("./a")
+  a.doSomething()
+  var b = require("./b")
+  b.doSomething()
+})
 ```
 
 # 继承
@@ -752,20 +752,20 @@ define(function(require, exports, module) {
 
 ```js
 function Super() {}
-Super.prototype.getNumber = function() {
-  return 1;
-};
+Super.prototype.getNumber = function () {
+  return 1
+}
 
 function Sub() {}
-let s = new Sub();
+let s = new Sub()
 Sub.prototype = Object.create(Super.prototype, {
   constructor: {
     value: Sub,
     enumerable: false,
     writable: true,
-    configurable: true
-  }
-});
+    configurable: true,
+  },
+})
 ```
 
 以上继承实现思路就是将子类的原型设置为父类的原型
@@ -775,11 +775,11 @@ Sub.prototype = Object.create(Super.prototype, {
 ```js
 class MyDate extends Date {
   test() {
-    return this.getTime();
+    return this.getTime()
   }
 }
-let myDate = new MyDate();
-myDate.test();
+let myDate = new MyDate()
+myDate.test()
 ```
 
 但是 ES6 不是所有浏览器都兼容，所以我们需要使用 Babel 来编译这段代码。
@@ -794,12 +794,12 @@ myDate.test();
 
 ```js
 function MyData() {}
-MyData.prototype.test = function() {
-  return this.getTime();
-};
-let d = new Date();
-Object.setPrototypeOf(d, MyData.prototype);
-Object.setPrototypeOf(MyData.prototype, Date.prototype);
+MyData.prototype.test = function () {
+  return this.getTime()
+}
+let d = new Date()
+Object.setPrototypeOf(d, MyData.prototype)
+Object.setPrototypeOf(MyData.prototype, Date.prototype)
 ```
 
 以上继承实现思路：**先创建父类实例** => 改变实例原先的 `_proto__` 转而连接到子类的 `prototype` => 子类的 `prototype` 的 `__proto__` 改为父类的 `prototype`。
@@ -816,15 +816,15 @@ Object.setPrototypeOf(MyData.prototype, Date.prototype);
 
 ```js
 let a = {
-  value: 1
-};
-function getValue(name, age) {
-  console.log(name);
-  console.log(age);
-  console.log(this.value);
+  value: 1,
 }
-getValue.call(a, "yck", "24");
-getValue.apply(a, ["yck", "24"]);
+function getValue(name, age) {
+  console.log(name)
+  console.log(age)
+  console.log(this.value)
+}
+getValue.call(a, "yck", "24")
+getValue.apply(a, ["yck", "24"])
 ```
 
 ## 模拟实现 call 和 apply
@@ -835,40 +835,40 @@ getValue.apply(a, ["yck", "24"]);
 - 改变了 this 指向，让新的对象可以执行该函数。那么思路是否可以变成给新的对象添加一个函数，然后在执行完以后删除？
 
 ```js
-Function.prototype.myCall = function(context) {
-  var context = context || window;
+Function.prototype.myCall = function (context) {
+  var context = context || window
   // 给 context 添加一个属性
   // getValue.call(a, 'yck', '24') => a.fn = getValue
-  context.fn = this;
+  context.fn = this
   // 将 context 后面的参数取出来
-  var args = [...arguments].slice(1);
+  var args = [...arguments].slice(1)
   // getValue.call(a, 'yck', '24') => a.fn('yck', '24')
-  var result = context.fn(...args);
+  var result = context.fn(...args)
   // 删除 fn
-  delete context.fn;
-  return result;
-};
+  delete context.fn
+  return result
+}
 ```
 
 以上就是 `call` 的思路，`apply` 的实现也类似
 
 ```js
-Function.prototype.myApply = function(context) {
-  var context = context || window;
-  context.fn = this;
+Function.prototype.myApply = function (context) {
+  var context = context || window
+  context.fn = this
 
-  var result;
+  var result
   // 需要判断是否存储第二个参数
   // 如果存在，就将第二个参数展开
   if (arguments[1]) {
-    result = context.fn(...arguments[1]);
+    result = context.fn(...arguments[1])
   } else {
-    result = context.fn();
+    result = context.fn()
   }
 
-  delete context.fn;
-  return result;
-};
+  delete context.fn
+  return result
+}
 ```
 
 `bind` 和其他两个方法作用也是一致的，只是该方法会返回一个函数。并且我们可以通过 `bind` 实现柯里化。
@@ -876,21 +876,21 @@ Function.prototype.myApply = function(context) {
 同样的，也来模拟实现下 `bind`
 
 ```js
-Function.prototype.myBind = function(context) {
+Function.prototype.myBind = function (context) {
   if (typeof this !== "function") {
-    throw new TypeError("Error");
+    throw new TypeError("Error")
   }
-  var _this = this;
-  var args = [...arguments].slice(1);
+  var _this = this
+  var args = [...arguments].slice(1)
   // 返回一个函数
   return function F() {
     // 因为返回了一个函数，我们可以 new F()，所以需要判断
     if (this instanceof F) {
-      return new _this(...args, ...arguments);
+      return new _this(...args, ...arguments)
     }
-    return _this.apply(context, args.concat(...arguments));
-  };
-};
+    return _this.apply(context, args.concat(...arguments))
+  }
+}
 ```
 
 # Promise 实现
@@ -905,174 +905,174 @@ Promise 是 ES6 新增的语法，解决了回调地狱的问题。
 
 ```js
 // 三种状态
-const PENDING = "pending";
-const RESOLVED = "resolved";
-const REJECTED = "rejected";
+const PENDING = "pending"
+const RESOLVED = "resolved"
+const REJECTED = "rejected"
 // promise 接收一个函数参数，该函数会立即执行
 function MyPromise(fn) {
-  let _this = this;
-  _this.currentState = PENDING;
-  _this.value = undefined;
+  let _this = this
+  _this.currentState = PENDING
+  _this.value = undefined
   // 用于保存 then 中的回调，只有当 promise
   // 状态为 pending 时才会缓存，并且每个实例至多缓存一个
-  _this.resolvedCallbacks = [];
-  _this.rejectedCallbacks = [];
+  _this.resolvedCallbacks = []
+  _this.rejectedCallbacks = []
 
-  _this.resolve = function(value) {
+  _this.resolve = function (value) {
     if (value instanceof MyPromise) {
       // 如果 value 是个 Promise，递归执行
-      return value.then(_this.resolve, _this.reject);
+      return value.then(_this.resolve, _this.reject)
     }
     setTimeout(() => {
       // 异步执行，保证执行顺序
       if (_this.currentState === PENDING) {
-        _this.currentState = RESOLVED;
-        _this.value = value;
-        _this.resolvedCallbacks.forEach(cb => cb());
+        _this.currentState = RESOLVED
+        _this.value = value
+        _this.resolvedCallbacks.forEach(cb => cb())
       }
-    });
-  };
+    })
+  }
 
-  _this.reject = function(reason) {
+  _this.reject = function (reason) {
     setTimeout(() => {
       // 异步执行，保证执行顺序
       if (_this.currentState === PENDING) {
-        _this.currentState = REJECTED;
-        _this.value = reason;
-        _this.rejectedCallbacks.forEach(cb => cb());
+        _this.currentState = REJECTED
+        _this.value = reason
+        _this.rejectedCallbacks.forEach(cb => cb())
       }
-    });
-  };
+    })
+  }
   // 用于解决以下问题
   // new Promise(() => throw Error('error))
   try {
-    fn(_this.resolve, _this.reject);
+    fn(_this.resolve, _this.reject)
   } catch (e) {
-    _this.reject(e);
+    _this.reject(e)
   }
 }
 
-MyPromise.prototype.then = function(onResolved, onRejected) {
-  var self = this;
+MyPromise.prototype.then = function (onResolved, onRejected) {
+  var self = this
   // 规范 2.2.7，then 必须返回一个新的 promise
-  var promise2;
+  var promise2
   // 规范 2.2.onResolved 和 onRejected 都为可选参数
   // 如果类型不是函数需要忽略，同时也实现了透传
   // Promise.resolve(4).then().then((value) => console.log(value))
-  onResolved = typeof onResolved === "function" ? onResolved : v => v;
-  onRejected = typeof onRejected === "function" ? onRejected : r => throw r;
+  onResolved = typeof onResolved === "function" ? onResolved : v => v
+  onRejected = typeof onRejected === "function" ? onRejected : r => throw r
 
   if (self.currentState === RESOLVED) {
-    return (promise2 = new MyPromise(function(resolve, reject) {
+    return (promise2 = new MyPromise(function (resolve, reject) {
       // 规范 2.2.4，保证 onFulfilled，onRjected 异步执行
       // 所以用了 setTimeout 包裹下
-      setTimeout(function() {
+      setTimeout(function () {
         try {
-          var x = onResolved(self.value);
-          resolutionProcedure(promise2, x, resolve, reject);
+          var x = onResolved(self.value)
+          resolutionProcedure(promise2, x, resolve, reject)
         } catch (reason) {
-          reject(reason);
+          reject(reason)
         }
-      });
-    }));
+      })
+    }))
   }
 
   if (self.currentState === REJECTED) {
-    return (promise2 = new MyPromise(function(resolve, reject) {
-      setTimeout(function() {
+    return (promise2 = new MyPromise(function (resolve, reject) {
+      setTimeout(function () {
         // 异步执行onRejected
         try {
-          var x = onRejected(self.value);
-          resolutionProcedure(promise2, x, resolve, reject);
+          var x = onRejected(self.value)
+          resolutionProcedure(promise2, x, resolve, reject)
         } catch (reason) {
-          reject(reason);
+          reject(reason)
         }
-      });
-    }));
+      })
+    }))
   }
 
   if (self.currentState === PENDING) {
-    return (promise2 = new MyPromise(function(resolve, reject) {
-      self.resolvedCallbacks.push(function() {
+    return (promise2 = new MyPromise(function (resolve, reject) {
+      self.resolvedCallbacks.push(function () {
         // 考虑到可能会有报错，所以使用 try/catch 包裹
         try {
-          var x = onResolved(self.value);
-          resolutionProcedure(promise2, x, resolve, reject);
+          var x = onResolved(self.value)
+          resolutionProcedure(promise2, x, resolve, reject)
         } catch (r) {
-          reject(r);
+          reject(r)
         }
-      });
+      })
 
-      self.rejectedCallbacks.push(function() {
+      self.rejectedCallbacks.push(function () {
         try {
-          var x = onRejected(self.value);
-          resolutionProcedure(promise2, x, resolve, reject);
+          var x = onRejected(self.value)
+          resolutionProcedure(promise2, x, resolve, reject)
         } catch (r) {
-          reject(r);
+          reject(r)
         }
-      });
-    }));
+      })
+    }))
   }
-};
+}
 // 规范 2.3
 function resolutionProcedure(promise2, x, resolve, reject) {
   // 规范 2.3.1，x 不能和 promise2 相同，避免循环引用
   if (promise2 === x) {
-    return reject(new TypeError("Error"));
+    return reject(new TypeError("Error"))
   }
   // 规范 2.3.2
   // 如果 x 为 Promise，状态为 pending 需要继续等待否则执行
   if (x instanceof MyPromise) {
     if (x.currentState === PENDING) {
-      x.then(function(value) {
+      x.then(function (value) {
         // 再次调用该函数是为了确认 x resolve 的
         // 参数是什么类型，如果是基本类型就再次 resolve
         // 把值传给下个 then
-        resolutionProcedure(promise2, value, resolve, reject);
-      }, reject);
+        resolutionProcedure(promise2, value, resolve, reject)
+      }, reject)
     } else {
-      x.then(resolve, reject);
+      x.then(resolve, reject)
     }
-    return;
+    return
   }
   // 规范 2.3.3.3.3
   // reject 或者 resolve 其中一个执行过得话，忽略其他的
-  let called = false;
+  let called = false
   // 规范 2.3.3，判断 x 是否为对象或者函数
   if (x !== null && (typeof x === "object" || typeof x === "function")) {
     // 规范 2.3.3.2，如果不能取出 then，就 reject
     try {
       // 规范 2.3.3.1
-      let then = x.then;
+      let then = x.then
       // 如果 then 是函数，调用 x.then
       if (typeof then === "function") {
         // 规范 2.3.3.3
         then.call(
           x,
           y => {
-            if (called) return;
-            called = true;
+            if (called) return
+            called = true
             // 规范 2.3.3.3.1
-            resolutionProcedure(promise2, y, resolve, reject);
+            resolutionProcedure(promise2, y, resolve, reject)
           },
           e => {
-            if (called) return;
-            called = true;
-            reject(e);
+            if (called) return
+            called = true
+            reject(e)
           }
-        );
+        )
       } else {
         // 规范 2.3.3.4
-        resolve(x);
+        resolve(x)
       }
     } catch (e) {
-      if (called) return;
-      called = true;
-      reject(e);
+      if (called) return
+      called = true
+      reject(e)
     }
   } else {
     // 规范 2.3.4，x 为基本类型
-    resolve(x);
+    resolve(x)
   }
 }
 ```
@@ -1090,14 +1090,14 @@ Generator 是 ES6 中新增的语法，和 Promise 一样，都可以用来异�
 // 内部可以通过 yield 暂停代码
 // 通过调用 next 恢复执行
 function* test() {
-  let a = 1 + 2;
-  yield 2;
-  yield 3;
+  let a = 1 + 2
+  yield 2
+  yield 3
 }
-let b = test();
-console.log(b.next()); // >  { value: 2, done: false }
-console.log(b.next()); // >  { value: 3, done: false }
-console.log(b.next()); // >  { value: undefined, done: true }
+let b = test()
+console.log(b.next()) // >  { value: 2, done: false }
+console.log(b.next()) // >  { value: 3, done: false }
+console.log(b.next()) // >  { value: undefined, done: true }
 ```
 
 从以上代码可以发现，加上 `*` 的函数执行后拥有了 `next` 函数，也就是说函数执行后返回了一个对象。每次调用 `next` 函数可以继续执行被暂停的代码。以下是 Generator 函数的简单实现
@@ -1105,47 +1105,47 @@ console.log(b.next()); // >  { value: undefined, done: true }
 ```js
 // cb 也就是编译过的 test 函数
 function generator(cb) {
-  return (function() {
+  return (function () {
     var object = {
       next: 0,
-      stop: function() {}
-    };
+      stop: function () {},
+    }
 
     return {
-      next: function() {
-        var ret = cb(object);
-        if (ret === undefined) return { value: undefined, done: true };
+      next: function () {
+        var ret = cb(object)
+        if (ret === undefined) return { value: undefined, done: true }
         return {
           value: ret,
-          done: false
-        };
-      }
-    };
-  })();
+          done: false,
+        }
+      },
+    }
+  })()
 }
 // 如果你使用 babel 编译后可以发现 test 函数变成了这样
 function test() {
-  var a;
-  return generator(function(_context) {
+  var a
+  return generator(function (_context) {
     while (1) {
       switch ((_context.prev = _context.next)) {
         // 可以发现通过 yield 将代码分割成几块
         // 每次执行 next 函数就执行一块代码
         // 并且表明下次需要执行哪块代码
         case 0:
-          a = 1 + 2;
-          _context.next = 4;
-          return 2;
+          a = 1 + 2
+          _context.next = 4
+          return 2
         case 4:
-          _context.next = 6;
-          return 3;
+          _context.next = 6
+          return 3
         // 执行完毕
         case 6:
         case "end":
-          return _context.stop();
+          return _context.stop()
       }
     }
-  });
+  })
 }
 ```
 
@@ -1154,14 +1154,14 @@ function test() {
 `Map` 作用是生成一个新数组，遍历原数组，将每个元素拿出来做一些变换然后 `append` 到新的数组中。
 
 ```js
-[1, 2, 3].map(v => v + 1);
+;[1, 2, 3].map(v => v + 1)
 // -> [2, 3, 4]
 ```
 
 `Map` 有三个参数，分别是当前索引元素，索引，原数组
 
 ```js
-["1", "2", "3"].map(parseInt);
+;["1", "2", "3"].map(parseInt)
 //  parseInt('1', 0) -> 1
 //  parseInt('2', 1) -> NaN
 //  parseInt('3', 2) -> NaN
@@ -1170,7 +1170,7 @@ function test() {
 `FlatMap` 和 `map` 的作用几乎是相同的，但是对于多维数组来说，会将原数组降维。可以将 `FlatMap` 看成是 `map` + `flatten` ，目前该函数在浏览器中还不支持。
 
 ```js
-[1, [2], 3].flatMap(v => v + 1);
+;[1, [2], 3].flatMap(v => v + 1)
 // -> [2, 3, 4]
 ```
 
@@ -1180,23 +1180,23 @@ function test() {
 const flattenDeep = arr =>
   Array.isArray(arr)
     ? arr.reduce((a, b) => [...a, ...flattenDeep(b)], [])
-    : [arr];
+    : [arr]
 
-flattenDeep([1, [[2], [3, [4]], 5]]);
+flattenDeep([1, [[2], [3, [4]], 5]])
 ```
 
 `Reduce` 作用是数组中的值组合起来，最终得到一个值
 
 ```js
 function a() {
-  console.log(1);
+  console.log(1)
 }
 
 function b() {
-  console.log(2);
+  console.log(2)
 }
 
-[a, b].reduce((a, b) => a(b()));
+;[a, b].reduce((a, b) => a(b()))
 // -> 2 1
 ```
 
@@ -1206,9 +1206,9 @@ function b() {
 
 ```js
 async function test() {
-  return "1";
+  return "1"
 }
-console.log(test()); // -> Promise {<resolved>: "1"}
+console.log(test()) // -> Promise {<resolved>: "1"}
 ```
 
 可以把 `async` 看成将函数返回值使用 `Promise.resolve()` 包裹了下。
@@ -1219,16 +1219,16 @@ console.log(test()); // -> Promise {<resolved>: "1"}
 function sleep() {
   return new Promise(resolve => {
     setTimeout(() => {
-      console.log("finish");
-      resolve("sleep");
-    }, 2000);
-  });
+      console.log("finish")
+      resolve("sleep")
+    }, 2000)
+  })
 }
 async function test() {
-  let value = await sleep();
-  console.log("object");
+  let value = await sleep()
+  console.log("object")
 }
-test();
+test()
 ```
 
 上面代码会先打印 `finish` 然后再打印 `object` 。因为 `await` 会等待 `sleep` 函数 `resolve` ，所以即使后面是同步代码，也不会先去执行同步代码再来执行异步代码。
@@ -1238,16 +1238,16 @@ test();
 下面来看一个使用 `await` 的代码。
 
 ```js
-var a = 0;
+var a = 0
 var b = async () => {
-  a = a + (await 10);
-  console.log("2", a); // -> '2' 10
-  a = (await 10) + a;
-  console.log("3", a); // -> '3' 20
-};
-b();
-a++;
-console.log("1", a); // -> '1' 1
+  a = a + (await 10)
+  console.log("2", a) // -> '2' 10
+  a = (await 10) + a
+  console.log("3", a) // -> '3' 20
+}
+b()
+a++
+console.log("1", a) // -> '1' 1
 ```
 
 对于以上代码你可能会有疑惑，这里说明下原理
@@ -1262,7 +1262,7 @@ console.log("1", a); // -> '1' 1
 Proxy 是 ES6 中新增的功能，可以用来自定义对象中的操作
 
 ```js
-let p = new Proxy(target, handler);
+let p = new Proxy(target, handler)
 // `target` 代表需要添加代理的对象
 // `handler` 用来自定义对象中的操作
 ```
@@ -1273,30 +1273,30 @@ let p = new Proxy(target, handler);
 let onWatch = (obj, setBind, getLogger) => {
   let handler = {
     get(target, property, receiver) {
-      getLogger(target, property);
-      return Reflect.get(target, property, receiver);
+      getLogger(target, property)
+      return Reflect.get(target, property, receiver)
     },
     set(target, property, value, receiver) {
-      setBind(value);
-      return Reflect.set(target, property, value);
-    }
-  };
-  return new Proxy(obj, handler);
-};
+      setBind(value)
+      return Reflect.set(target, property, value)
+    },
+  }
+  return new Proxy(obj, handler)
+}
 
-let obj = { a: 1 };
-let value;
+let obj = { a: 1 }
+let value
 let p = onWatch(
   obj,
   v => {
-    value = v;
+    value = v
   },
   (target, property) => {
-    console.log(`Get '${property}' = ${target[property]}`);
+    console.log(`Get '${property}' = ${target[property]}`)
   }
-);
-p.a = 2; // bind `value` to `2`
-p.a; // -> Get 'a' = 2
+)
+p.a = 2 // bind `value` to `2`
+p.a // -> Get 'a' = 2
 ```
 
 # 为什么 0.1 + 0.2 != 0.3
@@ -1307,7 +1307,7 @@ p.a; // -> Get 'a' = 2
 
 ```js
 // (0011) 表示循环
-0.1 = 2 ^ (-4 * 1.10011(0011));
+0.1 = 2 ^ (-4 * 1.10011(0011))
 ```
 
 那么如何得到这个二进制的呢，我们可以来演算下
@@ -1323,7 +1323,7 @@ p.a; // -> Get 'a' = 2
 下面说一下原生解决办法，如下代码所示
 
 ```js
-parseFloat((0.1 + 0.2).toFixed(10));
+parseFloat((0.1 + 0.2).toFixed(10))
 ```
 
 # 正则表达式

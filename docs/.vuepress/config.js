@@ -1,34 +1,34 @@
-const { sidebar, enArr } = require("../../config/sidebar");
+const { sidebar, enArr } = require("../../config/sidebar")
 const baseUrl = (() => {
   if (process.env.BASE_URL) {
-    return process.env.BASE_URL;
+    return process.env.BASE_URL
   }
-  return "/";
-})();
+  return "/"
+})()
 
 const Vssue = (() => {
   return {
     clientId: process.env.VSSUE_CLIENT_ID || "",
-    clientSecret: process.env.VSSUE_CLIENT_SECRET || ""
-  };
-})();
+    clientSecret: process.env.VSSUE_CLIENT_SECRET || "",
+  }
+})()
 
 module.exports = {
   title: "Guanyuhao",
-  description: "365天，每天都是一天",
+  description: "但行好事，莫问前程",
   // 注入到当前页面的 HTML <head> 中的标签
   head: [
     [
       "link",
       {
         rel: "icon",
-        href: "/yuhao.jpg"
-      }
-    ] // 增加一个自定义的 favicon(网页标签的图标)
+        href: "/yuhao.jpg",
+      },
+    ], // 增加一个自定义的 favicon(网页标签的图标)
   ],
   base: baseUrl, // 这是部署到github相关的配置 下面会讲
   markdown: {
-    lineNumbers: false // 代码块显示行号
+    lineNumbers: false, // 代码块显示行号
   },
   plugins: [
     // 官方回到顶部插件
@@ -39,8 +39,8 @@ module.exports = {
     [
       "@vuepress/medium-zoom",
       {
-        selector: "img"
-      }
+        selector: "img",
+      },
     ],
     // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/
     Vssue.clientId
@@ -55,17 +55,17 @@ module.exports = {
             // 填写自己的OAuth App 信息。详见https://vssue.js.org/zh/options/#repo
             clientId: Vssue.clientId,
             clientSecret: Vssue.clientSecret,
-            locale: "zh" //使用的语言  这里是简体中文
+            locale: "zh", //使用的语言  这里是简体中文
             // baseURL: "https://github.com/guanyuhao/myblog"
-          }
+          },
         ]
-      : {} //平台的 base URL
+      : {}, //平台的 base URL
   ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [
     // '.vuepress/foo.js', // 使用相对路径
     // '/path/to/bar.js'   // 使用绝对路径
-    "/config/sidebar.js"
+    "/config/sidebar.js",
   ],
   themeConfig: {
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
@@ -76,25 +76,25 @@ module.exports = {
         items: [
           {
             text: "计算机通识",
-            link: "/cs/"
+            link: "/cs/",
           },
           {
             text: "前端",
-            link: "/FrontEnd/"
-          }
-        ]
+            link: "/FrontEnd/",
+          },
+        ],
       },
       {
         text: "GitHub",
         items: [
           {
             text: "GitHub地址",
-            link: "https://github.com/guanyuhao"
-          }
-        ]
-      }
+            link: "https://github.com/guanyuhao",
+          },
+        ],
+      },
     ],
-    sidebar
+    sidebar,
   },
-  scss: {}
-};
+  scss: {},
+}
