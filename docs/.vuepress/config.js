@@ -30,7 +30,9 @@ module.exports = {
   markdown: {
     lineNumbers: true,
     extendMarkdown: md => {
-      md.use(require('markdown-it-xxx'))
+      md.use(require('markdown-it-emoji'))
+      md.use(require('markdown-it-anchor'))
+      md.use(require('markdown-it-toc-done-right'))
     }
   },
   plugins: [
