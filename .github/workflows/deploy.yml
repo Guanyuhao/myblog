@@ -33,3 +33,7 @@ jobs:
           repository-name: guanyuhao/guanyuhao.github.io
           branch: main
           clean: true
+          force: true
+          git-config-name: "GitHub Actions"
+          git-config-email: "actions@github.com"
+          commit-message: "部署更新 - ${{ github.event.head_commit.message }}"
