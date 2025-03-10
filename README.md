@@ -17,15 +17,6 @@
 - 📱 响应式设计，适配各种设备
 - ⚡ 高性能静态站点
 
-## 目录结构
-
-├── docs/                    # 文档目录
-├── .github/workflows/       # GitHub Actions配置
-├── package.json             # 项目配置
-├── README.md                # 项目说明
-└── .vuepress/               # VuePress配置 
-
-
 ## 自动部署流程
 
 本项目使用GitHub Actions实现自动化部署：
