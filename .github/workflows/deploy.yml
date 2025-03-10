@@ -10,7 +10,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: 检出代码
+        uses: actions/checkout@v3
         
       - name: 安装Node.js
         uses: actions/setup-node@v3
@@ -28,4 +29,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: docs/.vuepress/dist
-          branch: gh-pages # 或master，取决于您的部署目标 
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          repository-name: guanyuhao/guanyuhao.github.io
+          branch: main
+          clean: true

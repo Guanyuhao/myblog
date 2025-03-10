@@ -26,7 +26,7 @@ module.exports = {
       },
     ], // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  base: '/myblog/',
+  base: '/',
   markdown: {
     lineNumbers: true,
     extendMarkdown: md => {
