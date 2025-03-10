@@ -26,7 +26,7 @@ module.exports = {
       },
     ], // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  base: baseUrl, // 这是部署到github相关的配置 下面会讲
+  base: '/myblog/',
   markdown: {
     lineNumbers: true,
     extendMarkdown: md => {
