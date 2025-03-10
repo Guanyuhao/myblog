@@ -1,10 +1,9 @@
-name: 部署文档
+name: 部署博客
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ main, master ] # 支持多种主分支命名
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   build-and-deploy:
@@ -12,19 +11,35 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@v3
-        
-      - name: 安装Node.js
+        with:
+          persist-credentials: false
+          fetch-depth: 0 # 获取完整历史以避免Git错误
+      
+      - name: 设置Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'npm'
-          
+      
       - name: 安装依赖
-        run: npm ci
-        
-      - name: 构建
-        run: npm run docs:build
-        
+        run: |
+          npm ci
+          echo "依赖安装完成"
+      
+      - name: 构建站点
+        run: |
+          npm run docs:build
+          echo "构建完成，准备部署"
+          echo "构建目录内容:"
+          ls -la docs/.vuepress/dist
+      
+      - name: 准备部署
+        run: |
+          # 在构建目录创建.nojekyll文件
+          touch docs/.vuepress/dist/.nojekyll
+          # 如果有自定义域名，可以取消下面的注释
+          # echo 'your-domain.com' > docs/.vuepress/dist/CNAME
+      
       - name: 部署到GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -33,7 +48,21 @@ jobs:
           repository-name: guanyuhao/guanyuhao.github.io
           branch: main
           clean: true
-          force: true
-          git-config-name: "GitHub Actions"
-          git-config-email: "actions@github.com"
-          commit-message: "部署更新 - ${{ github.event.head_commit.message }}"
+          force: true # 强制推送，解决对象传输问题
+          clean-exclude: |
+            .nojekyll
+            CNAME
+          git-config-name: "GitHub Actions Bot"
+          git-config-email: "github-actions[bot]@users.noreply.github.com"
+          commit-message: "网站更新: ${{ github.event.head_commit.message || '手动触发部署' }}"
+          single-commit: true # 使用单一提交，避免历史冲突
+      
+      - name: 部署状态
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "✅ 部署成功! 网站将在几分钟内更新"
+            echo "访问网址: https://guanyuhao.github.io"
+          else
+            echo "❌ 部署失败，请检查错误信息"
+          fi
