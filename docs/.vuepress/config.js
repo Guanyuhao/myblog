@@ -28,7 +28,10 @@ module.exports = {
   ],
   base: baseUrl, // 这是部署到github相关的配置 下面会讲
   markdown: {
-    lineNumbers: false, // 代码块显示行号
+    lineNumbers: true,
+    extendMarkdown: md => {
+      md.use(require('markdown-it-xxx'))
+    }
   },
   plugins: [
     // 官方回到顶部插件
@@ -60,6 +63,13 @@ module.exports = {
           },
         ]
       : {}, //平台的 base URL
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: true
+    }],
+    ['@vuepress/nprogress'],
+    ['vuepress-plugin-clean-urls'],
+    ['sitemap', { hostname: 'https://guanyuhao.github.io' }]
   ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [

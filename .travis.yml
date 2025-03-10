@@ -1,22 +1,29 @@
 language: node_js
 node_js:
-  - 16 # 推荐使用LTS版本
+  - 16
+
+cache:
+  npm: true
+  directories:
+    - ~/.npm
+    - node_modules
 
 install:
-  - npm install
+  - npm ci # 比npm install更快且确定性更高
 
 script:
   - npm run docs:build
 
 deploy:
   provider: pages
+  skip_cleanup: true
   local_dir: docs/.vuepress/dist
-  github_token: $GITHUB_TOKEN # 在Travis设置的环境变量
+  github_token: $GITHUB_TOKEN
   keep_history: true
-  target_branch: gh-pages
   on:
     branch: main
 
-cache:
-  directories:
-    - node_modules
+notifications:
+  email:
+    on_success: never # 只在失败时发送邮件
+    on_failure: always
