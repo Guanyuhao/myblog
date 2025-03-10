@@ -44,7 +44,12 @@ module.exports = {
     [
       "@vuepress/medium-zoom",
       {
-        selector: "img",
+        selector: ".content img",
+        options: {
+          margin: 16,
+          background: '#fff',
+          scrollOffset: 0
+        }
       },
     ],
     // vssue 一个借助issue的评论插件 具体配置见https://vssue.js.org/zh/

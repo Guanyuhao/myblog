@@ -1,144 +1,48 @@
-## 搭建一个类 Vue 文档风格的技术文档/博客 test
+# VuePress 全面指南
 
-- 建议先看一下[官方文档](https://vuepress.vuejs.org/zh/)
+VuePress 是一个简洁高效的静态站点生成器，尤其适合技术文档和个人博客。本指南将帮助您掌握 VuePress 的各项功能，从基础设置到高级定制。
 
-- 可能你会搭建出一个类似这样的[文档](https://guanyuhao.github.io/)
+## 目录
 
-- [vuePress 进阶](./博客进阶)
+- [快速开始](#快速开始)
+- [基础配置](#基础配置)
+- [内容创作](#内容创作)
+- [主题定制](#主题定制)
+- [部署与优化](#部署与优化)
+- [插件系统](#插件系统)
+- [常见问题](#常见问题)
 
-### 全局安装 VuePress
+## 快速开始
 
-```sh
-yarn global add vuepress # 或者：npm install -g vuepress
+### 环境准备
+
+确保已安装 Node.js (v12.0.0 以上版本)：
+
+```bash
+# 检查 Node.js 版本
+node -v
 ```
 
-### 项目初始化
+### 创建项目
 
-```sh
-#建好目录 进入目录
-mkdir mybloc
-cd mybloc
+```bash
+# 创建并进入项目目录
+mkdir my-vuepress-site && cd my-vuepress-site
 
-#命令行初始化项目
-npm init -y # 或者 yarn init -y
+# 初始化项目
+npm init -y
 
-```
+# 安装 VuePress
+npm install -D vuepress@next
 
-### 项目目录中将会创建一个 `package.json` 文件，文件是这个样子
-
-```json
-{
-  "name": "mybloc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}
-```
-
-### 在 `myblog` 中新建 `docs` 文件夹
-
-```sh
+# 创建文档目录
 mkdir docs
+echo '# Hello VuePress' > docs/README.md
 ```
 
-### 进入`docs`,新建`.vuepress` 文件夹
+### 添加脚本命令
 
-```sh
-cd docs
-mkdir .vuepress
-```
-
-### 进入`.vuepress`,创建`config.js` 文件
-
-```sh
-cd .vuepress
-touch config.js
-```
-
-### config.js 内容如下
-
-config.js 是 VuePress 必要的配置文件
-
-```js
-module.exports = {
-  title: "Hello VuePress",
-  description: "Just playing around",
-}
-```
-
-### 继续在`.vuepress` 内创建`public` 文件夹
-
-这个文件夹是用来放置静态资源的，打包出来之后会放在.vuepress/dist/的根目录
-
-```sh
-mkdir public
-```
-
-### Vuepress[配置](https://vuepress.vuejs.org/zh/config/#palette-styl)
-
-### `index.styl`
-
-VuePress 提供了一种添加额外样式的简便方法。你可以创建一个 .vuepress/styles/index.styl 文件。这是一个 [Stylus](http://stylus-lang.com/) 文件，但你也可以使用正常的 CSS 语法
-
-```stylus
-.home{
-  .features{
-    .feature{
-      max-width: unset;
-      flex-basis: unset;
-    }
-  }
-}
-```
-
-### 首页(像 VuePress 文档主页一样)
-
-在 `docs` 文件夹下面创建一个`README.md`
-默认的主题提供了一个首页，像下面一样设置`home:true` 即可，可以把下面的设置放入`README.md`中，待会儿你将会看到跟`VuePress`一样的主页
-
-```md
----
-home: true
-heroImage: /yuhao.jpg
-actionText: Go →
-actionLink: /guide/
-features:
-  - title: 认真苟且，开心有趣
-    details: 生活本就随波逐流，沾花惹草意外湿了衣袖
-  - title: pretend until you succeed
-    details: Vividly imagine yourself as a loser, which makes you unable to win; 
-    vividly imagine yourself as a winner, will bring incalculable energy
-footer: MIT Licensed | Copyright © guanyuhao
----
-```
-
-::: tip 提醒
-
-- 注意添加图片
-- 注意修改样式
-
-:::
-
-```
-myblog
-├─── docs
-│   ├── README.md
-│   └── .vuepress
-│       ├── styles
-|       |   └─── index.styl
-│       ├── public
-|       |   └─── yuhao.jpg
-│       └── config.js
-└── package.json
-```
-
-**在 package.json 里添加两个启动命令:**
+在 `package.json` 中添加：
 
 ```json
 {
@@ -149,60 +53,296 @@ myblog
 }
 ```
 
-### 启动你的 VuePress
+### 启动开发服务器
 
-默认是[localhost:8080](http://localhost:8080)端口
-
-```
+```bash
 npm run docs:dev
 ```
 
-### 构建
+## 基础配置
 
-build 生成静态的 HTML 文件,默认会在 `.vuepress/dist` 文件夹下
+### 配置文件
+
+创建 `.vuepress/config.js` 文件：
+
+```js
+module.exports = {
+  // 站点配置
+  title: '我的个人博客',
+  description: '基于VuePress的技术博客',
+  
+  // 主题配置
+  themeConfig: {
+    logo: '/images/logo.png',
+    navbar: [
+      { text: '首页', link: '/' },
+      { text: '博客', link: '/blog/' },
+      { text: '关于', link: '/about/' },
+    ],
+    sidebar: 'auto'
+  }
+}
+```
+
+### 目录结构
+
+推荐的项目结构：
 
 ```
-npm run docs:build
+docs/
+├── .vuepress/           # VuePress配置目录
+│   ├── public/          # 静态资源目录
+│   │   └── images/      # 图片等资源
+│   ├── components/      # 自定义Vue组件
+│   ├── styles/          # 自定义样式
+│   └── config.js        # 配置文件
+├── blog/                # 博客文章目录
+│   ├── article1.md      # 文章1
+│   └── article2.md      # 文章2
+├── about/               # 关于页面
+│   └── README.md        # 自我介绍
+└── README.md            # 首页
 ```
 
-### 部署--GitHub Pages
+## 内容创作
 
-1. 将`.vuepress/dist` 文件内容上次到你对应仓库地址就可以了
+### Markdown 增强
 
-::: tip 提醒
+VuePress 支持所有标准 Markdown 语法，并有额外增强：
 
-- 在 `docs/.vuepress/config.js` 中设置正确的 `base`。
-- 如果你打算发部到`https://USERNAME.github.io/`,则可以省略这一步，因为 `base` 默认即是`"/"`
-- 如果你打算发布到`https://USERNAME.github.io/REPO`（也就是说你的仓库在 `https://github.com/USERNAME/REPO`），则将 base 设置为`"/REPO/"`
+```markdown
+---
+title: 文章标题
+date: 2023-05-20
+tags:
+  - JavaScript
+  - Vue
+author: 作者名
+---
 
+# 文章标题
+
+[[toc]]
+
+## 二级标题
+
+::: tip 提示
+这是一个提示框
 :::
 
-2. 在你的项目中，创建一个如下的 `deploy.sh` 文件（请自行判断去掉高亮行的注释）:
+::: warning 警告
+这是一个警告框
+:::
 
-```sh{20,23}
-#!/usr/bin/env sh
+::: danger 危险
+这是一个危险警告框
+:::
 
-# 确保脚本抛出遇到的错误
-set -e
+::: details 点击查看详情
+这是详情内容
+:::
 
-# 生成静态文件
-npm run docs:build
-
-# 进入生成的文件夹
-cd docs/.vuepress/dist
-
-# 如果是发布到自定义域名
-# echo 'www.example.com' > CNAME
-
-git init
-git add -A
-git commit -m 'deploy'
-
-# 如果发布到 https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-
-# 如果发布到 https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
-
-cd -
 ```
+
+### 在 Markdown 中使用 Vue
+
+直接在 Markdown 文件中使用 Vue 组件：
+
+```markdown
+<ClientOnly>
+  <CommentBox />
+</ClientOnly>
+
+{{ 1 + 1 }}
+
+<span v-for="i in 3">{{ i }} </span>
+```
+
+### 资源引用
+
+引用静态资源的方式：
+
+```markdown
+![图片描述](/images/photo.jpg)
+
+[下载PDF](/assets/document.pdf)
+```
+
+## 主题定制
+
+### 使用调色板
+
+创建 `.vuepress/styles/palette.styl` 文件：
+
+```stylus
+// 颜色
+$accentColor = #3eaf7c
+$textColor = #2c3e50
+$borderColor = #eaecef
+$codeBgColor = #282c34
+
+// 布局
+$navbarHeight = 3.6rem
+$sidebarWidth = 20rem
+$contentWidth = 740px
+```
+
+### 添加额外样式
+
+创建 `.vuepress/styles/index.styl` 文件：
+
+```stylus
+// 全局样式覆盖
+.theme-container {
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+// 暗色模式适配
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: #1e1e1e;
+    --c-text: #f0f0f0;
+  }
+}
+```
+
+### 自定义布局
+
+创建 `.vuepress/components/CustomLayout.vue` 文件：
+
+```vue
+<template>
+  <div class="custom-layout">
+    <header>自定义头部</header>
+    <Content />
+    <footer>自定义底部</footer>
+  </div>
+</template>
+
+<style lang="stylus">
+.custom-layout
+  max-width 960px
+  margin 0 auto
+  padding 2rem 1.5rem
+</style>
+```
+
+## 部署与优化
+
+### 自动部署
+
+使用 GitHub Actions 实现自动部署：
+
+```yaml
+name: 部署VuePress网站
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: 安装Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          
+      - name: 安装依赖
+        run: npm ci
+        
+      - name: 构建
+        run: npm run docs:build
+        
+      - name: 部署
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs/.vuepress/dist
+          branch: gh-pages
+```
+
+### 性能优化
+
+提高网站性能的关键技巧：
+
+1. **图片优化**：使用WebP格式，合理设置尺寸
+2. **延迟加载**：对非关键资源使用懒加载
+3. **代码分割**：VuePress自动实现路由级代码分割
+4. **缓存控制**：合理设置资源缓存策略
+5. **启用PWA**：通过插件支持离线访问
+
+## 插件系统
+
+### 安装和使用插件
+
+```bash
+# 安装插件
+npm install -D vuepress-plugin-sitemap @vuepress/plugin-pwa
+
+# 在配置中使用
+module.exports = {
+  plugins: [
+    ['sitemap', { hostname: 'https://your-domain.com' }],
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: true
+    }]
+  ]
+}
+```
+
+### 推荐插件
+
+- **@vuepress/plugin-search**: 提供搜索功能
+- **@vuepress/plugin-blog**: 博客功能支持
+- **vuepress-plugin-auto-sidebar**: 自动生成侧边栏
+- **vuepress-plugin-feed**: 生成RSS订阅源
+- **vuepress-plugin-medium-zoom**: 图片缩放功能
+
+## 常见问题
+
+### 图片路径问题
+
+确保图片放在 `.vuepress/public` 目录下，然后在Markdown中使用绝对路径引用：
+
+```markdown
+![图片](/images/photo.jpg)
+```
+
+### 部署后样式丢失
+
+检查 `config.js` 中的 `base` 配置是否正确：
+
+```js
+module.exports = {
+  base: '/your-repo-name/',  // 如果部署到GitHub Pages项目站点
+  // 或
+  base: '/',  // 如果部署到自定义域名或用户站点
+}
+```
+
+### 移动端适配
+
+VuePress默认支持响应式设计，但可以通过自定义样式进一步优化：
+
+```stylus
+// .vuepress/styles/index.styl
+@media (max-width: 419px) {
+  .theme-container {
+    .navbar {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .sidebar {
+      width: 100%;
+    }
+  }
+}
+```
+
+---
+
+欢迎参考此指南开始您的VuePress之旅。如有问题，可以查阅[官方文档](https://vuepress.vuejs.org/)或提交Issues。
