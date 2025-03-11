@@ -44,7 +44,6 @@ module.exports = {
     [
       "@vuepress/medium-zoom",
       {
-        selector: ".content img",
         options: {
           margin: 16,
           background: '#fff',
@@ -89,15 +88,15 @@ module.exports = {
     lastUpdated: "Last Updated", // 文档更新时间：每个文件git最后提交的时间
     nav: [
       {
-        text: "面试",
+        text: "其他",
         items: [
           {
             text: "计算机通识",
             link: "/cs/",
           },
           {
-            text: "前端",
-            link: "/FrontEnd/",
+            text: "关于我",
+            link: "/about/resume.html",
           },
         ],
       },

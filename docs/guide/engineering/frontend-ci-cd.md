@@ -7,8 +7,10 @@
 - **持续集成(Continuous Integration)**: 开发人员频繁地将代码集成到主分支，通过自动化构建和测试确保新代码不会破坏现有功能
 - **持续交付(Continuous Delivery)**: 将代码变更自动发布到预生产环境，等待手动批准后发布到生产环境
 - **持续部署(Continuous Deployment)**: 自动将通过测试的代码变更发布到生产环境
-
-![CI/CD流程图](/images/guides/ci-cd-flow.png)
+<!-- 增加高度限制 -->
+<div style="height: 500px;">
+  <img src="/guideImg/ci-cd-flow.svg" alt="CI/CD流程图" style="width: 100%; height: 100%;">
+</div>
 
 ## 前端CI/CD的价值
 

@@ -1,4 +1,4 @@
-const utils = {
+module.exports = {
   genSidebar(title, children = [""], collapsable = false, sidebarDepth = 2) {
     var arr = new Array();
     arr.push({
@@ -39,5 +39,3 @@ const utils = {
     };
   }
 };
-
-module.exports = utils;

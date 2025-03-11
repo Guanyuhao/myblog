@@ -2,10 +2,13 @@
 
 欢迎来到我的技术指南专区。这里汇集了我在7年前端开发生涯中积累的知识、经验和最佳实践。无论您是初学者还是有经验的开发者，都能在这里找到有价值的内容。
 
-- [计算机通识](../cs)
-- [前端](../FrontEnd)
-- [区块链](../Blockchain)
-- [算法学习](../algorithm)
+<div class="resume-banner">
+  <div class="resume-content">
+    <h2>👋 寻找经验丰富的前端开发者？</h2>
+    <p>我有7年+前端开发经验，擅长Vue、React和全栈开发，曾主导多个大型项目</p>
+    <a href="/about/resume.html" class="resume-button">查看我的简历</a>
+  </div>
+</div>
 
 ## 指南分类
 
@@ -98,7 +101,58 @@
 - GitHub Issues: [提交问题](https://github.com/guanyuhao/myblog/issues)
 - Email: [联系我](mailto:gunyuhao_666@163.com)
 
+## 其他
+
+- [计算机通识](../cs)
+- [算法学习](../algorithm)
+- [博客搭建-VuePress](./blogbuild/)
+
+
 <style>
+.resume-banner {
+  background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0 2.5rem;
+  box-shadow: 0 8px 20px rgba(71, 118, 230, 0.2);
+}
+
+.resume-content {
+  color: white;
+  text-align: center;
+}
+
+.resume-content h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  border-bottom: none;
+  font-size: 1.5rem;
+}
+
+.resume-content p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.resume-button {
+  display: inline-block;
+  background-color: white;
+  color: #4776E6;
+  font-weight: bold;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resume-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
 .guide-categories {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

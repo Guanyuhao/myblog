@@ -4,7 +4,7 @@
 
 ## 学习路径
 
-![前端工程化学习路径](/images/guides/engineering-path.png)
+![前端工程化学习路径](/guideImg/engineering-path.svg)
 
 ## 核心内容
 
@@ -13,4 +13,4 @@
 - [前端项目架构设计](./architecture-design.md) - 大型前端项目的架构设计思路
 - [Webpack配置实战](./webpack-config.md) - 从基础到高级的Webpack配置详解
 - [前端代码质量保障体系](./code-quality.md) - 构建完整的代码质量保障流程
-- [前端监控与异常处理](./monitoring.md) - 前端监控系统设计与实现 
+- [前端监控与异常处理](./monitoring.md) - 前端监控系统设计与实现

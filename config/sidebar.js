@@ -43,7 +43,31 @@ function generateSidebar(cnDocNameArr) {
               path: '/guide/engineering/',
               collapsable: true,
               children: getGuideChildren('engineering')
-            }
+            },
+            {
+              title: '全栈开发',
+              path: '/guide/fullstack/',
+              collapsable: true,
+              children: getGuideChildren('fullstack')
+            },
+            {
+              title: '区块链与Web3',
+              path: '/guide/blockchain/',
+              collapsable: true,
+              children: getGuideChildren('blockchain')
+            },
+            {
+              title: '小程序',
+              path: '/guide/miniprogram/',
+              collapsable: true,
+              children: getGuideChildren('miniprogram')
+            },
+            {
+              title: '博客搭建',
+              path: '/guide/blogbuild/',
+              collapsable: true,
+              children: getGuideChildren('blogbuild')
+            },
             // 可以继续添加其他技术指南分类
           ]
         }
@@ -97,6 +121,6 @@ function getGuideChildren(subDir) {
 // '/': [''] // 此处选择禁用
 
 module.exports = {
-  sidebar: generateSidebar(["区块链", "前端", "算法", "计算机通识", "指南"]),
+  sidebar: generateSidebar(["关于我", "算法", "文章", "计算机通识", "指南"]),
   enArr: filehelper.getFileDirectory(docs)
 };
