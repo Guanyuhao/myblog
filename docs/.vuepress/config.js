@@ -1,10 +1,4 @@
-const { sidebar, enArr } = require("../../config/sidebar")
-const baseUrl = (() => {
-  if (process.env.BASE_URL) {
-    return process.env.BASE_URL
-  }
-  return "/"
-})()
+const { sidebar } = require("../../config/sidebar")
 
 const Vssue = (() => {
   return {
@@ -25,6 +19,10 @@ module.exports = {
         href: "/yuhao.jpg",
       },
     ], // 增加一个自定义的 favicon(网页标签的图标)
+    ['meta', { name: 'build-time', content: new Date().getTime() }],
+    ['meta', { 'http-equiv': 'Cache-Control', content: 'no-cache, no-store, must-revalidate' }],
+    ['meta', { 'http-equiv': 'Pragma', content: 'no-cache' }],
+    ['meta', { 'http-equiv': 'Expires', content: '0' }],
   ],
   base: '/',
   markdown: {
@@ -71,11 +69,24 @@ module.exports = {
       : {}, //平台的 base URL
     ['@vuepress/pwa', {
       serviceWorker: true,
-      updatePopup: true
+      updatePopup: true,
+      popupComponent: 'MySWUpdatePopup', // 可选的自定义弹窗组件
+      updatePopup: {
+        message: "新内容可用",
+        buttonText: "刷新"
+      }
     }],
     ['@vuepress/nprogress'],
     ['vuepress-plugin-clean-urls'],
-    ['sitemap', { hostname: 'https://guanyuhao.github.io' }]
+    ['sitemap', { hostname: 'https://guanyuhao.github.io' }],
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp) => {
+          return new Date(timestamp).toISOString()
+        }
+      }
+    ]
   ],
   //指定额外的需要被监听的文件
   extraWatchFiles: [
@@ -84,7 +95,7 @@ module.exports = {
     "/config/sidebar.js",
   ],
   themeConfig: {
-    sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+    sidebarDepth: 2, // 将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     lastUpdated: "Last Updated", // 文档更新时间：每个文件git最后提交的时间
     nav: [
       {
@@ -113,4 +124,5 @@ module.exports = {
     sidebar,
   },
   scss: {},
+  evergreen: true,
 }
