@@ -136,7 +136,7 @@
   <div class="project-item">
     <div class="project-header">
       <h3>AntAlpha - B2B数字资产技术平台</h3>
-      <span class="project-date">2023.6 - 至今</span>
+      <span class="project-date">2023.9 - 至今</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">Next.js</span>
