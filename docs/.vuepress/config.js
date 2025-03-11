@@ -14,7 +14,7 @@ const Vssue = (() => {
 })()
 
 module.exports = {
-  title: "Guanyuhao",
+  title: "关哈哈",
   description: "但行好事，莫问前程",
   // 注入到当前页面的 HTML <head> 中的标签
   head: [

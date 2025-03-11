@@ -13,7 +13,7 @@
 <div class="contact-items">
   <div class="contact-item">
     <i class="contact-icon">✉️</i>
-    <span>gunyuhao_666@163.com</span>
+    <a href="mailto:gunyuhao_666@163.com" target="_blank">gunyuhao_666@163.com</a>
   </div>
   <div class="contact-item">
     <i class="contact-icon">🔗</i>
@@ -257,17 +257,12 @@
 
 <div class="resume-actions">
   <button class="resume-action-btn" onclick="window.print()">打印简历</button>
-  <a href="#" class="resume-action-btn" onclick="downloadResume(); return false;">下载PDF版</a>
+  <button class="resume-action-btn" onclick="if(typeof window.downloadResume==='function'){window.downloadResume()}else{alert('PDF功能尚未加载，请刷新页面后重试')};return false;">
+    下载PDF版
+  </button>
 </div>
 
 </div>
-
-<script>
-function downloadResume() {
-  // 实际实现可以链接到一个准备好的PDF文件
-  alert('PDF版简历下载功能正在开发中...');
-}
-</script>
 
 <style>
 /* 全局样式 */
@@ -567,4 +562,4 @@ a:hover {
     margin-top: 5px;
   }
 }
-</style> 
+</style>
