@@ -6,7 +6,6 @@
 
 我是一名拥有7年经验的软件工程师，专注于Web应用和移动端开发，熟悉前端开发的各种主流技术栈。擅长Vue、React、TypeScript等技术，拥有丰富的企业级项目开发经验，曾在比特大陆、字节跳动等知名公司工作。善于团队合作，具备良好的工作方法（如[PDCA](../blog/pdca-methodology.md)）和代码规范，注重开发效率和项目质量。欢迎访问我的[技术博客](https://guanyuhao.github.io/)，了解我的技术文章和项目经验。
 
-<div class="contact-section">
 ## 联系方式
 <div class="contact-items">
   <div class="contact-item">
@@ -17,8 +16,6 @@
     <i class="contact-icon">🔗</i>
     <a href="https://github.com/guanyuhao" target="_blank">github.com/guanyuhao</a>
   </div>
-</div>
-
 </div>
 
 ## 技术技能
@@ -371,11 +368,6 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
-
-/* 联系方式样式 */
-.contact-section {
-  margin: 20px 0;
 }
 
 .contact-items {
