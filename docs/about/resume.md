@@ -1,10 +1,10 @@
-# 关哈哈 - 前端开发工程师
+# 关哈哈 - 前端｜鸿蒙开发工程师
 
 <div class="resume-container">
 
 ## 个人简介
 
-我是一名拥有7年经验的前端开发工程师，专注于Web应用和移动端开发，熟悉前端开发的各种主流技术栈。擅长Vue、React、TypeScript等技术，拥有丰富的企业级项目开发经验，曾在比特大陆、字节跳动等知名公司工作。善于团队合作，具备良好的工作方法（如[PDCA](../blog/pdca-methodology.md)）和代码规范，注重开发效率和项目质量。
+我是一名拥有7年经验的软件工程师，专注于Web应用和移动端开发，熟悉前端开发的各种主流技术栈。擅长Vue、React、TypeScript等技术，拥有丰富的企业级项目开发经验，曾在比特大陆、字节跳动等知名公司工作。善于团队合作，具备良好的工作方法（如[PDCA](../blog/pdca-methodology.md)）和代码规范，注重开发效率和项目质量。欢迎访问我的[技术博客](https://guanyuhao.github.io/)，了解我的技术文章和项目经验。
 
 <div class="contact-section">
 
@@ -27,11 +27,13 @@
 
 <div class="skills-container">
   <div class="skill-category">
-    <h3>前端开发</h3>
+    <h3>前端</h3>
     <ul class="skill-list">
       <li><span class="skill-tag">Vue.js</span></li>
       <li><span class="skill-tag">React</span></li>
       <li><span class="skill-tag">TypeScript</span></li>
+      <li><span class="skill-tag">ArkTS</span></li>
+      <li><span class="skill-tag">HarmonyOS</span></li>
       <li><span class="skill-tag">JavaScript</span></li>
       <li><span class="skill-tag">HTML5</span></li>
       <li><span class="skill-tag">CSS3</span></li>
@@ -79,9 +81,23 @@
 <div class="experience-section">
   <div class="experience-item">
     <div class="experience-header">
+      <h3>水暖智云（创业项目）</h3>
+      <span class="experience-title">前端 & 鸿蒙开发</span>
+      <span class="experience-date">2024.03 - 2025.03</span>
+    </div>
+    <ul class="experience-details">
+      <li>主导建材水暖行业全平台解决方案，同时开发Web管理平台和鸿蒙终端应用</li>
+      <li>设计前端与鸿蒙端统一的数据模型和API接口规范，实现数据无缝流转</li>
+      <li>基于Vue.js开发Web管理后台，同时使用ArkTS开发鸿蒙用户端应用</li>
+      <li>构建统一的设备协议层，打通Web平台与鸿蒙设备间的实时通信</li>
+      <li>实现IoT设备的跨平台监控和远程控制功能，为客户提供全方位解决方案</li>
+    </ul>
+  </div>
+  <div class="experience-item">
+    <div class="experience-header">
       <h3>比特大陆</h3>
       <span class="experience-title">前端开发</span>
-      <span class="experience-date">2023.9 - xxx</span>
+      <span class="experience-date">2023.09 - 2024.03</span>
     </div>
     <ul class="experience-details">
       <li>负责资产增值平台的开发与迭代，完善系统架构</li>
@@ -94,7 +110,7 @@
     <div class="experience-header">
       <h3>字节跳动（飞书部门）</h3>
       <span class="experience-title">前端开发</span>
-      <span class="experience-date">2021.6 - 2023.6</span>
+      <span class="experience-date">2021.06 - 2023.06</span>
     </div>
     <ul class="experience-details">
       <li>参与飞书人事模块的开发，按时交付高质量业务模块</li>
@@ -107,7 +123,7 @@
     <div class="experience-header">
       <h3>一览群智</h3>
       <span class="experience-title">前端开发</span>
-      <span class="experience-date">2018.2 - 2021.3</span>
+      <span class="experience-date">2019.02 - 2021.03</span>
     </div>
     <ul class="experience-details">
       <li>负责智能搜索平台的前端开发</li>
@@ -120,7 +136,7 @@
     <div class="experience-header">
       <h3>链之家</h3>
       <span class="experience-title">前端开发</span>
-      <span class="experience-date">2017.2 - 2018.2</span>
+      <span class="experience-date">2017.02 - 2019.02</span>
     </div>
     <ul class="experience-details">
       <li>负责区块链相关产品（如交易所和钱包）的前端开发</li>
@@ -135,8 +151,34 @@
 <div class="project-section">
   <div class="project-item">
     <div class="project-header">
+      <h3>智慧水暖 - 全平台解决方案</h3>
+      <span class="project-date">2024.03 - 2025.03</span>
+    </div>
+    <div class="project-tech">
+      <span class="tech-tag">Vue.js</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">HarmonyOS</span>
+      <span class="tech-tag">ArkTS</span>
+      <span class="tech-tag">IoT</span>
+      <span class="tech-tag">WebSocket</span>
+    </div>
+    <div class="project-description">
+      <h4>职责与成就:</h4>
+      <ul>
+        <li>搭建建材水暖行业全平台数字化解决方案，涵盖Web管理系统和鸿蒙终端应用</li>
+        <li>设计前后端统一的微服务架构，实现业务逻辑在Web和鸿蒙端的复用</li>
+        <li>开发基于Vue.js的管理后台，提供数据分析、远程控制和系统配置功能</li>
+        <li>使用ArkTS开发鸿蒙应用，实现设备控制、数据采集和本地管理功能</li>
+        <li>构建实时通信层，确保Web平台与鸿蒙设备间的低延迟数据交互</li>
+        <li>设计并实现边缘计算策略，优化物联网设备的数据处理效率</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-item">
+    <div class="project-header">
       <h3>AntAlpha - B2B数字资产技术平台</h3>
-      <span class="project-date">2023.9 - 至今</span>
+      <span class="project-date">2023.9 - 2024.03</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">Next.js</span>
