@@ -1,13 +1,50 @@
-# 前端｜鸿蒙开发工程师
+<EnvContent dev>
+<h1>关聪-个人简历</h1>
+</EnvContent>
+<EnvContent prod>
+<h1>个人简历</h1>
+</EnvContent>
 
 <div class="resume-container">
+<EnvContent dev>
+<div class="basic-info-section">
+  <div class="info-column">
+    <h2>基本信息</h2>
+    <ul class="info-list">
+      <li><span class="info-label">年龄：</span>30岁</li>
+      <li><span class="info-label">学历：</span>本科</li>
+      <li><span class="info-label">经验：</span>7年</li>
+      <li>
+        <span class="info-label">电话：</span>
+        <PhoneNumber number="17600102308" />
+      </li>
+      <li>
+        <span class="info-label">邮箱：</span>
+        <a href="mailto:gunyuhao_666@163.com" target="_blank">gunyuhao_666@163.com</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="info-column">
+    <h2>求职意向</h2>
+    <ul class="info-list">
+      <li><span class="info-label">岗位：</span>前端开发｜鸿蒙开发</li>
+      <li><span class="info-label">状态：</span>离职找工作</li>
+      <li><span class="info-label">到岗：</span>一个月内到岗</li>
+    </ul>
+  </div>
+</div>
+</EnvContent>
+<ProductionInfo/>
 
-## 个人简介
+## 自我介绍
 <p class="intro-text">我是一名<strong class="highlight">全栈前端工程师</strong>，拥有<strong class="highlight">7年Web开发</strong>和<strong class="highlight">1年实际鸿蒙应用开发</strong>经验。擅长Vue、React、TypeScript等前端技术，并在2024年拓展至鸿蒙生态应用开发，掌握ArkTS和HarmonyOS应用构建。</p>
 <p class="intro-text">我的技术栈横跨<strong class="highlight">前端、鸿蒙生态和IoT设备集成</strong>，曾主导建材水暖行业全平台解决方案，实现Web管理平台与鸿蒙终端应用的无缝集成，在字节跳动等知名公司积累了丰富的企业级项目经验。</p>
 <p class="intro-text">注重开发效率与项目质量，善于团队协作，熟悉PDCA等工作方法，欢迎访问我的<a href="https://guanyuhao.github.io/" class="intro-link">技术博客</a>，了解我的技术文章和项目案例。</p>
 
-## 联系方式
+
+<EnvContent prod>
+  ## 联系方式
 <div class="contact-items">
   <div class="contact-item">
     <i class="contact-icon">✉️</i>
@@ -18,6 +55,7 @@
     <a href="https://github.com/guanyuhao" target="_blank">github.com/guanyuhao</a>
   </div>
 </div>
+</EnvContent>
 
 ## 技术技能
 
@@ -277,16 +315,19 @@
 </div>
 
 ## 教育背景
-
+<EnvContent dev>
 <div class="education-section">
   <div class="education-item">
     <h3>软件工程</h3>
-    <div class="education-details">
-      <span class="education-institution">山西农业大学信息学院</span>
-      <span class="education-date">2013 - 2017</span>
-    </div>
+      <div class="education-details">
+        <span class="education-institution">山西农业大学信息学院</span>
+        <span class="education-date">2013 - 2017</span>
+      </div>
   </div>
 </div>
+</EnvContent>
+<ProductionInfo/>
+
 
 ## 自我提升与其他
 - 持续学习新技术，关注前端发展趋势
@@ -328,6 +369,52 @@ if (typeof window !== 'undefined') {
   color: var(--text-color);
   background-color: var(--bg-color);
   transition: color 0.3s, background-color 0.3s;
+}
+
+/* 基本信息和求职意向样式 */
+.basic-info-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.info-column h2 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: none;
+  padding-bottom: 5px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  display: flex;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--title-color);
+  margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+  .basic-info-section {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 
 @media print {

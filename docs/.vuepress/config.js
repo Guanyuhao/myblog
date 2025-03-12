@@ -7,16 +7,11 @@ const Vssue = (() => {
 
 module.exports = {
   title: "哈哈的技术博客",
+  // title: "关聪-个人简历",
   description: "但行好事，莫问前程",
   // 注入到当前页面的 HTML <head> 中的标签
   head: [
-    [
-      "link",
-      {
-        rel: "icon",
-        href: "/yuhao.jpg",
-      },
-    ], // 增加一个自定义的 favicon(网页标签的图标)
+    ['link', { rel: 'icon', href: '/yuhao.jpg' }],
     ['meta', { name: 'build-time', content: new Date().getTime() }],
     ['meta', { 'http-equiv': 'Cache-Control', content: 'no-cache, no-store, must-revalidate' }],
     ['meta', { 'http-equiv': 'Pragma', content: 'no-cache' }],
@@ -85,12 +80,6 @@ module.exports = {
         }
       }
     ]
-  ],
-  //指定额外的需要被监听的文件
-  extraWatchFiles: [
-    // '.vuepress/foo.js', // 使用相对路径
-    // '/path/to/bar.js'   // 使用绝对路径
-    "/config/sidebar.js",
   ],
   themeConfig: {
     sidebarDepth: 2, // 将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
