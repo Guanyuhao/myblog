@@ -19,16 +19,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: 'pnpm'
       
       - name: 安装依赖
         run: |
-          npm ci
+          pnpm ci
           echo "依赖安装完成"
       
       - name: 构建站点
         run: |
-          npm run docs:build
+          pnpm run docs:build
           echo "构建完成，准备部署"
           echo "构建目录内容:"
           ls -la docs/.vuepress/dist
