@@ -1,9 +1,15 @@
+// 加载环境变量
+require('dotenv').config()
+
 const Vssue = (() => {
   return {
     clientId: process.env.VSSUE_CLIENT_ID || "",
     clientSecret: process.env.VSSUE_CLIENT_SECRET || "",
   }
 })()
+
+// 定义默认电话号码（脱敏版本，用于生产环境）
+const defaultPhoneNumber = '176****2308'
 
 module.exports = {
   title: "哈哈的技术博客",

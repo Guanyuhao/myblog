@@ -16,7 +16,7 @@
       <li><span class="info-label">经验：</span>7年</li>
       <li>
         <span class="info-label">电话：</span>
-        <PhoneNumber number="17600102308" />
+        <PhoneNumber />
       </li>
       <li>
         <span class="info-label">邮箱：</span>

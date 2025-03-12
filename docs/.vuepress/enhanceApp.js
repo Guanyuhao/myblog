@@ -2,6 +2,9 @@ export default ({ Vue, router }) => {
   // 添加全局环境变量
   Vue.prototype.$isProduction = process.env.NODE_ENV === 'production';
   
+  // 添加全局电话号码变量
+  Vue.prototype.$phoneNumber = process.env.PHONE_NUMBER || '176****2308';
+  
   // 注册一个全局组件用于环境区分显示
   Vue.component('EnvContent', {
     props: {
@@ -33,16 +36,19 @@ export default ({ Vue, router }) => {
     props: {
       number: {
         type: String,
-        required: true
+        default: ''
       }
     },
     computed: {
       displayNumber() {
         const isProd = process.env.NODE_ENV === 'production';
+        // 使用props中的number或全局环境变量中的电话号码
+        const phoneNumber = this.number || Vue.prototype.$phoneNumber;
+        
         if (isProd) {
-          return this.number.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+          return phoneNumber.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
         }
-        return this.number;
+        return phoneNumber;
       }
     },
     render(h) {

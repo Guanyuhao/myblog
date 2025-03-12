@@ -21,3 +21,6 @@ yarn-error.log*
 *.sw?
 *dist
 *mydata.text*
+
+# 环境变量文件
+.env
