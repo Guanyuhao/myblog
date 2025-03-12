@@ -294,8 +294,8 @@
 - 参与技术社区讨论，分享开发经验
 
 <div class="resume-actions">
-  <button class="resume-action-btn" onclick="window.print()">打印简历</button>
-  <button class="resume-action-btn" onclick="if(typeof window.downloadResume==='function'){window.downloadResume()}else{alert('PDF功能尚未加载，请刷新页面后重试')};return false;" id="pdf-download-btn">
+  <button class="resume-action-btn" onclick="if(typeof window !== 'undefined') window.print()">打印简历</button>
+  <button class="resume-action-btn" onclick="if(typeof window !== 'undefined' && typeof window.downloadResume==='function'){window.downloadResume()}else if(typeof window !== 'undefined'){alert('PDF功能尚未加载，请刷新页面后重试')};return false;" id="pdf-download-btn">
     下载PDF版
   </button>
 </div>
@@ -303,16 +303,19 @@
 </div>
 
 <script>
-// 在页面加载完成后检测移动设备并调整按钮显示
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof window !== 'undefined' && typeof window.isMobileDevice === 'function' && window.isMobileDevice()) {
-    const pdfBtn = document.getElementById('pdf-download-btn');
-    if (pdfBtn) {
-      pdfBtn.innerText = '移动端不支持下载';
-      pdfBtn.classList.add('disabled-btn');
+// 确保脚本只在客户端环境中执行
+if (typeof window !== 'undefined') {
+  // 在页面加载完成后检测移动设备并调整按钮显示
+  window.addEventListener('DOMContentLoaded', function() {
+    if (typeof window.isMobileDevice === 'function' && window.isMobileDevice()) {
+      const pdfBtn = document.getElementById('pdf-download-btn');
+      if (pdfBtn) {
+        pdfBtn.innerText = '移动端不支持下载';
+        pdfBtn.classList.add('disabled-btn');
+      }
     }
-  }
-});
+  });
+}
 </script>
 
 <style>

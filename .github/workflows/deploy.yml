@@ -15,15 +15,34 @@ jobs:
           persist-credentials: false
           fetch-depth: 0 # 获取完整历史以避免Git错误
       
-      - name: 设置Node.js
+      - name: 设置Node.js环境
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: 'pnpm'
+          node-version: 21.7.0
+      
+      - name: 安装pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      
+      - name: 获取pnpm缓存路径
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      
+      - name: 设置pnpm缓存
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
       
       - name: 安装依赖
         run: |
-          pnpm ci
+          pnpm install
           echo "依赖安装完成"
       
       - name: 构建站点
