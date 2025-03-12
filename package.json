@@ -12,18 +12,20 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"@waline/client": "^3.5.5",
 		"fs": "^0.0.1-security",
-		"path": "^0.12.7"
+		"path": "^0.12.7",
+		"vuepress": "2.0.0-rc.20"
 	},
 	"devDependencies": {
 		"@vssue/api-github-v3": "^1.1.2",
-		"@vssue/vuepress-plugin-vssue": "^1.2.2",
-		"@vuepress/plugin-active-header-links": "^1.2.0",
-		"@vuepress/plugin-back-to-top": "^1.2.0",
-		"@vuepress/plugin-medium-zoom": "^1.9.10",
+		"@vuepress/bundler-vite": "2.0.0-rc.20",
+		"@vuepress/client": "2.0.0-rc.20",
+		"@vuepress/theme-default": "2.0.0-rc.20",
 		"markdown-it-anchor": "^9.2.0",
 		"markdown-it-emoji": "^2.0.0",
-		"markdown-it-toc-done-right": "^4.2.0"
+		"markdown-it-toc-done-right": "^4.2.0",
+		"vue": "^3.3.4"
 	},
 	"dslInfo": {
 		"dsl": "vue-standard"

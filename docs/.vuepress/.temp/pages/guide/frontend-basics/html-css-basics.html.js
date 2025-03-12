@@ -1,0 +1,16 @@
+import comp from "/Users/guanhaha/Desktop/code/myblog/docs/.vuepress/.temp/pages/guide/frontend-basics/html-css-basics.html.vue"
+const data = JSON.parse("{\"path\":\"/guide/frontend-basics/html-css-basics.html\",\"title\":\"HTML/CSS基础入门\",\"lang\":\"en-US\",\"frontmatter\":{\"description\":\"HTML/CSS基础入门 HTML和CSS是Web开发的基石。不管前端框架如何变化，这些基础知识始终是每位前端开发者必须掌握的内容。 HTML基础 文档结构 一个基本的HTML文档结构如下： 语义化标签 HTML5引入了多种语义化标签，正确使用它们可以提高代码可读性和可访问性： <header> - 页眉 <nav> - 导航 <main> - 主要内...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://guanyuhao.github.io/guide/frontend-basics/html-css-basics.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"关哈哈\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"HTML/CSS基础入门\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"HTML/CSS基础入门 HTML和CSS是Web开发的基石。不管前端框架如何变化，这些基础知识始终是每位前端开发者必须掌握的内容。 HTML基础 文档结构 一个基本的HTML文档结构如下： 语义化标签 HTML5引入了多种语义化标签，正确使用它们可以提高代码可读性和可访问性： <header> - 页眉 <nav> - 导航 <main> - 主要内...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-03-10T16:21:46.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-03-10T16:21:46.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"HTML/CSS基础入门\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-03-10T16:21:46.000Z\\\",\\\"author\\\":[]}\"]]},\"headers\":[{\"level\":2,\"title\":\"HTML基础\",\"slug\":\"html基础\",\"link\":\"#html基础\",\"children\":[{\"level\":3,\"title\":\"文档结构\",\"slug\":\"文档结构\",\"link\":\"#文档结构\",\"children\":[]},{\"level\":3,\"title\":\"语义化标签\",\"slug\":\"语义化标签\",\"link\":\"#语义化标签\",\"children\":[]}]},{\"level\":2,\"title\":\"CSS基础\",\"slug\":\"css基础\",\"link\":\"#css基础\",\"children\":[{\"level\":3,\"title\":\"选择器\",\"slug\":\"选择器\",\"link\":\"#选择器\",\"children\":[]},{\"level\":3,\"title\":\"盒模型\",\"slug\":\"盒模型\",\"link\":\"#盒模型\",\"children\":[]},{\"level\":3,\"title\":\"Flexbox布局\",\"slug\":\"flexbox布局\",\"link\":\"#flexbox布局\",\"children\":[]},{\"level\":3,\"title\":\"CSS Grid布局\",\"slug\":\"css-grid布局\",\"link\":\"#css-grid布局\",\"children\":[]}]},{\"level\":2,\"title\":\"响应式设计\",\"slug\":\"响应式设计\",\"link\":\"#响应式设计\",\"children\":[]},{\"level\":2,\"title\":\"CSS变量与预处理器\",\"slug\":\"css变量与预处理器\",\"link\":\"#css变量与预处理器\",\"children\":[]},{\"level\":2,\"title\":\"实战练习\",\"slug\":\"实战练习\",\"link\":\"#实战练习\",\"children\":[]},{\"level\":2,\"title\":\"资源推荐\",\"slug\":\"资源推荐\",\"link\":\"#资源推荐\",\"children\":[]}],\"git\":{\"updatedTime\":1741623706000,\"contributors\":[{\"name\":\"guanhaha\",\"username\":\"guanhaha\",\"email\":\"guanyuhao666@gmail.com\",\"commits\":1,\"url\":\"https://github.com/guanhaha\"}]},\"autoDesc\":true,\"filePathRelative\":\"guide/frontend-basics/html-css-basics.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

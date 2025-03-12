@@ -43,6 +43,7 @@ export default {
   border-bottom: none;
   line-height: 1.2;
   flex: 1; /* 允许h3占据更多空间 */
+  padding-top: 0;
 }
 .project-company {
   font-size: 0.85rem;

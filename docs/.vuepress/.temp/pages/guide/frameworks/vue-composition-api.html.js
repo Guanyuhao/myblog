@@ -1,0 +1,16 @@
+import comp from "/Users/guanhaha/Desktop/code/myblog/docs/.vuepress/.temp/pages/guide/frameworks/vue-composition-api.html.vue"
+const data = JSON.parse("{\"path\":\"/guide/frameworks/vue-composition-api.html\",\"title\":\"Vue Composition API实战指南\",\"lang\":\"en-US\",\"frontmatter\":{\"description\":\"Vue Composition API实战指南 Vue 3的Composition API是一种全新的组织组件逻辑的方式，提供了比Options API更灵活的代码组织和逻辑复用能力。本文将深入探讨如何在实际项目中应用Composition API。 为什么需要Composition API 在开发大型Vue应用时，Options API存在几个痛点：...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://guanyuhao.github.io/guide/frameworks/vue-composition-api.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"关哈哈\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"Vue Composition API实战指南\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"Vue Composition API实战指南 Vue 3的Composition API是一种全新的组织组件逻辑的方式，提供了比Options API更灵活的代码组织和逻辑复用能力。本文将深入探讨如何在实际项目中应用Composition API。 为什么需要Composition API 在开发大型Vue应用时，Options API存在几个痛点：...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-03-10T16:21:46.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-03-10T16:21:46.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"Vue Composition API实战指南\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-03-10T16:21:46.000Z\\\",\\\"author\\\":[]}\"]]},\"headers\":[{\"level\":2,\"title\":\"为什么需要Composition API\",\"slug\":\"为什么需要composition-api\",\"link\":\"#为什么需要composition-api\",\"children\":[]},{\"level\":2,\"title\":\"基础使用\",\"slug\":\"基础使用\",\"link\":\"#基础使用\",\"children\":[]},{\"level\":2,\"title\":\"生命周期钩子\",\"slug\":\"生命周期钩子\",\"link\":\"#生命周期钩子\",\"children\":[]},{\"level\":2,\"title\":\"响应式系统\",\"slug\":\"响应式系统\",\"link\":\"#响应式系统\",\"children\":[]},{\"level\":2,\"title\":\"逻辑复用：组合式函数\",\"slug\":\"逻辑复用-组合式函数\",\"link\":\"#逻辑复用-组合式函数\",\"children\":[]},{\"level\":2,\"title\":\"实战案例：数据获取与加载状态\",\"slug\":\"实战案例-数据获取与加载状态\",\"link\":\"#实战案例-数据获取与加载状态\",\"children\":[]},{\"level\":2,\"title\":\"语法\",\"slug\":\"语法\",\"link\":\"#语法\",\"children\":[]},{\"level\":2,\"title\":\"与TypeScript结合\",\"slug\":\"与typescript结合\",\"link\":\"#与typescript结合\",\"children\":[]},{\"level\":2,\"title\":\"最佳实践与注意事项\",\"slug\":\"最佳实践与注意事项\",\"link\":\"#最佳实践与注意事项\",\"children\":[]},{\"level\":2,\"title\":\"实际项目中的应用\",\"slug\":\"实际项目中的应用\",\"link\":\"#实际项目中的应用\",\"children\":[]},{\"level\":2,\"title\":\"总结\",\"slug\":\"总结\",\"link\":\"#总结\",\"children\":[]},{\"level\":2,\"title\":\"相关资源\",\"slug\":\"相关资源\",\"link\":\"#相关资源\",\"children\":[]}],\"git\":{\"updatedTime\":1741623706000,\"contributors\":[{\"name\":\"guanhaha\",\"username\":\"guanhaha\",\"email\":\"guanyuhao666@gmail.com\",\"commits\":1,\"url\":\"https://github.com/guanhaha\"}]},\"autoDesc\":true,\"filePathRelative\":\"guide/frameworks/vue-composition-api.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

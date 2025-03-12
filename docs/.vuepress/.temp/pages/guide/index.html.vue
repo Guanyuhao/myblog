@@ -1,7 +1,5 @@
-# 技术指南
-
-欢迎来到我的技术指南专区。这里汇集了我在7年前端开发生涯中积累的知识、经验和最佳实践。无论您是初学者还是有经验的开发者，都能在这里找到有价值的内容。
-
+<template><div><h1 id="技术指南" tabindex="-1"><a class="header-anchor" href="#技术指南"><span>技术指南</span></a></h1>
+<p>欢迎来到我的技术指南专区。这里汇集了我在7年前端开发生涯中积累的知识、经验和最佳实践。无论您是初学者还是有经验的开发者，都能在这里找到有价值的内容。</p>
 <div class="resume-banner">
   <div class="resume-content">
     <h2>👋 寻找经验丰富的前端开发者？</h2>
@@ -9,9 +7,7 @@
     <a href="/about/resume.html" class="resume-button">查看我的简历</a>
   </div>
 </div>
-
-## 指南分类
-
+<h2 id="指南分类" tabindex="-1"><a class="header-anchor" href="#指南分类"><span>指南分类</span></a></h2>
 <div class="guide-categories">
   <div class="guide-category">
     <div class="category-icon">📚</div>
@@ -19,35 +15,30 @@
     <p>夯实前端开发的基础知识，从HTML、CSS到JavaScript核心概念</p>
     <a href="./frontend-basics/" class="category-link">浏览指南</a>
   </div>
-  
   <div class="guide-category">
     <div class="category-icon">⚛️</div>
     <h3>Vue & React</h3>
     <p>深入理解主流前端框架，掌握组件设计、状态管理和性能优化</p>
     <a href="./frameworks/" class="category-link">浏览指南</a>
   </div>
-  
   <div class="guide-category">
     <div class="category-icon">🔧</div>
     <h3>工程化实践</h3>
     <p>前端工程化最佳实践，包括构建工具、CI/CD和自动化测试</p>
     <a href="./engineering/" class="category-link">浏览指南</a>
   </div>
-  
   <div class="guide-category">
     <div class="category-icon">🌐</div>
     <h3>全栈开发</h3>
     <p>Node.js后端开发、API设计和全栈项目架构</p>
     <a href="./fullstack/" class="category-link">浏览指南</a>
   </div>
-  
   <div class="guide-category">
     <div class="category-icon">⛓️</div>
     <h3>区块链与Web3</h3>
     <p>区块链开发入门、Web3.js应用开发和智能合约交互</p>
     <a href="./blockchain/" class="category-link">浏览指南</a>
   </div>
-  
   <div class="guide-category">
     <div class="category-icon">📱</div>
     <h3>小程序开发</h3>
@@ -55,57 +46,52 @@
     <a href="./miniprogram/" class="category-link">浏览指南</a>
   </div>
 </div>
-
-## 精选指南
-
+<h2 id="精选指南" tabindex="-1"><a class="header-anchor" href="#精选指南"><span>精选指南</span></a></h2>
 <div class="featured-guides">
   <div class="guide-item">
     <span class="guide-tag">Vue.js</span>
     <h4><a href="./frameworks/vue-composition-api.html">Vue Composition API实战指南</a></h4>
     <p>深入探索Vue 3 Composition API的使用方法，通过实际案例演示如何组织可复用的逻辑</p>
   </div>
-  
   <div class="guide-item">
     <span class="guide-tag">工程化</span>
     <h4><a href="./engineering/frontend-ci-cd.html">前端CI/CD自动化部署实践</a></h4>
     <p>从零搭建前端自动化部署流程，实现代码提交到自动测试、构建和发布的完整链路</p>
   </div>
-  
   <div class="guide-item">
     <span class="guide-tag">性能优化</span>
     <h4><a href="./engineering/performance-optimization.html">Web应用性能优化策略</a></h4>
     <p>全面的Web性能优化指南，涵盖加载性能、运行时性能和用户体验优化的各个方面</p>
   </div>
-  
   <div class="guide-item">
     <span class="guide-tag">区块链</span>
     <h4><a href="./blockchain/web3-integration.html">在Web应用中集成以太坊</a></h4>
     <p>如何在现代Web应用中集成以太坊区块链，实现钱包连接和智能合约交互</p>
   </div>
 </div>
+<h2 id="新手指南" tabindex="-1"><a class="header-anchor" href="#新手指南"><span>新手指南</span></a></h2>
+<p>如果您刚开始学习前端开发，以下是我推荐的学习路径：</p>
+<ol>
+<li><RouteLink to="/guide/frontend-basics/html-css-basics.html">HTML/CSS基础入门</RouteLink> - 网页结构和样式基础</li>
+<li><RouteLink to="/guide/frontend-basics/javascript-essentials.html">JavaScript核心概念</RouteLink> - 掌握JS语言基础</li>
+<li><RouteLink to="/guide/frontend-basics/modern-javascript.html">现代JavaScript特性</RouteLink> - ES6+特性和工具</li>
+<li><RouteLink to="/guide/frameworks/vue-basics.html">Vue.js入门指南</RouteLink> - 第一个Vue应用</li>
+<li><RouteLink to="/guide/frameworks/react-basics.html">React入门指南</RouteLink> - React基础和应用</li>
+</ol>
+<h2 id="参与讨论" tabindex="-1"><a class="header-anchor" href="#参与讨论"><span>参与讨论</span></a></h2>
+<p>对任何指南有问题或建议？欢迎在文章评论区留言，或通过以下方式联系我：</p>
+<ul>
+<li>GitHub Issues: <a href="https://github.com/guanyuhao/myblog/issues" target="_blank" rel="noopener noreferrer">提交问题<ExternalLinkIcon/></a></li>
+<li>Email: <a href="mailto:gunyuhao_666@163.com" target="_blank" rel="noopener noreferrer">联系我<ExternalLinkIcon/></a></li>
+</ul>
+<h2 id="其他" tabindex="-1"><a class="header-anchor" href="#其他"><span>其他</span></a></h2>
+<ul>
+<li><a href="../cs">计算机通识</a></li>
+<li><a href="../algorithm">算法学习</a></li>
+<li><RouteLink to="/guide/blogbuild/">博客搭建-VuePress</RouteLink></li>
+</ul>
+</div></template>
 
-## 新手指南
-
-如果您刚开始学习前端开发，以下是我推荐的学习路径：
-
-1. [HTML/CSS基础入门](./frontend-basics/html-css-basics.html) - 网页结构和样式基础
-2. [JavaScript核心概念](./frontend-basics/javascript-essentials.html) - 掌握JS语言基础
-3. [现代JavaScript特性](./frontend-basics/modern-javascript.html) - ES6+特性和工具
-4. [Vue.js入门指南](./frameworks/vue-basics.html) - 第一个Vue应用
-5. [React入门指南](./frameworks/react-basics.html) - React基础和应用
-
-## 参与讨论
-
-对任何指南有问题或建议？欢迎在文章评论区留言，或通过以下方式联系我：
-
-- GitHub Issues: [提交问题](https://github.com/guanyuhao/myblog/issues)
-- Email: [联系我](mailto:gunyuhao_666@163.com)
-
-## 其他
-
-- [计算机通识](../cs)
-- [算法学习](../algorithm)
-- [博客搭建-VuePress](./blogbuild/)
 
 
 <style>

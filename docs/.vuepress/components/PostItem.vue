@@ -32,6 +32,7 @@ export default {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   border-bottom: none;
+  padding-top: 0;
 }
 .post-item h3 a {
   color: #2c3e50;

@@ -1,0 +1,16 @@
+import comp from "/Users/guanhaha/Desktop/code/myblog/docs/.vuepress/.temp/pages/blog/pdca-methodology.html.vue"
+const data = JSON.parse("{\"path\":\"/blog/pdca-methodology.html\",\"title\":\"PDCA循环法：持续改进的高效工作方法\",\"lang\":\"en-US\",\"frontmatter\":{\"description\":\"PDCA循环法：持续改进的高效工作方法 PDCA循环是一种迭代式的管理方法，被广泛应用于项目管理、软件开发和质量改进等领域。作为一名技术从业者，掌握PDCA方法可以帮助我们系统性地解决问题并持续提升工作质量。 PDCA的起源与定义 PDCA循环（Plan-Do-Check-Act）最初由质量管理大师戴明（W. Edwards Deming）提出，也被称...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://guanyuhao.github.io/blog/pdca-methodology.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"关哈哈\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"PDCA循环法：持续改进的高效工作方法\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"PDCA循环法：持续改进的高效工作方法 PDCA循环是一种迭代式的管理方法，被广泛应用于项目管理、软件开发和质量改进等领域。作为一名技术从业者，掌握PDCA方法可以帮助我们系统性地解决问题并持续提升工作质量。 PDCA的起源与定义 PDCA循环（Plan-Do-Check-Act）最初由质量管理大师戴明（W. Edwards Deming）提出，也被称...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-03-10T16:21:46.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-03-10T16:21:46.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"PDCA循环法：持续改进的高效工作方法\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-03-10T16:21:46.000Z\\\",\\\"author\\\":[]}\"]]},\"headers\":[{\"level\":2,\"title\":\"PDCA的起源与定义\",\"slug\":\"pdca的起源与定义\",\"link\":\"#pdca的起源与定义\",\"children\":[]},{\"level\":2,\"title\":\"PDCA四阶段详解\",\"slug\":\"pdca四阶段详解\",\"link\":\"#pdca四阶段详解\",\"children\":[{\"level\":3,\"title\":\"计划阶段 (Plan)\",\"slug\":\"计划阶段-plan\",\"link\":\"#计划阶段-plan\",\"children\":[]},{\"level\":3,\"title\":\"执行阶段 (Do)\",\"slug\":\"执行阶段-do\",\"link\":\"#执行阶段-do\",\"children\":[]},{\"level\":3,\"title\":\"检查阶段 (Check)\",\"slug\":\"检查阶段-check\",\"link\":\"#检查阶段-check\",\"children\":[]},{\"level\":3,\"title\":\"行动阶段 (Act)\",\"slug\":\"行动阶段-act\",\"link\":\"#行动阶段-act\",\"children\":[]}]},{\"level\":2,\"title\":\"PDCA在前端开发中的应用\",\"slug\":\"pdca在前端开发中的应用\",\"link\":\"#pdca在前端开发中的应用\",\"children\":[{\"level\":3,\"title\":\"功能开发\",\"slug\":\"功能开发\",\"link\":\"#功能开发\",\"children\":[]},{\"level\":3,\"title\":\"性能优化\",\"slug\":\"性能优化\",\"link\":\"#性能优化\",\"children\":[]},{\"level\":3,\"title\":\"团队协作\",\"slug\":\"团队协作\",\"link\":\"#团队协作\",\"children\":[]}]},{\"level\":2,\"title\":\"PDCA的实施技巧\",\"slug\":\"pdca的实施技巧\",\"link\":\"#pdca的实施技巧\",\"children\":[]},{\"level\":2,\"title\":\"总结\",\"slug\":\"总结\",\"link\":\"#总结\",\"children\":[]}],\"git\":{\"updatedTime\":1741623706000,\"contributors\":[{\"name\":\"guanhaha\",\"username\":\"guanhaha\",\"email\":\"guanyuhao666@gmail.com\",\"commits\":1,\"url\":\"https://github.com/guanhaha\"}]},\"autoDesc\":true,\"filePathRelative\":\"blog/pdca-methodology.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

@@ -1,0 +1,16 @@
+import comp from "/Users/guanhaha/Desktop/code/myblog/docs/.vuepress/.temp/pages/guide/miniprogram/index.html.vue"
+const data = JSON.parse("{\"path\":\"/guide/miniprogram/\",\"title\":\"小程序开发指南\",\"lang\":\"en-US\",\"frontmatter\":{\"description\":\"小程序开发指南 本章节汇总了我在微信小程序开发和多端统一方案实践中的经验，帮助开发者快速掌握小程序开发技能，构建高质量的移动应用。 学习路径 小程序开发既有自己的特点，又与传统前端开发有所关联，建议按照以下路径学习： 基础阶段：了解小程序架构、生命周期和基础组件 进阶阶段：掌握组件化开发、数据管理和页面导航 高级阶段：学习性能优化、多端开发和云开发能力...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://guanyuhao.github.io/guide/miniprogram/\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"关哈哈\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"小程序开发指南\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"小程序开发指南 本章节汇总了我在微信小程序开发和多端统一方案实践中的经验，帮助开发者快速掌握小程序开发技能，构建高质量的移动应用。 学习路径 小程序开发既有自己的特点，又与传统前端开发有所关联，建议按照以下路径学习： 基础阶段：了解小程序架构、生命周期和基础组件 进阶阶段：掌握组件化开发、数据管理和页面导航 高级阶段：学习性能优化、多端开发和云开发能力...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2025-03-11T08:38:33.000Z\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2025-03-11T08:38:33.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"小程序开发指南\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2025-03-11T08:38:33.000Z\\\",\\\"author\\\":[]}\"]]},\"headers\":[{\"level\":2,\"title\":\"学习路径\",\"slug\":\"学习路径\",\"link\":\"#学习路径\",\"children\":[]},{\"level\":2,\"title\":\"核心内容\",\"slug\":\"核心内容\",\"link\":\"#核心内容\",\"children\":[{\"level\":3,\"title\":\"小程序基础\",\"slug\":\"小程序基础\",\"link\":\"#小程序基础\",\"children\":[]},{\"level\":3,\"title\":\"组件与API\",\"slug\":\"组件与api\",\"link\":\"#组件与api\",\"children\":[]},{\"level\":3,\"title\":\"数据管理与状态\",\"slug\":\"数据管理与状态\",\"link\":\"#数据管理与状态\",\"children\":[]},{\"level\":3,\"title\":\"小程序进阶\",\"slug\":\"小程序进阶\",\"link\":\"#小程序进阶\",\"children\":[]},{\"level\":3,\"title\":\"性能优化\",\"slug\":\"性能优化\",\"link\":\"#性能优化\",\"children\":[]},{\"level\":3,\"title\":\"多端开发\",\"slug\":\"多端开发\",\"link\":\"#多端开发\",\"children\":[]},{\"level\":3,\"title\":\"云开发与扩展能力\",\"slug\":\"云开发与扩展能力\",\"link\":\"#云开发与扩展能力\",\"children\":[]}]},{\"level\":2,\"title\":\"实战项目\",\"slug\":\"实战项目\",\"link\":\"#实战项目\",\"children\":[]},{\"level\":2,\"title\":\"推荐资源\",\"slug\":\"推荐资源\",\"link\":\"#推荐资源\",\"children\":[{\"level\":3,\"title\":\"开发工具\",\"slug\":\"开发工具\",\"link\":\"#开发工具\",\"children\":[]},{\"level\":3,\"title\":\"学习资源\",\"slug\":\"学习资源\",\"link\":\"#学习资源\",\"children\":[]}]}],\"git\":{\"updatedTime\":1741682313000,\"contributors\":[{\"name\":\"guanhaha\",\"username\":\"guanhaha\",\"email\":\"guanyuhao666@gmail.com\",\"commits\":1,\"url\":\"https://github.com/guanhaha\"}]},\"autoDesc\":true,\"filePathRelative\":\"guide/miniprogram/README.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

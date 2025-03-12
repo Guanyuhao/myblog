@@ -1,28 +1,5 @@
----
-home: true
-heroImage: /yuhao.jpg
-heroText: 哈哈哥的技术博客
-tagline: 探索、学习、分享，记录技术成长之路
-actions:
-  - text: 开始阅读 →
-    link: /guide/
-    type: primary
-  - text: 个人简历
-    link: /about/resume.html
-    type: secondary
-features:
-- title: 技术深度
-  details: 分享Web开发、Web3开发、注重实践与原理结合
-- title: 学习笔记
-  details: 记录日常学习过程中的心得体会，整理有价值的知识点和解决方案
-- title: 项目实践
-  details: 展示个人项目开发过程，分享实际问题的解决思路和技术选型考量
-footer: MIT Licensed | Copyright © 2025-present Guanyuhao
----
-<div class="features-section">
-
-## 最新文章
-
+<template><div><div class="features-section">
+<h2 id="最新文章" tabindex="-1"><a class="header-anchor" href="#最新文章"><span>最新文章</span></a></h2>
 <div class="post-list">
   <PostItem 
     title="个人简历" 
@@ -37,9 +14,7 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
     date="2023-01-10" 
   />
 </div>
-
-## 精选项目
-
+<h2 id="精选项目" tabindex="-1"><a class="header-anchor" href="#精选项目"><span>精选项目</span></a></h2>
 <div class="project-list">
   <ProjectCard 
     title="AntAlpha - 数字资产平台" 
@@ -56,9 +31,7 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
     company="字节跳动"
   />
 </div>
-
-## 技术栈
-
+<h2 id="技术栈" tabindex="-1"><a class="header-anchor" href="#技术栈"><span>技术栈</span></a></h2>
 <div class="tech-stack">
   <span class="tech-item">JavaScript</span>
   <span class="tech-item">Vue.js</span>
@@ -66,9 +39,7 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
   <span class="tech-item">React</span>
   <span class="tech-item">TypeScript</span>
 </div>
-
-## 联系方式
-
+<h2 id="联系方式" tabindex="-1"><a class="header-anchor" href="#联系方式"><span>联系方式</span></a></h2>
 <div class="contact-section">
   <a href="https://github.com/guanyuhao" target="_blank" class="contact-item">
     <svg viewBox="64 64 896 896" focusable="false" data-icon="github" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"></path></svg>
@@ -79,8 +50,10 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
     Email
   </a>
 </div>
-
 </div>
+</div></template>
+
+
 
 <style>
 .features-section {

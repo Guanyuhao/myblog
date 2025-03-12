@@ -1,16 +1,10 @@
-# 关哈哈 - 前端｜鸿蒙开发工程师
-
+<template><div><h1 id="关哈哈-前端-鸿蒙开发工程师" tabindex="-1"><a class="header-anchor" href="#关哈哈-前端-鸿蒙开发工程师"><span>关哈哈 - 前端｜鸿蒙开发工程师</span></a></h1>
 <div class="resume-container">
-
-## 个人简介
-
+<h2 id="个人简介" tabindex="-1"><a class="header-anchor" href="#个人简介"><span>个人简介</span></a></h2>
 <p class="intro-text">我是一名<strong class="highlight">全栈前端工程师</strong>，拥有<strong class="highlight">7年Web开发</strong>和<strong class="highlight">1年实际鸿蒙应用开发</strong>经验。擅长Vue、React、TypeScript等前端技术，并在2024年拓展至鸿蒙生态应用开发，掌握ArkTS和HarmonyOS应用构建。</p>
-
 <p class="intro-text">我的技术栈横跨<strong class="highlight">前端、鸿蒙生态和IoT设备集成</strong>，曾主导建材水暖行业全平台解决方案，实现Web管理平台与鸿蒙终端应用的无缝集成，在字节跳动等知名公司积累了丰富的企业级项目经验。</p>
-
 <p class="intro-text mb-40">注重开发效率与项目质量，善于团队协作，熟悉PDCA等工作方法，欢迎访问我的<a href="https://guanyuhao.github.io/" class="intro-link">技术博客</a>，了解我的技术文章和项目案例。</p>
-
-## 联系方式
+<h2 id="联系方式" tabindex="-1"><a class="header-anchor" href="#联系方式"><span>联系方式</span></a></h2>
 <div class="contact-items">
   <div class="contact-item">
     <i class="contact-icon">✉️</i>
@@ -21,9 +15,7 @@
     <a href="https://github.com/guanyuhao" target="_blank">github.com/guanyuhao</a>
   </div>
 </div>
-
-## 技术技能
-
+<h2 id="技术技能" tabindex="-1"><a class="header-anchor" href="#技术技能"><span>技术技能</span></a></h2>
 <div class="skills-container">
   <div class="skill-category">
     <h3>前端</h3>
@@ -41,7 +33,6 @@
       <li><span class="skill-tag">Element UI</span></li>
     </ul>
   </div>
-
   <div class="skill-category">
     <h3>工程化与协作</h3>
     <ul class="skill-list">
@@ -55,7 +46,6 @@
       <li><span class="skill-tag">Jest</span></li>
     </ul>
   </div>
-
   <div class="skill-category">
     <h3>后端与平台</h3>
     <ul class="skill-list">
@@ -65,7 +55,6 @@
       <li><span class="skill-tag">Docker</span></li>
     </ul>
   </div>
-
   <div class="skill-category">
     <h3>区块链与Web3</h3>
     <ul class="skill-list">
@@ -74,9 +63,7 @@
     </ul>
   </div>
 </div>
-
-## 工作经历
-
+<h2 id="工作经历" tabindex="-1"><a class="header-anchor" href="#工作经历"><span>工作经历</span></a></h2>
 <div class="experience-section">
   <div class="experience-item">
     <div class="experience-header">
@@ -104,7 +91,6 @@
       <li>实现高性能、可扩展的前端解决方案</li>
     </ul>
   </div>
-
   <div class="experience-item">
     <div class="experience-header">
       <h3>字节跳动（飞书部门）</h3>
@@ -117,7 +103,6 @@
       <li>与设计师和后端工程师紧密协作，确保产品质量</li>
     </ul>
   </div>
-
   <div class="experience-item">
     <div class="experience-header">
       <h3>一览群智</h3>
@@ -130,7 +115,6 @@
       <li>优化用户体验和界面设计，提高产品转化率</li>
     </ul>
   </div>
-
   <div class="experience-item">
     <div class="experience-header">
       <h3>链之家</h3>
@@ -144,9 +128,7 @@
     </ul>
   </div>
 </div>
-
-## 项目经验
-
+<h2 id="项目经验" tabindex="-1"><a class="header-anchor" href="#项目经验"><span>项目经验</span></a></h2>
 <div class="project-section">
   <div class="project-item">
     <div class="project-header">
@@ -173,7 +155,6 @@
       </ul>
     </div>
   </div>
-
   <div class="project-item">
     <div class="project-header">
       <h3>AntAlpha - B2B数字资产技术平台</h3>
@@ -194,7 +175,6 @@
       </ul>
     </div>
   </div>
-
   <div class="project-item">
     <div class="project-header">
       <h3>飞书人事 - HCM系统</h3>
@@ -215,7 +195,6 @@
       </ul>
     </div>
   </div>
-
   <div class="project-item">
     <div class="project-header">
       <h3>途途朗读 - 小程序应用</h3>
@@ -235,7 +214,6 @@
       </ul>
     </div>
   </div>
-
   <div class="project-item">
     <div class="project-header">
       <h3>AI智能标注平台</h3>
@@ -256,7 +234,6 @@
       </ul>
     </div>
   </div>
-
   <div class="project-item">
     <div class="project-header">
       <h3>币福交易所 - 区块链应用</h3>
@@ -278,9 +255,7 @@
     </div>
   </div>
 </div>
-
-## 教育背景
-
+<h2 id="教育背景" tabindex="-1"><a class="header-anchor" href="#教育背景"><span>教育背景</span></a></h2>
 <div class="education-section">
   <div class="education-item">
     <h3>软件工程</h3>
@@ -290,20 +265,22 @@
     </div>
   </div>
 </div>
-
-## 自我提升与其他
-- 持续学习新技术，关注前端发展趋势
-- 熟悉PDCA等工作方法，注重开发效率和项目质量
-- 参与技术社区讨论，分享开发经验
-
+<h2 id="自我提升与其他" tabindex="-1"><a class="header-anchor" href="#自我提升与其他"><span>自我提升与其他</span></a></h2>
+<ul>
+<li>持续学习新技术，关注前端发展趋势</li>
+<li>熟悉PDCA等工作方法，注重开发效率和项目质量</li>
+<li>参与技术社区讨论，分享开发经验</li>
+</ul>
 <div class="resume-actions">
   <button class="resume-action-btn" onclick="window.print()">打印简历</button>
   <button class="resume-action-btn" onclick="if(typeof window.downloadResume==='function'){window.downloadResume()}else{alert('PDF功能尚未加载，请刷新页面后重试')};return false;">
     下载PDF版
   </button>
 </div>
-
 </div>
+</div></template>
+
+
 
 <style>
 /* 全局样式 */
