@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /yuhao.jpg
-heroText: 哈哈哥的技术博客
+heroText: 哈哈的技术博客
 tagline: 探索、学习、分享，记录技术成长之路
 actionText: 开始阅读 →
 actionLink: /guide/

@@ -1,10 +1,11 @@
-# 关哈哈 - 前端｜鸿蒙开发工程师
+# 前端｜鸿蒙开发工程师
 
 <div class="resume-container">
 
 ## 个人简介
-
-我是一名拥有7年经验的软件工程师，专注于Web应用和移动端开发，熟悉前端开发的各种主流技术栈。擅长Vue、React、TypeScript等技术，拥有丰富的企业级项目开发经验，曾在比特大陆、字节跳动等知名公司工作。善于团队合作，具备良好的工作方法（如[PDCA](../blog/pdca-methodology.md)）和代码规范，注重开发效率和项目质量。欢迎访问我的[技术博客](https://guanyuhao.github.io/)，了解我的技术文章和项目经验。
+<p class="intro-text">我是一名<strong class="highlight">全栈前端工程师</strong>，拥有<strong class="highlight">7年Web开发</strong>和<strong class="highlight">1年实际鸿蒙应用开发</strong>经验。擅长Vue、React、TypeScript等前端技术，并在2024年拓展至鸿蒙生态应用开发，掌握ArkTS和HarmonyOS应用构建。</p>
+<p class="intro-text">我的技术栈横跨<strong class="highlight">前端、鸿蒙生态和IoT设备集成</strong>，曾主导建材水暖行业全平台解决方案，实现Web管理平台与鸿蒙终端应用的无缝集成，在字节跳动等知名公司积累了丰富的企业级项目经验。</p>
+<p class="intro-text">注重开发效率与项目质量，善于团队协作，熟悉PDCA等工作方法，欢迎访问我的<a href="https://guanyuhao.github.io/" class="intro-link">技术博客</a>，了解我的技术文章和项目案例。</p>
 
 ## 联系方式
 <div class="contact-items">
@@ -27,8 +28,8 @@
       <li><span class="skill-tag">Vue.js</span></li>
       <li><span class="skill-tag">React</span></li>
       <li><span class="skill-tag">TypeScript</span></li>
-      <li><span class="skill-tag">ArkTS</span></li>
-      <li><span class="skill-tag">HarmonyOS</span></li>
+      <li><span class="skill-tag primary-skill">ArkTS</span></li>
+      <li><span class="skill-tag primary-skill">HarmonyOS</span></li>
       <li><span class="skill-tag">JavaScript</span></li>
       <li><span class="skill-tag">HTML5</span></li>
       <li><span class="skill-tag">CSS3</span></li>
@@ -294,12 +295,25 @@
 
 <div class="resume-actions">
   <button class="resume-action-btn" onclick="window.print()">打印简历</button>
-  <button class="resume-action-btn" onclick="if(typeof window.downloadResume==='function'){window.downloadResume()}else{alert('PDF功能尚未加载，请刷新页面后重试')};return false;">
+  <button class="resume-action-btn" onclick="if(typeof window.downloadResume==='function'){window.downloadResume()}else{alert('PDF功能尚未加载，请刷新页面后重试')};return false;" id="pdf-download-btn">
     下载PDF版
   </button>
 </div>
 
 </div>
+
+<script>
+// 在页面加载完成后检测移动设备并调整按钮显示
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof window !== 'undefined' && typeof window.isMobileDevice === 'function' && window.isMobileDevice()) {
+    const pdfBtn = document.getElementById('pdf-download-btn');
+    if (pdfBtn) {
+      pdfBtn.innerText = '移动端不支持下载';
+      pdfBtn.classList.add('disabled-btn');
+    }
+  }
+});
+</script>
 
 <style>
 /* 全局样式 */
@@ -308,7 +322,9 @@
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #333;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: color 0.3s, background-color 0.3s;
 }
 
 @media print {
@@ -339,12 +355,50 @@
   }
 }
 
+/* 定义主题变量 */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --title-color: #2c3e50;
+  --primary-color: #3eaf7c;
+  --primary-light: #e8f5e9;
+  --secondary-color: #6a8bad;
+  --border-color: #eaecef;
+  --card-bg: #f3f4f6;
+  --tag-bg: #f3f4f6;
+  --tag-color: #4b5563;
+  --highlight-tag-bg: #e8f5e9;
+  --highlight-tag-color: #3eaf7c;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --hover-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* 暗色模式变量 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --title-color: #ffffff;
+    --primary-color: #4ecca3;
+    --primary-light: #1e3e31;
+    --secondary-color: #82a5d9;
+    --border-color: #2a2a2a;
+    --card-bg: #1e1e1e;
+    --tag-bg: #2a2a2a;
+    --tag-color: #c0c0c0;
+    --highlight-tag-bg: #1e3e31;
+    --highlight-tag-color: #4ecca3;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --hover-shadow: rgba(0, 0, 0, 0.5);
+  }
+}
+
 h1, h2, h3, h4 {
-  color: #2c3e50;
+  color: var(--title-color);
 }
 
 h1 {
-  border-bottom: 2px solid #3eaf7c;
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 10px;
   margin-bottom: 25px;
 }
@@ -352,7 +406,7 @@ h1 {
 h2 {
   font-size: 1.5rem;
   margin-top: 30px;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.3rem;
 }
 
@@ -362,12 +416,36 @@ h3 {
 }
 
 a {
-  color: #3eaf7c;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* 个人简介样式 */
+.intro-text {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.highlight {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.intro-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  border-bottom: 1px dotted var(--primary-color);
+  transition: all 0.2s;
+}
+
+.intro-link:hover {
+  background-color: var(--primary-light);
+  text-decoration: none;
 }
 
 .contact-items {
@@ -398,7 +476,7 @@ a:hover {
 .skill-category h3 {
   font-size: 1.1rem;
   margin-bottom: 15px;
-  color: #3eaf7c;
+  color: var(--primary-color);
 }
 
 .skill-list {
@@ -410,12 +488,19 @@ a:hover {
 }
 
 .skill-tag {
-  background-color: #f3f4f6;
+  background-color: var(--tag-bg);
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 0.9rem;
-  color: #4b5563;
+  color: var(--tag-color);
   display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.primary-skill {
+  background-color: var(--highlight-tag-bg);
+  color: var(--highlight-tag-color);
+  font-weight: 500;
 }
 
 /* 工作经历样式 */
@@ -426,7 +511,7 @@ a:hover {
 .experience-item {
   margin-bottom: 25px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .experience-item:last-child {
@@ -447,12 +532,12 @@ a:hover {
 
 .experience-title {
   font-weight: 500;
-  color: #3eaf7c;
+  color: var(--primary-color);
   margin-right: auto;
 }
 
 .experience-date {
-  color: #6b7280;
+  color: var(--secondary-color);
   font-size: 0.9rem;
 }
 
@@ -473,7 +558,7 @@ a:hover {
 .project-item {
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .project-item:last-child {
@@ -490,11 +575,11 @@ a:hover {
 
 .project-header h3 {
   margin: 0;
-  color: #2c3e50;
+  color: var(--title-color);
 }
 
 .project-date {
-  color: #6b7280;
+  color: var(--secondary-color);
   font-size: 0.9rem;
 }
 
@@ -503,13 +588,14 @@ a:hover {
 }
 
 .tech-tag {
-  background-color: #e6f7ff;
-  color: #0088cc;
+  background-color: var(--highlight-tag-bg);
+  color: var(--highlight-tag-color);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.85rem;
   margin-right: 8px;
   display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .project-description h4 {
@@ -542,7 +628,7 @@ a:hover {
 .education-details {
   display: flex;
   justify-content: space-between;
-  color: #6b7280;
+  color: var(--secondary-color);
 }
 
 /* 行动按钮 */
@@ -554,7 +640,7 @@ a:hover {
 }
 
 .resume-action-btn {
-  background-color: #3eaf7c;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -567,8 +653,14 @@ a:hover {
 }
 
 .resume-action-btn:hover {
-  background-color: #2c8c6c;
+  background-color: var(--primary-color);
+  opacity: 0.9;
   text-decoration: none;
+}
+
+.disabled-btn {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

@@ -2,6 +2,12 @@ export default ({ Vue, router }) => {
     router.afterEach(() => {
       // 添加PDF下载功能到全局作用域
       if (typeof window !== 'undefined') {
+        // 检测是否为移动设备
+        window.isMobileDevice = function() {
+          return (window.innerWidth <= 768) || 
+                 /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        };
+        
         // 加载脚本的辅助函数
         window.loadScript = function(url) {
           return new Promise((resolve, reject) => {
@@ -20,6 +26,13 @@ export default ({ Vue, router }) => {
         // 添加PDF下载功能
         window.downloadResume = async function() {
           console.log('PDF下载函数被调用');
+          
+          // 检测移动设备
+          if (window.isMobileDevice()) {
+            alert('移动设备不支持PDF下载功能，请使用桌面浏览器访问本页面下载PDF版简历。');
+            return;
+          }
+          
           try {
             // 更新按钮状态
             const btn = document.querySelector('.resume-action-btn:nth-child(2)');
@@ -104,6 +117,23 @@ export default ({ Vue, router }) => {
             }
           }
         };
+        
+        // 页面加载完成后检测设备类型并调整PDF按钮
+        document.addEventListener('DOMContentLoaded', function() {
+          // 延迟执行，确保Vue组件已渲染
+          setTimeout(() => {
+            const pdfBtn = document.querySelector('.resume-action-btn:nth-child(2)');
+            if (pdfBtn && window.isMobileDevice()) {
+              pdfBtn.innerText = '移动端不支持PDF下载';
+              pdfBtn.style.opacity = '0.7';
+              pdfBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('移动设备不支持PDF下载功能，请使用桌面浏览器访问本页面下载PDF版简历。');
+                return false;
+              });
+            }
+          }, 1000);
+        });
       }
     });
   };
