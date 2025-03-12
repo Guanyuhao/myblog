@@ -248,8 +248,6 @@ export default {
 </script>
 ```
 
-## <script setup>语法
-
 在Vue 3.2中，引入了更简洁的`<script setup>`语法：
 
 ```vue

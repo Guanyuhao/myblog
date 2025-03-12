@@ -1,60 +1,8 @@
 export default ({ Vue, router }) => {
   // 添加全局环境变量
   Vue.prototype.$isProduction = process.env.NODE_ENV === 'production';
-  
-  // 添加全局电话号码变量
-  Vue.prototype.$phoneNumber = process.env.PHONE_NUMBER || '176****2308';
-  
-  // 注册一个全局组件用于环境区分显示
-  Vue.component('EnvContent', {
-    props: {
-      prod: {
-        type: Boolean,
-        default: false
-      },
-      dev: {
-        type: Boolean,
-        default: false
-      }
-    },
-    render(h) {
-      const isProd = process.env.NODE_ENV === 'production';
-      
-      // 仅生产环境 且 设置了prod属性
-      if (isProd && this.prod) return h('div', this.$slots.default);
-      
-      // 仅开发环境 且 设置了dev属性
-      if (!isProd && this.dev) return h('div', this.$slots.default);
-      
-      // 如果没有指定环境，或者环境不匹配，则不渲染任何内容
-      return null;
-    }
-  });
-  
-  // 注册一个手机号显示组件
-  Vue.component('PhoneNumber', {
-    props: {
-      number: {
-        type: String,
-        default: ''
-      }
-    },
-    computed: {
-      displayNumber() {
-        const isProd = process.env.NODE_ENV === 'production';
-        // 使用props中的number或全局环境变量中的电话号码
-        const phoneNumber = this.number || Vue.prototype.$phoneNumber;
-        
-        if (isProd) {
-          return phoneNumber.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
-        }
-        return phoneNumber;
-      }
-    },
-    render(h) {
-      return h('span', this.displayNumber);
-    }
-  });
+  Vue.prototype.$isDevelopment = process.env.NODE_ENV !== 'production';
+  Vue.prototype.$phoneNumber = process.env.PHONE_NUMBER || '17600102308';
   
   // 确保所有代码都在客户端环境中执行
   if (typeof window !== 'undefined') {

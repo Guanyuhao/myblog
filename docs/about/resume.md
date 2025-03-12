@@ -6,6 +6,8 @@
 </EnvContent>
 
 <div class="resume-container">
+
+<!-- 开发环境信息 -->
 <EnvContent dev>
 <div class="basic-info-section">
   <div class="info-column">
@@ -35,7 +37,9 @@
   </div>
 </div>
 </EnvContent>
-<ProductionInfo/>
+
+<!-- 生产环境信息 -->
+<ProductionInfo />
 
 ## 自我介绍
 <p class="intro-text">我是一名<strong class="highlight">全栈前端工程师</strong>，拥有<strong class="highlight">7年Web开发</strong>和<strong class="highlight">1年实际鸿蒙应用开发</strong>经验。擅长Vue、React、TypeScript等前端技术，并在2024年拓展至鸿蒙生态应用开发，掌握ArkTS和HarmonyOS应用构建。</p>
@@ -315,18 +319,20 @@
 </div>
 
 ## 教育背景
+
 <EnvContent dev>
 <div class="education-section">
   <div class="education-item">
     <h3>软件工程</h3>
-      <div class="education-details">
-        <span class="education-institution">山西农业大学信息学院</span>
-        <span class="education-date">2013 - 2017</span>
-      </div>
+    <div class="education-details">
+      <span class="education-institution">山西农业大学信息学院</span>
+      <span class="education-date">2013 - 2017</span>
+    </div>
   </div>
 </div>
 </EnvContent>
-<ProductionInfo/>
+
+<ProductionInfo />
 
 
 ## 自我提升与其他

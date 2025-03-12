@@ -1,5 +1,13 @@
+// 导入webpack
+const webpack = require('webpack')
 // 加载环境变量
 require('dotenv').config()
+
+// 确保环境变量在浏览器端可用
+const envVariables = {
+  PHONE_NUMBER: JSON.stringify(process.env.PHONE_NUMBER || '110****995')
+}
+
 
 const Vssue = (() => {
   return {
@@ -118,4 +126,12 @@ module.exports = {
   },
   scss: {},
   evergreen: true,
+  // 添加webpack配置，使环境变量在浏览器端可用
+  configureWebpack: {
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': envVariables
+      })
+    ]
+  },
 }
