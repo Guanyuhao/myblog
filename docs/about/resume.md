@@ -340,12 +340,15 @@
 - 熟悉PDCA等工作方法，注重开发效率和项目质量
 - 参与技术社区讨论，分享开发经验
 
+<EnvContent dev>
 <div class="resume-actions">
   <button class="resume-action-btn" onclick="if(typeof window !== 'undefined') window.print()">打印简历</button>
   <button class="resume-action-btn" onclick="if(typeof window !== 'undefined' && typeof window.downloadResume==='function'){window.downloadResume()}else if(typeof window !== 'undefined'){alert('PDF功能尚未加载，请刷新页面后重试')};return false;" id="pdf-download-btn">
     下载PDF版
   </button>
 </div>
+</EnvContent>
+
 
 </div>
 
@@ -450,6 +453,44 @@ if (typeof window !== 'undefined') {
     page-break-inside: avoid;
   }
 }
+
+/* 定义主题变量 */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --title-color: #2c3e50;
+  --primary-color: #3eaf7c;
+  --primary-light: #e8f5e9;
+  --secondary-color: #6a8bad;
+  --border-color: #eaecef;
+  --card-bg: #f3f4f6;
+  --tag-bg: #f3f4f6;
+  --tag-color: #4b5563;
+  --highlight-tag-bg: #e8f5e9;
+  --highlight-tag-color: #3eaf7c;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --hover-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* 暗色模式变量 */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --title-color: #ffffff;
+    --primary-color: #4ecca3;
+    --primary-light: #1e3e31;
+    --secondary-color: #82a5d9;
+    --border-color: #2a2a2a;
+    --card-bg: #1e1e1e;
+    --tag-bg: #2a2a2a;
+    --tag-color: #c0c0c0;
+    --highlight-tag-bg: #1e3e31;
+    --highlight-tag-color: #4ecca3;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --hover-shadow: rgba(0, 0, 0, 0.5);
+  }
+} */
 /* 个人简介样式 */
 .intro-text {
   line-height: 1.6;
