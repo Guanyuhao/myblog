@@ -28,6 +28,13 @@
   </div>
   
   <div class="guide-category">
+    <div class="category-icon">🧠</div>
+    <h3>前端 AI</h3>
+    <p>LangChain、Prompt工程、代码分析与AI驱动的前端开发工具与实践</p>
+    <a href="./frontend-ai/" class="category-link">浏览指南</a>
+  </div>
+  
+  <div class="guide-category">
     <div class="category-icon">🔧</div>
     <h3>工程化实践</h3>
     <p>前端工程化最佳实践，包括构建工具、CI/CD和自动化测试</p>
@@ -54,6 +61,7 @@
     <p>微信小程序开发技巧和多端统一开发方案</p>
     <a href="./miniprogram/" class="category-link">浏览指南</a>
   </div>
+  
 </div>
 
 ## 精选指南
@@ -63,6 +71,12 @@
     <span class="guide-tag">Vue.js</span>
     <h4><a href="./frameworks/vue-composition-api.html">Vue Composition API实战指南</a></h4>
     <p>深入探索Vue 3 Composition API的使用方法，通过实际案例演示如何组织可复用的逻辑</p>
+  </div>
+  
+  <div class="guide-item">
+    <span class="guide-tag">前端AI</span>
+    <h4><a href="./frontend-ai/code-generation.html">AI驱动的代码生成与优化实践</a></h4>
+    <p>探索如何利用AI模型进行代码生成、补全和优化，提升前端开发效率</p>
   </div>
   
   <div class="guide-item">
