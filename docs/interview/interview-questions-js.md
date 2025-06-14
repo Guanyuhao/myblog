@@ -8,7 +8,7 @@ next: /interview/interview-questions-algorithm
 # JavaScript 面试题集
 
 ::: tip 提示
-本文档收集JavaScript面试题，难度从初级到高级，涵盖闭包、作用域、事件循环、异步编程、数组和对象操作等核心概念。
+本文档收集了10道JavaScript面试题，难度从初级到高级，涵盖闭包、作用域、事件循环、异步编程、数组和对象操作等核心概念。
 :::
 
 <div class="navigation-links">

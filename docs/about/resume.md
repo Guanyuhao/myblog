@@ -30,7 +30,7 @@
   <div class="info-column">
     <h2>求职意向</h2>
     <ul class="info-list">
-      <li><span class="info-label">岗位：</span>前端开发｜鸿蒙开发</li>
+      <li><span class="info-label">岗位：</span>前端开发</li>
       <li><span class="info-label">状态：</span>离职找工作</li>
       <li><span class="info-label">到岗：</span>一个月内到岗</li>
     </ul>
@@ -42,10 +42,9 @@
 <ProductionInfo />
 
 ## 自我介绍
-<p class="intro-text">我是一名<strong class="highlight">全栈前端工程师</strong>，拥有<strong class="highlight">7年Web开发</strong>和<strong class="highlight">1年实际鸿蒙应用开发</strong>经验。擅长Vue、React、TypeScript等前端技术，并在2024年拓展至鸿蒙生态应用开发，掌握ArkTS和HarmonyOS应用构建。</p>
-<p class="intro-text">我的技术栈横跨<strong class="highlight">前端、鸿蒙生态和IoT设备集成</strong>，曾主导建材水暖行业全平台解决方案，实现Web管理平台与鸿蒙终端应用的无缝集成，在字节跳动等知名公司积累了丰富的企业级项目经验。</p>
-<p class="intro-text">注重开发效率与项目质量，善于团队协作，熟悉PDCA等工作方法，欢迎访问我的<a href="https://guanyuhao.github.io/" class="intro-link">技术博客</a>，了解我的技术文章和项目案例。</p>
+<p class="intro-text">我是一名<strong class="highlight">前端工程师</strong>可轻量全栈，拥有<strong class="highlight">7年Web开发</strong>经验。擅长Vue、React、TypeScript等前端技术，在字节跳动等知名公司积累了丰富的企业级项目经验。</p>
 
+<p class="intro-text">注重开发效率与项目质量，善于团队协作，熟悉PDCA等工作方法，欢迎访问我的<a href="https://guanyuhao.github.io/" class="intro-link">技术博客</a>，了解我的技术文章和项目案例。</p>
 
 <EnvContent prod>
   ## 联系方式
@@ -70,8 +69,6 @@
       <li><span class="skill-tag">Vue.js</span></li>
       <li><span class="skill-tag">React</span></li>
       <li><span class="skill-tag">TypeScript</span></li>
-      <li><span class="skill-tag primary-skill">ArkTS</span></li>
-      <li><span class="skill-tag primary-skill">HarmonyOS</span></li>
       <li><span class="skill-tag">JavaScript</span></li>
       <li><span class="skill-tag">HTML5</span></li>
       <li><span class="skill-tag">CSS3</span></li>
@@ -117,20 +114,6 @@
 ## 工作经历
 
 <div class="experience-section">
-  <div class="experience-item">
-    <div class="experience-header">
-      <h3>水暖智云（创业项目）</h3>
-      <span class="experience-title">前端 & 鸿蒙开发</span>
-      <span class="experience-date">2024.03 - 2025.03</span>
-    </div>
-    <ul class="experience-details">
-      <li>主导建材水暖行业全平台解决方案，同时开发Web管理平台和鸿蒙终端应用</li>
-      <li>设计前端与鸿蒙端统一的数据模型和API接口规范，实现数据无缝流转</li>
-      <li>基于Vue.js开发Web管理后台，同时使用ArkTS开发鸿蒙用户端应用</li>
-      <li>构建统一的设备协议层，打通Web平台与鸿蒙设备间的实时通信</li>
-      <li>实现IoT设备的跨平台监控和远程控制功能，为客户提供全方位解决方案</li>
-    </ul>
-  </div>
   <div class="experience-item">
     <div class="experience-header">
       <h3>比特大陆</h3>
@@ -187,32 +170,6 @@
 ## 项目经验
 
 <div class="project-section">
-  <div class="project-item">
-    <div class="project-header">
-      <h3>智慧水暖 - 全平台解决方案</h3>
-      <span class="project-date">2024.03 - 2025.03</span>
-    </div>
-    <div class="project-tech">
-      <span class="tech-tag">Vue.js</span>
-      <span class="tech-tag">Node.js</span>
-      <span class="tech-tag">HarmonyOS</span>
-      <span class="tech-tag">ArkTS</span>
-      <span class="tech-tag">IoT</span>
-      <span class="tech-tag">WebSocket</span>
-    </div>
-    <div class="project-description">
-      <h4>职责与成就:</h4>
-      <ul>
-        <li>搭建建材水暖行业全平台数字化解决方案，涵盖Web管理系统和鸿蒙终端应用</li>
-        <li>设计前后端统一的微服务架构，实现业务逻辑在Web和鸿蒙端的复用</li>
-        <li>开发基于Vue.js的管理后台，提供数据分析、远程控制和系统配置功能</li>
-        <li>使用ArkTS开发鸿蒙应用，实现设备控制、数据采集和本地管理功能</li>
-        <li>构建实时通信层，确保Web平台与鸿蒙设备间的低延迟数据交互</li>
-        <li>设计并实现边缘计算策略，优化物联网设备的数据处理效率</li>
-      </ul>
-    </div>
-  </div>
-
   <div class="project-item">
     <div class="project-header">
       <h3>AntAlpha - B2B数字资产技术平台</h3>
