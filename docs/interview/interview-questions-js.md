@@ -1,10 +1,3 @@
----
-title: JavaScript 面试题集
-sidebar: auto
-prev: /interview
-next: /interview/interview-questions-algorithm
----
-
 # JavaScript 面试题集
 
 ::: tip 提示

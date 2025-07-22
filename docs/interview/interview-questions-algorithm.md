@@ -1,10 +1,3 @@
----
-title: 前端算法题 - LeetCode 风格
-sidebar: auto
-prev: /interview
-next: /interview/interview-questions-css
----
-
 # 前端算法题 - LeetCode 风格
 
 ::: tip 提示
