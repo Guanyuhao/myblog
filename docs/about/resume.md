@@ -15,7 +15,7 @@
     <ul class="info-list">
       <li><span class="info-label">年龄：</span>30岁</li>
       <li><span class="info-label">学历：</span>本科</li>
-      <li><span class="info-label">经验：</span>7年</li>
+      <li><span class="info-label">经验：</span>8年</li>
       <li>
         <span class="info-label">电话：</span>
         <PhoneNumber />
@@ -30,7 +30,7 @@
   <div class="info-column">
     <h2>求职意向</h2>
     <ul class="info-list">
-      <li><span class="info-label">岗位：</span>前端开发</li>
+      <li><span class="info-label">岗位：</span>前端开发/技术管理</li>
       <li><span class="info-label">状态：</span>离职找工作</li>
       <li><span class="info-label">到岗：</span>一个月内到岗</li>
     </ul>
@@ -116,6 +116,17 @@
 <div class="experience-section">
   <div class="experience-item">
     <div class="experience-header">
+      <h3>The web3 WaveAuton DAO</h3>
+      <span class="experience-title">技术合伙人</span>
+      <span class="experience-date">2024.05 - 2025.09</span>
+    </div>
+    <ul class="experience-details">
+      <li>作为WaveAuton DAO的核心技术合伙人，领导了去波澜自治基础设施的建设，如技术人员的于技术的选型。</li>
+      <li>带领团队落地Pos节点跟staking pool项目为组织带来盈利点</li>
+    </ul>
+  </div>
+  <div class="experience-item">
+    <div class="experience-header">
       <h3>比特大陆</h3>
       <span class="experience-title">前端开发</span>
       <span class="experience-date">2023.09 - 2024.03</span>
@@ -170,6 +181,23 @@
 ## 项目经验
 
 <div class="project-section">
+  <div class="project-item">
+    <div class="project-header">
+      <h3>WaveStake Pos Pool</h3>
+      <span class="project-date">2024.05 - 2025.09</span>
+    </div>
+    <div class="project-tech">
+      <span class="tech-tag">开发</span>
+      <span class="tech-tag">管理</span>
+    </div>
+    <div class="project-description">
+      <h4>职责与成就:</h4>
+      <ul>
+        <li>负责WaveStake矿池项目的全栈管理，项目模拟Lido模式，支持用户质押CFX并获得奖励</li>
+        <li>领导跨职能团队（产品+技术），从概念验证到上线落地，并成功为组织创收</li>
+      </ul>
+    </div>
+  </div>
   <div class="project-item">
     <div class="project-header">
       <h3>AntAlpha - B2B数字资产技术平台</h3>
