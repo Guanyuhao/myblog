@@ -2,7 +2,7 @@ export default ({ Vue, router }) => {
   // 添加全局环境变量
   Vue.prototype.$isProduction = process.env.NODE_ENV === 'production';
   Vue.prototype.$isDevelopment = process.env.NODE_ENV !== 'production';
-  Vue.prototype.$phoneNumber = process.env.PHONE_NUMBER || '17600102308';
+  Vue.prototype.$phoneNumber = process.env.PHONE_NUMBER || '****';
   
   // 确保所有代码都在客户端环境中执行
   if (typeof window !== 'undefined') {

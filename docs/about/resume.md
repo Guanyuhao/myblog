@@ -1,14 +1,14 @@
-<EnvContent dev>
-<h1>关聪-个人简历</h1>
-</EnvContent>
-<EnvContent prod>
-<h1>个人简历</h1>
-</EnvContent>
 
-<div class="resume-container">
+<div class="resume-container mt1">
+  <!-- 开发环境信息 -->
+  <EnvContent dev>
+    <h1>关聪-个人简历</h1>
+    </EnvContent>
+    <EnvContent prod>
+    <h1>个人简历</h1>
+    </EnvContent>
+  <EnvContent dev>
 
-<!-- 开发环境信息 -->
-<EnvContent dev>
 <div class="basic-info-section">
   <div class="info-column">
     <h2>基本信息</h2>
@@ -42,9 +42,10 @@
 <ProductionInfo />
 
 ## 自我介绍
-<p class="intro-text">我是一名<strong class="highlight">前端工程师</strong>可轻量全栈，拥有<strong class="highlight">7年Web开发</strong>经验。擅长Vue、React、TypeScript等前端技术，在字节跳动等知名公司积累了丰富的企业级项目经验。</p>
+<p class="intro-text">我是一名<strong class="highlight">前端工程师</strong>可轻量全栈，拥有<strong class="highlight">7年Web开发</strong>经验。擅长Vue、React、TypeScript等前端技术，在字节跳动等知名公司积累了丰富的企业级项目经验。1年多<strong class="highlight">技术合伙人</strong>的创业经验，从零开始组建团队到项目落地，且创造了盈利点。</p>
 
-<p class="intro-text">注重开发效率与项目质量，善于团队协作，熟悉PDCA等工作方法，欢迎访问我的<a href="https://guanyuhao.github.io/" class="intro-link">技术博客</a>，了解我的技术文章和项目案例。</p>
+
+<p class="intro-text">注重开发效率与项目质量，善于团队协作，如：用循环改进的质量管理工具，“计划”（Plan）、“执行”（Do）、“检查”（Check）和“行动”（Act）四个阶段<a href="https://guanyuhao.github.io/" class="intro-link" target="_blank">技术博客</a>，了解我的技术文章和项目案例。</p>
 
 <EnvContent prod>
   ## 联系方式
@@ -121,7 +122,8 @@
       <span class="experience-date">2024.05 - 2025.09</span>
     </div>
     <ul class="experience-details">
-      <li>作为WaveAuton DAO的核心技术合伙人，领导了去波澜自治基础设施的建设，如技术人员的于技术的选型。</li>
+      <li>作为WaveAuton DAO的核心技术合伙人，从零开始搭建</li>
+      <li>领导了去波澜自治基础设施的建设，如技术人员的于技术的选型</li>
       <li>带领团队落地Pos节点跟staking pool项目为组织带来盈利点</li>
     </ul>
   </div>
@@ -193,8 +195,9 @@
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>负责WaveStake矿池项目的全栈管理，项目模拟Lido模式，支持用户质押CFX并获得奖励</li>
-        <li>领导跨职能团队（产品+技术），从概念验证到上线落地，并成功为组织创收</li>
+        <li>负责WaveStake矿池项目的全栈管理</li>
+        <li>项目模拟Lido模式，支持用户质押Token并获得主网分配奖励</li>
+        <li>领导跨职能团队（产品+技术），从概念验证到上线落地， 为组织创收</li>
       </ul>
     </div>
   </div>
@@ -364,6 +367,9 @@ if (typeof window !== 'undefined') {
   background-color: var(--bg-color);
   transition: color 0.3s, background-color 0.3s;
 }
+.mt1{
+  margin-top: 1rem !important;
+}
 
 /* 基本信息和求职意向样式 */
 .basic-info-section {
@@ -481,6 +487,7 @@ if (typeof window !== 'undefined') {
   line-height: 1.6;
   margin-bottom: 1rem;
   font-size: 1.05rem;
+  text-align: justify;
 }
 
 .highlight {

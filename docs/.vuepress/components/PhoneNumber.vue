@@ -8,7 +8,7 @@ export default {
   data() {
     return {
       // 默认值，以防环境变量不可用
-      defaultPhoneNumber: '17600102308'
+      defaultPhoneNumber: '****'
     }
   },
   computed: {
