@@ -30,7 +30,7 @@
   <div class="info-column">
     <h2>求职意向</h2>
     <ul class="info-list">
-      <li><span class="info-label">岗位：</span>前端开发/技术管理</li>
+      <li><span class="info-label">岗位：</span>全栈开发/技术管理/技术合伙人</li>
       <li><span class="info-label">状态：</span>离职找工作</li>
       <li><span class="info-label">到岗：</span>一个月内到岗</li>
     </ul>
@@ -42,10 +42,10 @@
 <ProductionInfo />
 
 ## 自我介绍
-<p class="intro-text">我是一名<strong class="highlight">前端工程师</strong>可轻量全栈，拥有<strong class="highlight">7年Web开发</strong>经验。擅长Vue、React、TypeScript等前端技术，在字节跳动等知名公司积累了丰富的企业级项目经验。1年多<strong class="highlight">技术合伙人</strong>的创业经验，从零开始组建团队到项目落地，且创造了盈利点。</p>
+<p class="intro-text">我是一名<strong class="highlight">全栈工程师</strong>，拥有<strong class="highlight">8年Web开发</strong>经验，具备<strong class="highlight">一人公司</strong>的完整技术能力。从<strong class="highlight">前端工程师</strong>转型为<strong class="highlight">全栈开发者</strong>，在字节跳动等知名公司积累了丰富的企业级项目经验。1年多<strong class="highlight">技术合伙人</strong>的创业经验，独立完成Web3社交App的全端开发（Flutter移动端、Java后端、Web前端、DevOps运维），从零开始组建团队到项目落地，且创造了盈利点。</p>
 
 
-<p class="intro-text">注重开发效率与项目质量，善于团队协作，如：用循环改进的质量管理工具，“计划”（Plan）、“执行”（Do）、“检查”（Check）和“行动”（Act）四个阶段<a href="https://guanyuhao.github.io/" class="intro-link" target="_blank">技术博客</a>，了解我的技术文章和项目案例。</p>
+<p class="intro-text">技术栈覆盖前端（Vue/React/TypeScript）、移动端（Flutter）、后端（Java/Node.js）、区块链（Web3/智能合约）、DevOps（Docker/CI/CD/服务器运维）等全链路技术能力。注重开发效率与项目质量，善于团队协作，如：用循环改进的质量管理工具，“计划”（Plan）、“执行”（Do）、“检查”（Check）和“行动”（Act）四个阶段<a href="https://guanyuhao.github.io/" class="intro-link" target="_blank">技术博客</a>，了解我的技术文章和项目案例。</p>
 
 <EnvContent prod>
   ## 联系方式
@@ -80,6 +80,38 @@
   </div>
 
   <div class="skill-category">
+    <h3>移动端</h3>
+    <ul class="skill-list">
+      <li><span class="skill-tag">Flutter</span></li>
+      <li><span class="skill-tag">Dart</span></li>
+      <li><span class="skill-tag">微信小程序</span></li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <h3>后端</h3>
+    <ul class="skill-list">
+      <li><span class="skill-tag">Java</span></li>
+      <li><span class="skill-tag">Spring Boot</span></li>
+      <li><span class="skill-tag">Node.js</span></li>
+      <li><span class="skill-tag">Express</span></li>
+      <li><span class="skill-tag">RESTful API</span></li>
+      <li><span class="skill-tag">WebSocket</span></li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <h3>DevOps & 运维</h3>
+    <ul class="skill-list">
+      <li><span class="skill-tag">Docker</span></li>
+      <li><span class="skill-tag">CI/CD</span></li>
+      <li><span class="skill-tag">Linux</span></li>
+      <li><span class="skill-tag">Nginx</span></li>
+      <li><span class="skill-tag">服务器运维</span></li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
     <h3>工程化与协作</h3>
     <ul class="skill-list">
       <li><span class="skill-tag">Git</span></li>
@@ -94,20 +126,14 @@
   </div>
 
   <div class="skill-category">
-    <h3>后端与平台</h3>
-    <ul class="skill-list">
-      <li><span class="skill-tag">Node.js</span></li>
-      <li><span class="skill-tag">Express</span></li>
-      <li><span class="skill-tag">WebSocket</span></li>
-      <li><span class="skill-tag">Docker</span></li>
-    </ul>
-  </div>
-
-  <div class="skill-category">
     <h3>区块链与Web3</h3>
     <ul class="skill-list">
       <li><span class="skill-tag">Web3.js</span></li>
+      <li><span class="skill-tag">Ethers.js</span></li>
       <li><span class="skill-tag">智能合约交互</span></li>
+      <li><span class="skill-tag">DeFi协议</span></li>
+      <li><span class="skill-tag">Staking Pool</span></li>
+      <li><span class="skill-tag">Pos节点</span></li>
     </ul>
   </div>
 </div>
@@ -118,13 +144,17 @@
   <div class="experience-item">
     <div class="experience-header">
       <h3>The web3 WaveAuton DAO</h3>
-      <span class="experience-title">技术合伙人</span>
-      <span class="experience-date">2024.05 - 2025.09</span>
+      <span class="experience-title">技术合伙人 / 全栈工程师</span>
+      <span class="experience-date">2024.05 - 至今</span>
     </div>
     <ul class="experience-details">
-      <li>作为WaveAuton DAO的核心技术合伙人，从零开始搭建</li>
-      <li>领导了去波澜自治基础设施的建设，如技术人员的于技术的选型</li>
-      <li>带领团队落地Pos节点跟staking pool项目为组织带来盈利点</li>
+      <li>作为技术合伙人，从前端工程师转型为全栈开发者，独立完成Web3社交App的全端开发，具备一人公司的完整技术能力</li>
+      <li>负责移动端开发：使用Flutter开发iOS/Android应用，实现Web3钱包集成、社交功能、实时消息推送等核心功能</li>
+      <li>负责后端开发：使用Java/Spring Boot构建RESTful API服务，设计数据库架构，实现用户系统、内容管理、区块链交互等业务逻辑</li>
+      <li>负责Web前端：使用React/Vue开发管理后台和Web端应用，实现数据可视化、用户管理、内容审核等功能</li>
+      <li>负责DevOps运维：搭建CI/CD流程，配置Docker容器化部署，管理服务器运维，实现监控告警和日志系统</li>
+      <li>领导去中心化自治基础设施的建设，负责技术选型和架构设计，确保系统的可扩展性和安全性</li>
+      <li>带领团队落地Pos节点和Staking Pool项目，为组织创造盈利点，实现从0到1的商业化落地</li>
     </ul>
   </div>
   <div class="experience-item">
@@ -185,19 +215,49 @@
 <div class="project-section">
   <div class="project-item">
     <div class="project-header">
-      <h3>WaveStake Pos Pool</h3>
-      <span class="project-date">2024.05 - 2025.09</span>
+      <h3>WaveAuton Web3社交App</h3>
+      <span class="project-date">2024.05 - 至今</span>
     </div>
     <div class="project-tech">
-      <span class="tech-tag">开发</span>
-      <span class="tech-tag">管理</span>
+      <span class="tech-tag">Flutter</span>
+      <span class="tech-tag">Java</span>
+      <span class="tech-tag">Spring Boot</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Web3.js</span>
+      <span class="tech-tag">Docker</span>
+      <span class="tech-tag">CI/CD</span>
     </div>
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>负责WaveStake矿池项目的全栈管理</li>
-        <li>项目模拟Lido模式，支持用户质押Token并获得主网分配奖励</li>
-        <li>领导跨职能团队（产品+技术），从概念验证到上线落地， 为组织创收</li>
+        <li>独立完成Web3社交App的全端开发，从前端到后端、移动端到Web端、开发到运维的全链路技术实现</li>
+        <li>移动端：使用Flutter开发跨平台应用，集成Web3钱包（MetaMask、WalletConnect），实现社交功能、内容发布、NFT展示等核心功能</li>
+        <li>后端：使用Java/Spring Boot构建API服务，设计RESTful接口，实现用户认证、内容管理、区块链交互、实时消息推送等功能</li>
+        <li>Web端：使用React开发管理后台，实现数据统计、用户管理、内容审核、系统配置等功能</li>
+        <li>DevOps：搭建Docker容器化部署流程，配置CI/CD自动化部署，实现服务器监控、日志收集、性能优化</li>
+        <li>区块链集成：集成Web3.js/Ethers.js，实现智能合约交互、代币转账、NFT交易等区块链功能</li>
+      </ul>
+    </div>
+  </div>
+  <div class="project-item">
+    <div class="project-header">
+      <h3>WaveStake Pos Pool</h3>
+      <span class="project-date">2024.05 - 2025.09</span>
+    </div>
+    <div class="project-tech">
+      <span class="tech-tag">全栈开发</span>
+      <span class="tech-tag">智能合约</span>
+      <span class="tech-tag">DeFi</span>
+      <span class="tech-tag">项目管理</span>
+    </div>
+    <div class="project-description">
+      <h4>职责与成就:</h4>
+      <ul>
+        <li>负责WaveStake矿池项目的全栈开发和管理，项目模拟Lido模式，支持用户质押Token并获得主网分配奖励</li>
+        <li>前端开发：使用React/TypeScript开发质押界面，实现用户交互、数据展示、交易确认等功能</li>
+        <li>后端开发：使用Java/Spring Boot构建API服务，实现质押逻辑、奖励计算、数据统计等功能</li>
+        <li>智能合约：设计并实现Staking Pool智能合约，确保资金安全和奖励分配的公平性</li>
+        <li>领导跨职能团队（产品+技术），从概念验证到上线落地，为组织创造盈利点，实现商业化落地</li>
       </ul>
     </div>
   </div>
