@@ -1,3 +1,6 @@
+# 部署到 GitHub Pages（目标仓库 guanyuhao/guanyuhao.github.io）
+# 需在仓库 Settings → Secrets → Actions 中配置 DEPLOY_TOKEN：
+# 使用 Personal Access Token (classic)，勾选 repo 权限，或使用 Fine-grained PAT 并授予目标仓库 contents 写权限
 name: 部署博客
 
 on:
@@ -10,55 +13,63 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           fetch-depth: 0 # 获取完整历史以避免Git错误
-      
+
+      - name: 检查部署 Token
+        run: |
+          if [ -z "${{ secrets.DEPLOY_TOKEN }}" ]; then
+            echo "::error::DEPLOY_TOKEN 未设置。请在仓库 Settings → Secrets and variables → Actions 中添加 DEPLOY_TOKEN（需有 repo 权限的 Personal Access Token）"
+            exit 1
+          fi
+          echo "DEPLOY_TOKEN 已配置"
+
       - name: 设置Node.js环境
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 21.7.0
-      
+          node-version: "22"
+
       - name: 安装pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
-      
+
       - name: 获取pnpm缓存路径
         id: pnpm-cache
         shell: bash
         run: |
           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
-      
+
       - name: 设置pnpm缓存
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-      
+
       - name: 安装依赖
         run: |
           pnpm install
           echo "依赖安装完成"
-      
+
       - name: 构建站点
         run: |
           pnpm run docs:build
           echo "构建完成，准备部署"
           echo "构建目录内容:"
           ls -la docs/.vuepress/dist
-      
+
       - name: 准备部署
         run: |
           # 在构建目录创建.nojekyll文件
           touch docs/.vuepress/dist/.nojekyll
           # 如果有自定义域名，可以取消下面的注释
           # echo 'your-domain.com' > docs/.vuepress/dist/CNAME
-      
+
       - name: 部署到GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
