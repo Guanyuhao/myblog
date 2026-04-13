@@ -2,10 +2,10 @@
 <div class="resume-container mt1">
   <!-- 开发环境信息 -->
   <EnvContent dev>
-    <h1>关聪-个人简历</h1>
+    <h1>关聪-AI全栈开发 / 技术负责人简历</h1>
     </EnvContent>
     <EnvContent prod>
-    <h1>个人简历</h1>
+    <h1>AI全栈开发 / 技术负责人简历</h1>
     </EnvContent>
   <EnvContent dev>
 
@@ -13,7 +13,6 @@
   <div class="info-column">
     <h2>基本信息</h2>
     <ul class="info-list">
-      <li><span class="info-label">年龄：</span>30岁</li>
       <li><span class="info-label">学历：</span>本科</li>
       <li><span class="info-label">经验：</span>8年</li>
       <li>
@@ -30,7 +29,7 @@
   <div class="info-column">
     <h2>求职意向</h2>
     <ul class="info-list">
-      <li><span class="info-label">岗位：</span>全栈开发/技术管理/技术合伙人</li>
+      <li><span class="info-label">岗位：</span>AI全栈开发 / 技术负责人</li>
       <li><span class="info-label">状态：</span>离职找工作</li>
       <li><span class="info-label">到岗：</span>一个月内到岗</li>
     </ul>
@@ -41,11 +40,12 @@
 <!-- 生产环境信息 -->
 <ProductionInfo />
 
-## 自我介绍
-<p class="intro-text">我是一名<strong class="highlight">全栈工程师</strong>，拥有<strong class="highlight">8年Web开发</strong>经验，具备<strong class="highlight">一人公司</strong>的完整技术能力。从<strong class="highlight">前端工程师</strong>转型为<strong class="highlight">全栈开发者</strong>，在字节跳动等知名公司积累了丰富的企业级项目经验。1年多<strong class="highlight">技术合伙人</strong>的创业经验，独立完成Web3社交App的全端开发（Flutter移动端、Java后端、Web前端、DevOps运维），从零开始组建团队到项目落地，且创造了盈利点。</p>
+## 个人简介
+<p class="intro-text">8年全栈开发经验，前端技术深厚；曾在<strong>字节跳动飞书</strong>主导 HCM 系统三大核心模块建设，熟练驾驭企业级复杂表单、权限体系与微前端架构，具备大型系统从设计到交付的完整工程能力。</p>
 
+<p class="intro-text">近2年以<strong>技术合伙人</strong>身份深度参与 Web3 创业，独立完成 Flutter 双端客户端、React 管理后台、Java/Spring Boot 服务端与 Docker 运维全链路交付——一人承担传统需要3~4人团队的工作量，是工程效率的直接体现。</p>
 
-<p class="intro-text">技术栈覆盖前端（Vue/React/TypeScript）、移动端（Flutter）、后端（Java/Node.js）、区块链（Web3/智能合约）、DevOps（Docker/CI/CD/服务器运维）等全链路技术能力。注重开发效率与项目质量，善于团队协作，如：用循环改进的质量管理工具，“计划”（Plan）、“执行”（Do）、“检查”（Check）和“行动”（Act）四个阶段<a href="https://guanyuhao.github.io/" class="intro-link" target="_blank">技术博客</a>，了解我的技术文章和项目案例。</p>
+<p class="intro-text">AI 工具深度使用者：将 <strong>Cursor / Claude / ChatGPT</strong> 系统化融入需求理解、代码生成、架构评审与调试全流程，有效压缩开发周期、降低信息损耗，在多端快速交付与复杂业务落地上建立了真实的效率优势。技术博客：<a href="https://guanyuhao.github.io/" class="intro-link" target="_blank">guanyuhao.github.io</a></p>
 
 <EnvContent prod>
   ## 联系方式
@@ -61,79 +61,80 @@
 </div>
 </EnvContent>
 
-## 技术技能
+## 专业技能
 
 <div class="skills-container">
   <div class="skill-category">
     <h3>前端</h3>
     <ul class="skill-list">
-      <li><span class="skill-tag">Vue.js</span></li>
-      <li><span class="skill-tag">React</span></li>
-      <li><span class="skill-tag">TypeScript</span></li>
-      <li><span class="skill-tag">JavaScript</span></li>
-      <li><span class="skill-tag">HTML5</span></li>
-      <li><span class="skill-tag">CSS3</span></li>
+      <li><span class="skill-tag primary-skill">React</span></li>
+      <li><span class="skill-tag primary-skill">Vue.js</span></li>
+      <li><span class="skill-tag primary-skill">TypeScript</span></li>
+      <li><span class="skill-tag primary-skill">Next.js</span></li>
+      <li><span class="skill-tag primary-skill">微前端架构</span></li>
+      <li><span class="skill-tag primary-skill">复杂表单与权限系统</span></li>
       <li><span class="skill-tag">Tailwind CSS</span></li>
       <li><span class="skill-tag">Ant Design</span></li>
       <li><span class="skill-tag">Element UI</span></li>
+      <li><span class="skill-tag">组件库设计</span></li>
+      <li><span class="skill-tag">性能优化</span></li>
     </ul>
   </div>
 
   <div class="skill-category">
-    <h3>移动端</h3>
+    <h3>AI 工程效率（核心优势）</h3>
     <ul class="skill-list">
-      <li><span class="skill-tag">Flutter</span></li>
-      <li><span class="skill-tag">Dart</span></li>
+      <li><span class="skill-tag primary-skill">Cursor</span></li>
+      <li><span class="skill-tag primary-skill">Claude</span></li>
+      <li><span class="skill-tag primary-skill">ChatGPT</span></li>
+      <li><span class="skill-tag primary-skill">GitHub Copilot</span></li>
+      <li><span class="skill-tag">Prompt Engineering</span></li>
+      <li><span class="skill-tag">AI 辅助架构设计</span></li>
+      <li><span class="skill-tag">AI 驱动多端快速交付</span></li>
+      <li><span class="skill-tag">AI Code Review</span></li>
+    </ul>
+  </div>
+
+  <div class="skill-category">
+    <h3>移动端 & 跨端</h3>
+    <ul class="skill-list">
+      <li><span class="skill-tag primary-skill">Flutter / Dart</span></li>
       <li><span class="skill-tag">微信小程序</span></li>
+      <li><span class="skill-tag">iOS / Android 发布</span></li>
     </ul>
   </div>
 
   <div class="skill-category">
-    <h3>后端</h3>
+    <h3>后端 & 服务端</h3>
     <ul class="skill-list">
-      <li><span class="skill-tag">Java</span></li>
-      <li><span class="skill-tag">Spring Boot</span></li>
-      <li><span class="skill-tag">Node.js</span></li>
-      <li><span class="skill-tag">Express</span></li>
-      <li><span class="skill-tag">RESTful API</span></li>
+      <li><span class="skill-tag">Java / Spring Boot</span></li>
+      <li><span class="skill-tag">Node.js / Express</span></li>
+      <li><span class="skill-tag">RESTful API 设计</span></li>
       <li><span class="skill-tag">WebSocket</span></li>
+      <li><span class="skill-tag">MySQL</span></li>
     </ul>
   </div>
 
   <div class="skill-category">
-    <h3>DevOps & 运维</h3>
+    <h3>DevOps & 工程化</h3>
     <ul class="skill-list">
       <li><span class="skill-tag">Docker</span></li>
-      <li><span class="skill-tag">CI/CD</span></li>
-      <li><span class="skill-tag">Linux</span></li>
+      <li><span class="skill-tag">CI/CD（Jenkins / GitHub Actions）</span></li>
       <li><span class="skill-tag">Nginx</span></li>
-      <li><span class="skill-tag">服务器运维</span></li>
+      <li><span class="skill-tag">Linux 运维</span></li>
+      <li><span class="skill-tag">ESLint / Prettier</span></li>
+      <li><span class="skill-tag">Jest 单测</span></li>
     </ul>
   </div>
 
   <div class="skill-category">
-    <h3>工程化与协作</h3>
+    <h3>Web3 & 区块链</h3>
     <ul class="skill-list">
-      <li><span class="skill-tag">Git</span></li>
-      <li><span class="skill-tag">GitHub</span></li>
-      <li><span class="skill-tag">GitLab</span></li>
-      <li><span class="skill-tag">Jenkins</span></li>
-      <li><span class="skill-tag">GitHub Actions</span></li>
-      <li><span class="skill-tag">ESLint</span></li>
-      <li><span class="skill-tag">Prettier</span></li>
-      <li><span class="skill-tag">Jest</span></li>
-    </ul>
-  </div>
-
-  <div class="skill-category">
-    <h3>区块链与Web3</h3>
-    <ul class="skill-list">
-      <li><span class="skill-tag">Web3.js</span></li>
-      <li><span class="skill-tag">Ethers.js</span></li>
+      <li><span class="skill-tag">Web3.js / Ethers.js</span></li>
       <li><span class="skill-tag">智能合约交互</span></li>
-      <li><span class="skill-tag">DeFi协议</span></li>
-      <li><span class="skill-tag">Staking Pool</span></li>
-      <li><span class="skill-tag">Pos节点</span></li>
+      <li><span class="skill-tag">MetaMask / WalletConnect</span></li>
+      <li><span class="skill-tag">DeFi / Staking Pool</span></li>
+      <li><span class="skill-tag">PoS 节点运维</span></li>
     </ul>
   </div>
 </div>
@@ -143,30 +144,26 @@
 <div class="experience-section">
   <div class="experience-item">
     <div class="experience-header">
-      <h3>The web3 WaveAuton DAO</h3>
-      <span class="experience-title">技术合伙人 / 全栈工程师</span>
+      <h3>WaveAuton DAO（Web3 创业团队）</h3>
+      <span class="experience-title">技术合伙人 / 全栈负责人</span>
       <span class="experience-date">2024.05 - 至今</span>
     </div>
     <ul class="experience-details">
-      <li>作为技术合伙人，从前端工程师转型为全栈开发者，独立完成Web3社交App的全端开发，具备一人公司的完整技术能力</li>
-      <li>负责移动端开发：使用Flutter开发iOS/Android应用，实现Web3钱包集成、社交功能、实时消息推送等核心功能</li>
-      <li>负责后端开发：使用Java/Spring Boot构建RESTful API服务，设计数据库架构，实现用户系统、内容管理、区块链交互等业务逻辑</li>
-      <li>负责Web前端：使用React/Vue开发管理后台和Web端应用，实现数据可视化、用户管理、内容审核等功能</li>
-      <li>负责DevOps运维：搭建CI/CD流程，配置Docker容器化部署，管理服务器运维，实现监控告警和日志系统</li>
-      <li>领导去中心化自治基础设施的建设，负责技术选型和架构设计，确保系统的可扩展性和安全性</li>
-      <li>带领团队落地Pos节点和Staking Pool项目，为组织创造盈利点，实现从0到1的商业化落地</li>
+      <li>以技术合伙人身份<strong>独立承担全技术栈交付</strong>，覆盖 Flutter iOS/Android 客户端、React 管理后台、Java/Spring Boot 服务端与 Docker 运维部署，<strong>一人完成传统需5人团队的四端产品建设</strong>，期间系统化引入 AI 编程工具（Cursor/Claude）大幅压缩开发周期。</li>
+      <li>从前端架构出发统筹用户体系、内容发布、实时消息（WebSocket）、链上钱包（MetaMask/WalletConnect）与后台审核闭环，独立完成需求分析、技术选型、开发实施与上线运维全链路。</li>
+      <li>主导 <strong>WaveStake PoS 质押池</strong>项目落地，负责前端、服务端与合约协同设计，覆盖质押、奖励计算、数据统计三大核心流程，完成商业化验证并建立持续收益场景。</li>
     </ul>
   </div>
   <div class="experience-item">
     <div class="experience-header">
-      <h3>比特大陆</h3>
+      <h3>比特大陆（AntAlpha 事业部）</h3>
       <span class="experience-title">前端开发</span>
-      <span class="experience-date">2023.09 - 2024.03</span>
+      <span class="experience-date">2023.09 - 2024.03（项目收缩后转型 Web3 创业）</span>
     </div>
     <ul class="experience-details">
-      <li>负责资产增值平台的开发与迭代，完善系统架构</li>
-      <li>参与技术选型和架构决策，推动团队采用最佳实践</li>
-      <li>实现高性能、可扩展的前端解决方案</li>
+      <li>参与比特大陆旗下 <strong>AntAlpha B2B 数字资产技术平台</strong>前端核心开发，基于 Next.js + TypeScript + Tailwind CSS 完成多角色权限体系、服务商后台与响应式页面建设。</li>
+      <li>主导公共组件库与 Design Token 规范落地，统一团队开发标准，显著提升页面开发效率与版本一致性。</li>
+      <li>参与技术方案评审，推动前端架构优化，在数字资产平台高合规与高稳定性要求下保障版本按期交付。</li>
     </ul>
   </div>
 
@@ -177,9 +174,9 @@
       <span class="experience-date">2021.06 - 2023.06</span>
     </div>
     <ul class="experience-details">
-      <li>参与飞书人事模块的开发，按时交付高质量业务模块</li>
-      <li>提升开发效率，优化代码结构和组件复用</li>
-      <li>与设计师和后端工程师紧密协作，确保产品质量</li>
+      <li>负责飞书人事 HCM 系统<strong>组织管理、人员档案、电子签名</strong> 3 个核心模块的长期开发与迭代，产品服务国内外数十万家企业客户，模块逻辑复杂度高，涉及多级权限、自定义工作流与跨业务数据联动。</li>
+      <li>在 <strong>React + TypeScript + 微前端</strong>架构下主导模块拆分与公共组件沉淀，将核心交互组件封装为团队复用资产，降低跨模块协作成本，支撑10人以上团队并行迭代。</li>
+      <li>独立设计并实现复杂动态表单引擎，支持字段级权限控制、多级审批流配置与条件联动，满足企业客户深度定制需求，成为 HCM 平台核心竞争力之一。</li>
     </ul>
   </div>
 
@@ -190,9 +187,9 @@
       <span class="experience-date">2019.02 - 2021.03</span>
     </div>
     <ul class="experience-details">
-      <li>负责智能搜索平台的前端开发</li>
-      <li>按期交付项目并成功赢得客户签单</li>
-      <li>优化用户体验和界面设计，提高产品转化率</li>
+      <li>主导 <strong>AI 智能搜索平台与图像标注平台</strong>前端建设，解决大数据量图片列表渲染、Svg 标注交互、多类型标注工具（矩形框 / 多边形 / 关键点）等复杂场景，支撑 ToB 项目按期验收并直接推动客户签约。</li>
+      <li>围绕标注业务设计任务分配、进度跟踪与质检审核前端流程，将标注工作台的操作效率提升，显著降低数据生产成本。</li>
+      <li>独立搭建 <strong>Git + Jenkins 前端自动化部署流水线</strong>，消除手动部署环节，团队发布效率大幅提升，并建立灰度发布机制降低上线风险。</li>
     </ul>
   </div>
 
@@ -203,9 +200,9 @@
       <span class="experience-date">2017.02 - 2019.02</span>
     </div>
     <ul class="experience-details">
-      <li>负责区块链相关产品（如交易所和钱包）的前端开发</li>
-      <li>参与需求设计和技术方案制定</li>
-      <li>解决区块链应用中的前端技术挑战</li>
+      <li>参与<strong>交易所与钱包产品</strong>前端核心开发，覆盖实时行情展示（WebSocket）、下单交易、资产管理等高频场景，积累 Web3 早期产品工程化落地经验。</li>
+      <li>解决链上数据实时同步、跨域通信与大数据量行情图渲染等前端技术难题，保障交易流程的稳定性与数据准确性。</li>
+      <li>支撑多版本快速迭代，建立起对区块链产品特有的安全意识与交互规范理解，为后续 Web3 全栈开发奠定基础。</li>
     </ul>
   </div>
 </div>
@@ -215,77 +212,71 @@
 <div class="project-section">
   <div class="project-item">
     <div class="project-header">
-      <h3>WaveAuton Web3社交App</h3>
+      <h3>WaveAuton Web3 社交 App</h3>
       <span class="project-date">2024.05 - 至今</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">Flutter</span>
-      <span class="tech-tag">Java</span>
-      <span class="tech-tag">Spring Boot</span>
+      <span class="tech-tag">Java / Spring Boot</span>
       <span class="tech-tag">React</span>
       <span class="tech-tag">Web3.js</span>
       <span class="tech-tag">Docker</span>
       <span class="tech-tag">CI/CD</span>
+      <span class="tech-tag">Cursor / Claude</span>
     </div>
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>独立完成Web3社交App的全端开发，从前端到后端、移动端到Web端、开发到运维的全链路技术实现</li>
-        <li>移动端：使用Flutter开发跨平台应用，集成Web3钱包（MetaMask、WalletConnect），实现社交功能、内容发布、NFT展示等核心功能</li>
-        <li>后端：使用Java/Spring Boot构建API服务，设计RESTful接口，实现用户认证、内容管理、区块链交互、实时消息推送等功能</li>
-        <li>Web端：使用React开发管理后台，实现数据统计、用户管理、内容审核、系统配置等功能</li>
-        <li>DevOps：搭建Docker容器化部署流程，配置CI/CD自动化部署，实现服务器监控、日志收集、性能优化</li>
-        <li>区块链集成：集成Web3.js/Ethers.js，实现智能合约交互、代币转账、NFT交易等区块链功能</li>
+        <li><strong>一人独立完成四端全栈交付</strong>：Flutter iOS/Android 客户端、React 管理后台、Java/Spring Boot API 服务、Docker 容器化部署，全程借助 Cursor + Claude 辅助开发，大幅压缩原本需要多人团队的开发周期。</li>
+        <li>集成 MetaMask / WalletConnect 钱包体系，实现内容发布、实时消息（WebSocket）、NFT 展示与后台内容审核全流程，打通链上交互与社交产品完整闭环。</li>
+        <li>搭建 CI/CD 自动化部署流水线，实现代码提交后分钟级上线，支撑快速迭代节奏。</li>
       </ul>
     </div>
   </div>
   <div class="project-item">
     <div class="project-header">
-      <h3>WaveStake Pos Pool</h3>
+      <h3>WaveStake PoS 质押池</h3>
       <span class="project-date">2024.05 - 2025.09</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">全栈开发</span>
-      <span class="tech-tag">智能合约</span>
+      <span class="tech-tag">智能合约交互</span>
+      <span class="tech-tag">Ethers.js</span>
       <span class="tech-tag">DeFi</span>
-      <span class="tech-tag">项目管理</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Node.js</span>
     </div>
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>负责WaveStake矿池项目的全栈开发和管理，项目模拟Lido模式，支持用户质押Token并获得主网分配奖励</li>
-        <li>前端开发：使用React/TypeScript开发质押界面，实现用户交互、数据展示、交易确认等功能</li>
-        <li>后端开发：使用Java/Spring Boot构建API服务，实现质押逻辑、奖励计算、数据统计等功能</li>
-        <li>智能合约：设计并实现Staking Pool智能合约，确保资金安全和奖励分配的公平性</li>
-        <li>领导跨职能团队（产品+技术），从概念验证到上线落地，为组织创造盈利点，实现商业化落地</li>
+        <li>主导类 Lido 架构的 PoS 质押池从<strong>0到1完整落地</strong>，独立负责前端 DApp、后端奖励结算服务与合约协同调用，覆盖质押、解质押、收益计算、数据看板三大核心流程。</li>
+        <li>项目上线后成为团队主要商业化收益来源，通过节点运营与质押手续费建立可持续盈利场景。</li>
       </ul>
     </div>
   </div>
   <div class="project-item">
     <div class="project-header">
-      <h3>AntAlpha - B2B数字资产技术平台</h3>
-      <span class="project-date">2023.9 - 2024.03</span>
+      <h3>AntAlpha — B2B 数字资产技术平台</h3>
+      <span class="project-date">2023.09 - 2024.03</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">Next.js</span>
       <span class="tech-tag">TypeScript</span>
-      <span class="tech-tag">TailwindCSS</span>
+      <span class="tech-tag">Tailwind CSS</span>
     </div>
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>参与B2B数字资产技术平台的开发</li>
-        <li>完成Web端和服务商平台的开发与迭代</li>
-        <li>实现响应式设计，确保多设备兼容性</li>
-        <li>优化前端性能，提高用户体验</li>
+        <li>参与比特大陆旗下 AntAlpha B2B 数字资产平台 Web 端核心开发，基于 Next.js + TypeScript + Tailwind CSS 完成多角色权限页面、服务商后台与响应式适配，支撑桌面 / 平板多端访问。</li>
+        <li>主导公共组件库与 Design Token 规范建设，统一 UI 标准，消除重复开发，提升团队整体迭代效率。</li>
       </ul>
     </div>
   </div>
 
   <div class="project-item">
     <div class="project-header">
-      <h3>飞书人事 - HCM系统</h3>
-      <span class="project-date">2021.6 - 2023.6</span>
+      <h3>飞书人事 — HCM 系统</h3>
+      <span class="project-date">2021.06 - 2023.06</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">React</span>
@@ -295,72 +286,29 @@
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>参与开发HCM系统的组织、人员、电子签模块</li>
-        <li>采用微前端架构，提升团队开发效率</li>
-        <li>实现复杂表单和数据可视化功能</li>
-        <li>减少维护成本，提高代码质量</li>
+        <li>负责<strong>组织管理、人员档案、电子签名</strong>三大核心模块长期开发，服务数十万企业客户，深度应对企业级复杂表单、字段级权限控制与跨模块数据联动等高难度场景。</li>
+        <li>在微前端架构下主导模块拆分与公共组件沉淀，支撑 10+ 人团队并行开发，显著降低跨团队协作摩擦与维护复杂度。</li>
+        <li>独立设计动态表单引擎，支持多级审批流与条件联动配置，成为飞书 HCM 平台面向大客户的核心差异化能力。</li>
       </ul>
     </div>
   </div>
 
   <div class="project-item">
     <div class="project-header">
-      <h3>途途朗读 - 小程序应用</h3>
-      <span class="project-date">2020.9 - 2021.3</span>
-    </div>
-    <div class="project-tech">
-      <span class="tech-tag">微信小程序</span>
-      <span class="tech-tag">原生小程序开发</span>
-    </div>
-    <div class="project-description">
-      <h4>职责与成就:</h4>
-      <ul>
-        <li>负责三端小程序的开发和版本迭代</li>
-        <li>优化性能和用户体验，提升用户增长</li>
-        <li>实现复杂的音频处理和用户互动功能</li>
-        <li>解决跨平台兼容性问题</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project-header">
-      <h3>AI智能标注平台</h3>
-      <span class="project-date">2019.2 - 2020.6</span>
+      <h3>AI 智能标注平台</h3>
+      <span class="project-date">2019.02 - 2020.06</span>
     </div>
     <div class="project-tech">
       <span class="tech-tag">Vue.js</span>
-      <span class="tech-tag">Git</span>
+      <span class="tech-tag">Svg</span>
       <span class="tech-tag">Jenkins</span>
+      <span class="tech-tag">Git</span>
     </div>
     <div class="project-description">
       <h4>职责与成就:</h4>
       <ul>
-        <li>负责平台架构设计，图片标注模块开发</li>
-        <li>搭建前端自动化部署流程</li>
-        <li>实现高效的图像处理和标注功能</li>
-        <li>优化大数据量下的前端性能</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-item">
-    <div class="project-header">
-      <h3>币福交易所 - 区块链应用</h3>
-      <span class="project-date">2018.5 - 2019.2</span>
-    </div>
-    <div class="project-tech">
-      <span class="tech-tag">Vue.js</span>
-      <span class="tech-tag">Node.js</span>
-      <span class="tech-tag">Web3.js</span>
-    </div>
-    <div class="project-description">
-      <h4>职责与成就:</h4>
-      <ul>
-        <li>负责交易所前端开发</li>
-        <li>解决跨域问题并对接区块链</li>
-        <li>实现实时交易数据展示和用户操作</li>
-        <li>确保交易安全和数据准确性</li>
+        <li>主导图像标注核心工作台建设，基于 Svg 实现矩形框、多边形、关键点等多类型标注工具，解决大批量图片列表高性能渲染与复杂标注交互问题，直接支撑 ToB 项目验收与客户签约。</li>
+        <li>搭建 <strong>Git + Jenkins 前端自动化发布流水线</strong>，消除手动部署环节，建立灰度发布机制，大幅提升交付稳定性与发布效率。</li>
       </ul>
     </div>
   </div>
@@ -382,11 +330,6 @@
 
 <ProductionInfo />
 
-
-## 自我提升与其他
-- 持续学习新技术，关注前端发展趋势
-- 熟悉PDCA等工作方法，注重开发效率和项目质量
-- 参与技术社区讨论，分享开发经验
 
 <EnvContent dev>
 <div class="resume-actions">
