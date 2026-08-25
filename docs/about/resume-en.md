@@ -1,7 +1,7 @@
 # Cong Guan — Vibe Coding Engineer / Technical Co-founder
 
 > Vibe Coding Engineer · AI-Native Full-Stack Engineer · Technical Co-founder
-> Email: gunyuhao_666@163.com · GitHub: [github.com/guanyuhao](https://github.com/guanyuhao) · Blog: [guanyuhao.github.io](https://guanyuhao.github.io/)
+> Email: guanyuhao_666@163.com · GitHub: [github.com/guanyuhao](https://github.com/guanyuhao) · Blog: [guanyuhao.github.io](https://guanyuhao.github.io/)
 > Bachelor in Software Engineering · 8 years of experience · Available within 1 month
 
 ---

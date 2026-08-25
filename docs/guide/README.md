@@ -113,7 +113,7 @@
 对任何指南有问题或建议？欢迎在文章评论区留言，或通过以下方式联系我：
 
 - GitHub Issues: [提交问题](https://github.com/guanyuhao/myblog/issues)
-- Email: [联系我](mailto:gunyuhao_666@163.com)
+- Email: [联系我](mailto:guanyuhao_666@163.com)
 
 ## 其他
 
