@@ -4,94 +4,100 @@ title: Resume
 
 <ResumeSheet lang="en" />
 
-## Career target
+## Professional summary
 
-A hybrid technical owner (复合型人才): someone who can judge a requirement, pick a solution, hold the cost, and ship the business loop.
+Tech Lead at a startup, responsible for technical decisions and end-to-end delivery on the SocialFi and HealthFi business lines. Hands-on from client and server through blockchain, able to judge requirements, design architecture, control cost, launch systems, and keep them running around commercial goals.
 
-**Near term — startup TechLead.** This is the role I hold now. I own SocialFI and HealthFI from scope through a production loop that includes client, server and chain.
+Previously at ByteDance Feishu HCM and Bitmain AntAlpha, with experience building complex business systems in large enterprises and delivering the full path in a startup setting.
 
-**Mid-size and large companies — full-stack technical owner of a business line.** Accountable for solution choice, delivery pace, cost and business outcome on one line, and still the person who breaks through the hard technical problems.
+Technical focus covers trade settlement, fund reconciliation, smart-contract integration, cross-platform architecture, weak-network communication, and BLE smart-hardware access. Technical plans are matched to the business stage. Output is measured by delivery quality, runtime stability, and whether the commercial loop closes.
 
-The measure is whether the loop is real: the right requirements, a stack that fits the stage, and delivery aligned with the market goal. Lines of code are not the measure.
+## Core capabilities
 
----
+- **Business and architecture decisions:** judging requirement value, drawing technical boundaries, selecting an approach, setting engineering priority, and controlling cost and delivery risk.
+- **Full-stack delivery:** Flutter, Web, Desktop, Java, Go, Node.js, and integration of smart contracts and a DEX.
+- **Trading and fund systems:** transaction aggregation, fee settlement, membership revenue distribution, business idempotency, multi-layer reconciliation, exception handling, and audit trails.
+- **Tackling complex scenarios:** WebSocket recovery on weak networks, cross-platform data consistency, multi-model BLE device adaptation, and health-data validation.
+- **Engineering and production:** CI/CD, containerized deployment, unified configuration, release rollback, production debugging, and AI-assisted development.
 
-## Core value
+## Experience
 
-- **Judge the requirement.** Decide which slice has to be correct for the business to clear — a trade, a balance, a health reward — and set client, server and chain scope from that. Social graph, settlement and health incentives do not share one quality bar, so the schedule follows that difference.
-- **Pick the solution and the cost.** Flutter, desktop or web on the client; Java, Go or Node on the server; smart contracts and a DEX on-chain. The choice follows the scenario and the team we can afford. Over the last two years, Cursor and Claude sped up cross-platform implementation, test drafts and docs. Judgment, acceptance and the production result stayed with me. That is the shift from individual frontend work to technical ownership of delivery.
-- **Ship the whole commercial loop.** SocialFI runs from social interaction through membership, trading and settlement. HealthFI runs from device purchase through health-data reporting and point rewards. Both have to go live, operate and reconcile.
-- **Own the outcome and the hard problems.** User scale, fund safety and the next iteration. Idempotent accounting, multi-layer reconciliation, fee-change control, connection fallback and multi-model BLE sync are problems I close myself.
+### Startup｜Tech Lead
 
----
+2024.05 – Present
 
-## Current role and results
+Responsible for the SocialFi and HealthFi business lines, from requirement assessment and technical architecture through cross-platform development, deployment, launch, and stability. Coordinate integration and continuous delivery across multiple repositories and languages.
 
-### Startup — TechLead
-*2024.05 – Present*
+#### Representative results
 
-I own the SocialFI and HealthFI commercial loops end to end: scope, technical approach, production chain, release and production stability. The chain is Flutter, desktop and web on the client; Java, Go and Node on the server; smart contracts and a DEX on-chain.
+- The SocialFi product has nearly 40,000 cumulative users, 7,600+ MAU, and about 2,000 DAU.
+- Shipped social, membership, on-chain trading, fee settlement, and revenue distribution into a commercial loop. These capabilities became one of the team's main sources of revenue.
+- The transaction-aggregation module is live and serves more than 100 users. Transaction checks, dynamic fee governance, and exception auditing are in place. No known fund loss to date.
+- Completed the HealthFi path for smartwatch purchase, device binding, health-data reporting, and point distribution, with support for multi-model BLE devices.
+- Responsible for cross-platform release, CI/CD, Docker, Nginx, production debugging, and configuration rollback, supporting continuous iteration of both lines.
 
-### SocialFI
+#### Project 1｜SocialFi social and on-chain trading platform
 
-- One operating loop: social IM, membership, transaction aggregation, fee settlement, revenue distribution, smart contracts and a DEX. The social product is 8+ repositories (Java services, data sync, Vue admin, Flutter client, Next.js and the release pipeline). The wider chain also includes a desktop client and Go / Node services. I set interface boundaries and integration order. The product has reached about 40,000 cumulative users, 7,600+ MAU and about 2,000 DAU.
-- The client or SDK quotes and passes parameters. The service collects, authorizes, calls out, checks balance deltas, computes fees, distributes and emits events. Fee changes take effect after 24 hours and can be cancelled. Duplicate requests, price deviation and emergency audit events sit in the same design. One module has 35 tests and no regression. It has served 100+ users with no fund loss to date. After launch, the revenue-settlement and rights platform became one of the team's main commercial revenue sources.
-- The server is the source of truth. Trade events rebuild revenue facts; a settlement service claims work by task id and reports back. Revenue facts, settlement entries, pending balances, payout results and transaction credentials are checked layer by layer, and failures go to manual handling. Membership income follows referral ties and tier. Configuration and assets ship through MinIO, so Flutter, Java and web read one copy, with a rollback path.
-- The Flutter iOS and Android app covers social, IM, account and campaigns. Purchase sits in an embedded H5 flow. WSS with heartbeat reconnect and HTTP fallback, plus retry and decimal formatting on confirm, keeps weak-network state aligned with the number on screen. The admin console covers users, moderation, revenue facts and payouts; fund actions require a second confirmation and an audit trail.
+**Stack:** Flutter, Vue, Next.js, Java, Go, Node.js, MySQL, WebSocket, smart contracts, DEX.
 
-### HealthFI
+1. **Business architecture:** Combined social IM, membership rights, transaction aggregation, fee settlement, and revenue distribution into one business path. Responsible for module boundaries, interface protocols, and integration order. Coordinated dependencies and delivery across 8+ repositories.
+2. **Transaction aggregation:** Client / SDK quote-parameter handling, service-layer transaction checks and fee governance, execution-result tracking, and event output. Fee changes take effect after a 24-hour delay and can be revoked.
+3. **Funds and settlement:** Built business revenue records from on-chain trade events, and managed revenue distribution by task_id. Multi-layer checks across revenue facts, revenue entries, pending balances, payout results, and transaction credentials. Exceptions go to manual handling.
+4. **Reliability:** Handled concurrent and duplicate requests, price deviation, fund-operation audit, and weak-network trade confirmation. The trading module was verified with 35 tests.
+5. **Client and operations:** Delivered Flutter iOS / Android social and account features. WSS heartbeat reconnect, HTTP fallback, and retryable confirmation improve availability on weak networks. Built an operations console for users, content, and funds. Fund operations require a second confirmation and leave an audit trail.
+6. **Engineering:** MinIO for unified release of multi-end configuration and assets, with version rollback, reducing the risk of inconsistent configuration across ends.
 
-- Closed the smartwatch path in Flutter's embedded H5: shipping address, payment, order, server confirmation and device-number assignment, with Tencent IM tagging.
-- BLE sync for F530Pro (Veepoo) and S191 (YCBT). Eight daily health metrics, including steps, calories and distance, pass a reporting gate before they can earn rewards, so bad samples do not become points.
-- Java decides eligibility; a Node service distributes points. Eligibility, payout and failure handling stay on the server and are run as a fund pipeline, with idempotency and a manual fallback.
+#### Project 2｜HealthFi smart-wearable and health-incentive platform
 
-### Release and stability
+**Stack:** Flutter, Java, Node.js, BLE, MySQL, H5, Tencent Cloud IM.
 
-- I run domain, servers, Nginx, Docker, CI/CD and production debugging. Cursor and Claude handle requirement breakdown, cross-platform drafts, test scaffolding and documentation, which is how both lines keep moving on a startup headcount. I still sign off on boundaries, acceptance and what happens in production.
+1. **Commercial path:** Completed the smartwatch purchase flow, covering shipping address, online payment, server-side order confirmation, device-number assignment, and user-device binding.
+2. **Hardware integration:** Adapted two smartwatch models, F530Pro (Veepoo) and S191 (YCBT), including BLE connection and health-data sync.
+3. **Data governance:** Aggregated 8 health metrics by day, including steps, calories, and distance. Reporting validation is isolated from incentive-eligibility decisions.
+4. **Incentive settlement:** The Java service decides eligibility. The Node.js service distributes points. Task idempotency and exception handling reduce the risk of duplicate payouts.
 
----
+### Bitmain｜Frontend Engineer
 
-## Technical depth
+AntAlpha｜2023.09 – 2024.03
 
-- **Loop and tradeoffs:** repository boundaries, one source of truth for funds, unified config release, rollback, an audit trail on risky actions.
-- **On-chain and funds:** smart contracts, DEX, transaction aggregation and fee settlement, membership and revenue model, idempotency, multi-layer reconciliation, delayed fee changes.
-- **Server:** Java / Spring Boot / MyBatis-Plus, Go, Node.js; REST / WebSocket; job scheduling; MySQL.
-- **Client:** Flutter / Dart (iOS, Android), desktop, web (Vue / Vben Admin, React, Next.js, TypeScript); WSS with fallback; multi-model BLE; WeChat Mini Program.
-- **Stability:** Docker, Jenkins / GitHub Actions, Nginx, Linux, MinIO, production debugging and rollback.
-- **Enterprise product work:** React micro-frontends, field-level permissions, dynamic forms and approval flows, component libraries and design tokens. This is the Feishu HCM and AntAlpha base I use when judging the cost of change on a business line.
+- Contributed to a B2B digital-asset technology platform. Built multi-role permissions, the service-provider console, and responsive web pages.
+- Delivered features with Next.js, TypeScript, and Tailwind CSS, and joined technical design reviews and version planning.
+- Built a shared component library and a design-token system, unifying page standards and improving reuse and maintainability.
 
----
+### ByteDance｜Frontend Engineer
 
-## Prior experience
+Feishu HCM｜2021.06 – 2023.06
 
-### Bitmain — Frontend Engineer
-*2023.09 – 2024.03 · AntAlpha, B2B digital-asset technology platform*
+- Owned enterprise core modules including organization management, employee profiles, and e-signature. Handled multi-level permissions, complex workflows, and cross-business data dependencies.
+- Split modules and built shared capabilities on React, TypeScript, and a micro-frontend architecture, supporting parallel work by a team of more than 10 engineers.
+- Independently designed a dynamic form engine with field-level permissions, multi-level approval, and conditional linkage. Configuration supports different customers' business needs.
+- Joined technical assessment and impact analysis for complex requirements, balancing customization, delivery cost, and long-term maintainability.
 
-- Built the web console for multi-role permissions, the service-provider back office and responsive layout on Next.js, TypeScript and Tailwind CSS, and shipped on schedule under compliance and stability constraints.
-- Put a shared component library and design tokens in place so later pages reused one standard, and joined technical reviews with maintainability on the version plan.
+### Yilan Qunzhi｜Frontend Engineer
 
-### ByteDance — Frontend Engineer
-*2021.06 – 2023.06 · Feishu (Lark) HCM*
+2019.02 – 2021.03
 
-- Owned Organization, Employee Profile and E-Signature over the long term. The product serves hundreds of thousands of companies in and outside China. Changes cut across permissions, custom workflows and cross-module data, so I sized the blast radius before scheduling the work.
-- Split modules and extracted shared components in a React, TypeScript and micro-frontend architecture, so 10+ engineers could ship in parallel with less waiting and less duplicated UI.
-- Designed a dynamic form engine with field-level permissions, multi-level approval and conditional logic. Large-customer customization stayed in configuration.
+- Built an AI search and image-annotation platform, including large-batch image rendering, SVG annotation, and rectangle, polygon, and keypoint interaction.
+- Built task assignment, progress tracking, and quality-review flows to support enterprise delivery and acceptance.
+- Set up Git + Jenkins automated release and canary rollout, reducing the risk of manual deploys.
 
-### Yilan Qunzhi — Frontend Engineer
-*2019.02 – 2021.03*
+### Lianzhijia｜Frontend Engineer
 
-- Led the frontend of an AI search product and an image-annotation workbench: large image lists, SVG interaction, and box, polygon and keypoint tools. That workbench is what let ToB projects pass acceptance and close contracts.
-- Turned task assignment, progress and quality review into one frontend flow, which lowered the cost of producing labeled data.
-- Built a Git and Jenkins pipeline with canary releases, removed manual deploys, and moved launch risk onto a path that could roll back.
+2017.02 – 2019.02
 
-### Lianzhijia — Frontend Engineer
-*2017.02 – 2019.02*
+- Contributed to financial quote and trading products, covering live quotes, order entry, and asset management.
+- Handled WebSocket live sync, trade-state recovery, cross-origin communication, and dense quote-chart rendering.
+- Built experience in trade-data precision, failure recovery, and real-time systems.
 
-- Built financial quote and trading screens: WebSocket quotes, order entry and asset views. Correctness on the trading path, and recovery when data failed, came first.
-- Handled live sync, cross-origin communication and dense quote charts. The same bar on numbers, state and failure later applied to asset display, transaction retry and decimal formatting.
+## Technical stack
 
----
+- **Server:** Java / Spring Boot / MyBatis-Plus, Go, Node.js, MySQL, REST, WebSocket, job scheduling.
+- **Client:** Flutter / Dart, iOS / Android, Desktop, React, Next.js, Vue, TypeScript, WeChat Mini Program.
+- **Blockchain and finance:** smart contracts, DEX, transaction aggregation, on-chain events, fee settlement, revenue distribution, fund reconciliation.
+- **Engineering and infrastructure:** Docker, Linux, Nginx, Jenkins, GitHub Actions, CI/CD, MinIO.
+- **Complex business work:** micro-frontends, dynamic forms, field-level permissions, approval flows, WSS weak-network recovery, BLE hardware access.
+- **Development tools:** Cursor and Claude, with human review for AI-assisted development and quality acceptance.
 
 ## Education
 
-**B.E. Software Engineering** — Shanxi Agricultural University, College of Information · 2013 – 2017
+Shanxi Agricultural University, College of Information｜Software Engineering｜2013 – 2017
