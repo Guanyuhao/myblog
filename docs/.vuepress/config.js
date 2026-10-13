@@ -20,8 +20,7 @@ const Vssue = (() => {
 const defaultPhoneNumber = '176****2308'
 
 module.exports = {
-  title: "哈哈的技术博客",
-  // title: "关聪-个人简历",
+  title: "Lucas Tech Blog",
   description: "但行好事，莫问前程",
   // 注入到当前页面的 HTML <head> 中的标签
   head: [

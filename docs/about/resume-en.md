@@ -1,134 +1,97 @@
-# Cong Guan — Vibe Coding Engineer / Technical Co-founder
+---
+title: Resume
+---
 
-> Vibe Coding Engineer · AI-Native Full-Stack Engineer · Technical Co-founder
-> Email: guanyuhao_666@163.com · GitHub: [github.com/guanyuhao](https://github.com/guanyuhao) · Blog: [guanyuhao.github.io](https://guanyuhao.github.io/)
-> Bachelor in Software Engineering · 8 years of experience · Available within 1 month
+<ResumeSheet lang="en" />
+
+## Career target
+
+A hybrid technical owner (复合型人才): someone who can judge a requirement, pick a solution, hold the cost, and ship the business loop.
+
+**Near term — startup TechLead.** This is the role I hold now. I own SocialFI and HealthFI from scope through a production loop that includes client, server and chain.
+
+**Mid-size and large companies — full-stack technical owner of a business line.** Accountable for solution choice, delivery pace, cost and business outcome on one line, and still the person who breaks through the hard technical problems.
+
+The measure is whether the loop is real: the right requirements, a stack that fits the stage, and delivery aligned with the market goal. Lines of code are not the measure.
 
 ---
 
-## Summary
+## Core value
 
-AI-native **Vibe Coding engineer / technical co-founder** with **8 years of full-stack experience**. I deeply integrate **Cursor, Claude and AI coding workflows** into requirement breakdown, architecture design, multi-platform code generation, testing, code review and documentation, turning AI into a real production system rather than a coding assistant.
-
-In the last **2 years**, as a **technical co-founder of a startup**, I led a **social IM product from 0 to 1 single-handedly** across **8+ repositories**: Java backend, data synchronization services, Flutter mobile app, Vue/React admin consoles, Next.js app and the full DevOps pipeline. The product reached **~40,000 cumulative users, 7,600+ MAU and ~2,000 DAU**.
-
-Earlier I built core HCM modules at **ByteDance / Feishu (Lark)**, with strong experience in enterprise-grade dynamic forms, permission systems and micro-frontend architecture. I combine large-scale engineering discipline with lean, AI-native startup execution.
-
----
-
-## Core Highlights
-
-- **Vibe Coding / AI-native engineering** — built a practical Cursor / Claude workflow covering requirement breakdown, architecture, multi-platform implementation, testing, review and documentation; capable of delivering at the speed and breadth of a small full-stack team alone.
-- **Technical co-founder / business owner mindset** — owned architecture, stability and product outcomes end to end, working with product and operations on priorities rather than only implementing tickets.
-- **End-to-end full-stack architecture** — independently delivered backend services, data synchronization, accounting/settlement systems, admin consoles, Flutter client and DevOps with strong attention to reliability and reconciliation.
-- **Rare hybrid background** — enterprise SaaS at ByteDance/Feishu + 0-to-1 startup delivery: both large-system engineering governance and lean AI-native execution.
-- **Cross-domain delivery** — closed the full loop of IoT hardware (multi-model BLE smartwatches) + health data + incentive systems.
+- **Judge the requirement.** Decide which slice has to be correct for the business to clear — a trade, a balance, a health reward — and set client, server and chain scope from that. Social graph, settlement and health incentives do not share one quality bar, so the schedule follows that difference.
+- **Pick the solution and the cost.** Flutter, desktop or web on the client; Java, Go or Node on the server; smart contracts and a DEX on-chain. The choice follows the scenario and the team we can afford. Over the last two years, Cursor and Claude sped up cross-platform implementation, test drafts and docs. Judgment, acceptance and the production result stayed with me. That is the shift from individual frontend work to technical ownership of delivery.
+- **Ship the whole commercial loop.** SocialFI runs from social interaction through membership, trading and settlement. HealthFI runs from device purchase through health-data reporting and point rewards. Both have to go live, operate and reconcile.
+- **Own the outcome and the hard problems.** User scale, fund safety and the next iteration. Idempotent accounting, multi-layer reconciliation, fee-change control, connection fallback and multi-model BLE sync are problems I close myself.
 
 ---
 
-## Skills
+## Current role and results
 
-**AI Engineering / Vibe Coding (core):** Cursor · Claude · GPT · AI-driven requirement breakdown · Architecture planning · Multi-platform code generation · Rules / context engineering · MCP · Prompt engineering · AI-assisted code review · Documentation / knowledge base
-
-**Backend & Accounting:** Java / Spring Boot · MyBatis-Plus · Node.js · Membership / settlement systems · RESTful API / WebSocket · Idempotency / reconciliation · Job scheduling · MySQL
-
-**Client & Mobile:** Flutter / Dart · Embedded H5 flows · WSS long-connection with reconnect/fallback · IM / social products · BLE hardware sync · iOS / Android release · WeChat Mini Program
-
-**Frontend & Admin:** React · Vue / Vben Admin · TypeScript · Next.js · Micro-frontends · Complex forms & permission systems · Dashboards / content-moderation flows · Tailwind CSS / Ant Design · Component libraries
-
-**DevOps:** Docker · CI/CD (Jenkins / GitHub Actions) · Nginx / domain / server · Linux · MinIO distribution system · Production troubleshooting · Release rollback
-
----
-
-## Experience
-
-### Social IM Platform (Startup) — Technical Co-founder / AI-Native Full-Stack Lead
+### Startup — TechLead
 *2024.05 – Present*
 
-- **[Architecture]** Led a social IM platform from 0 to 1; independently designed and maintained an **8+ repo multi-platform architecture** (Java backend / data synchronization services / Vue admin / Flutter client / Next.js app / DevOps), owning everything from backend to client and from domain/server to CI/CD — **supporting ~40k cumulative users, 7,600+ MAU and ~2,000 DAU**.
-- **[Core Transaction Services]** Designed high-safety transaction aggregation and settlement services covering collection, authorization, balance-diff checks, fee calculation, distribution and event output; implemented performance optimization, delayed-change governance, duplicate-request protection, abnormal-transaction protection and unit tests (35 cases for a single module).
-- **[Data Sync / Reconciliation]** Built event-driven synchronization services to reconstruct revenue facts with credential + whitelist verification; designed task_id-based settlement services and multi-layer reconciliation for idempotency and safety; built a **MinIO-based unified configuration/resource distribution system** consumed dynamically by Flutter/Java/frontend.
-- **[Backend]** Built membership and revenue-settlement systems on **Java / Spring Boot / MyBatis-Plus** (referral relationships, member tiers, revenue calculation, pending balances, settlement-task generation and callback reconciliation), plus user system, content/messaging, ops config and scheduled jobs.
-- **[Client]** Delivered an **iOS/Android Flutter app** (social, IM, account, campaigns) with embedded H5 purchase flows, **WSS long-connection + heartbeat reconnect + HTTP fallback**, transaction-confirm retries, and **multi-model BLE smartwatch (F530Pro/S191) health-data sync** with Tencent IM.
-- **[Vibe Coding / AI Workflow]** Systematized Cursor / Claude into requirement breakdown, multi-platform code generation, architecture review and documentation. Built reusable Rules / MCP / prompts / knowledge base, enabling one person to sustain **8+ repositories** of multi-platform delivery and iteration.
-- **[DevOps]** Owned domain/server/Nginx/Docker/CI-CD and production troubleshooting, ensuring stable releases and rollback paths across services.
+I own the SocialFI and HealthFI commercial loops end to end: scope, technical approach, production chain, release and production stability. The chain is Flutter, desktop and web on the client; Java, Go and Node on the server; smart contracts and a DEX on-chain.
 
-### Bitmain (AntAlpha Division) — Frontend Engineer
-*2023.09 – 2024.03*
+### SocialFI
 
-- Core frontend development of **AntAlpha, a B2B enterprise technology platform**, built on Next.js + TypeScript + Tailwind CSS with multi-role permissions, a service-provider console and responsive pages.
-- Led a shared component library and design-variable system, unifying standards and improving delivery efficiency and version consistency under strict compliance/stability requirements.
+- One operating loop: social IM, membership, transaction aggregation, fee settlement, revenue distribution, smart contracts and a DEX. The social product is 8+ repositories (Java services, data sync, Vue admin, Flutter client, Next.js and the release pipeline). The wider chain also includes a desktop client and Go / Node services. I set interface boundaries and integration order. The product has reached about 40,000 cumulative users, 7,600+ MAU and about 2,000 DAU.
+- The client or SDK quotes and passes parameters. The service collects, authorizes, calls out, checks balance deltas, computes fees, distributes and emits events. Fee changes take effect after 24 hours and can be cancelled. Duplicate requests, price deviation and emergency audit events sit in the same design. One module has 35 tests and no regression. It has served 100+ users with no fund loss to date. After launch, the revenue-settlement and rights platform became one of the team's main commercial revenue sources.
+- The server is the source of truth. Trade events rebuild revenue facts; a settlement service claims work by task id and reports back. Revenue facts, settlement entries, pending balances, payout results and transaction credentials are checked layer by layer, and failures go to manual handling. Membership income follows referral ties and tier. Configuration and assets ship through MinIO, so Flutter, Java and web read one copy, with a rollback path.
+- The Flutter iOS and Android app covers social, IM, account and campaigns. Purchase sits in an embedded H5 flow. WSS with heartbeat reconnect and HTTP fallback, plus retry and decimal formatting on confirm, keeps weak-network state aligned with the number on screen. The admin console covers users, moderation, revenue facts and payouts; fund actions require a second confirmation and an audit trail.
 
-### ByteDance (Feishu / Lark) — Frontend Engineer
-*2021.06 – 2023.06*
+### HealthFI
 
-- Owned long-term development of **3 core HCM modules (Org Management, Employee Profile, E-Signature)** serving hundreds of thousands of enterprise customers, with multi-level permissions, custom workflows and cross-domain data linkage.
-- Led module decomposition and shared-component extraction in a **React + TypeScript + micro-frontend** architecture, enabling 10+ engineers to iterate in parallel.
-- Independently designed a complex **dynamic form engine** with field-level permission control, multi-level approval flows and conditional logic — a core differentiator of the HCM platform.
+- Closed the smartwatch path in Flutter's embedded H5: shipping address, payment, order, server confirmation and device-number assignment, with Tencent IM tagging.
+- BLE sync for F530Pro (Veepoo) and S191 (YCBT). Eight daily health metrics, including steps, calories and distance, pass a reporting gate before they can earn rewards, so bad samples do not become points.
+- Java decides eligibility; a Node service distributes points. Eligibility, payout and failure handling stay on the server and are run as a fund pipeline, with idempotency and a manual fallback.
+
+### Release and stability
+
+- I run domain, servers, Nginx, Docker, CI/CD and production debugging. Cursor and Claude handle requirement breakdown, cross-platform drafts, test scaffolding and documentation, which is how both lines keep moving on a startup headcount. I still sign off on boundaries, acceptance and what happens in production.
+
+---
+
+## Technical depth
+
+- **Loop and tradeoffs:** repository boundaries, one source of truth for funds, unified config release, rollback, an audit trail on risky actions.
+- **On-chain and funds:** smart contracts, DEX, transaction aggregation and fee settlement, membership and revenue model, idempotency, multi-layer reconciliation, delayed fee changes.
+- **Server:** Java / Spring Boot / MyBatis-Plus, Go, Node.js; REST / WebSocket; job scheduling; MySQL.
+- **Client:** Flutter / Dart (iOS, Android), desktop, web (Vue / Vben Admin, React, Next.js, TypeScript); WSS with fallback; multi-model BLE; WeChat Mini Program.
+- **Stability:** Docker, Jenkins / GitHub Actions, Nginx, Linux, MinIO, production debugging and rollback.
+- **Enterprise product work:** React micro-frontends, field-level permissions, dynamic forms and approval flows, component libraries and design tokens. This is the Feishu HCM and AntAlpha base I use when judging the cost of change on a business line.
+
+---
+
+## Prior experience
+
+### Bitmain — Frontend Engineer
+*2023.09 – 2024.03 · AntAlpha, B2B digital-asset technology platform*
+
+- Built the web console for multi-role permissions, the service-provider back office and responsive layout on Next.js, TypeScript and Tailwind CSS, and shipped on schedule under compliance and stability constraints.
+- Put a shared component library and design tokens in place so later pages reused one standard, and joined technical reviews with maintainability on the version plan.
+
+### ByteDance — Frontend Engineer
+*2021.06 – 2023.06 · Feishu (Lark) HCM*
+
+- Owned Organization, Employee Profile and E-Signature over the long term. The product serves hundreds of thousands of companies in and outside China. Changes cut across permissions, custom workflows and cross-module data, so I sized the blast radius before scheduling the work.
+- Split modules and extracted shared components in a React, TypeScript and micro-frontend architecture, so 10+ engineers could ship in parallel with less waiting and less duplicated UI.
+- Designed a dynamic form engine with field-level permissions, multi-level approval and conditional logic. Large-customer customization stayed in configuration.
 
 ### Yilan Qunzhi — Frontend Engineer
 *2019.02 – 2021.03*
 
-- Led frontend for an **AI search platform and image-annotation platform**, solving large-list rendering, SVG annotation interactions and multi-type tools (boxes / polygons / keypoints), directly supporting ToB acceptance and client signings.
-- Built a **Git + Jenkins automated deployment pipeline** with canary releases, removing manual deployment and improving release reliability.
+- Led the frontend of an AI search product and an image-annotation workbench: large image lists, SVG interaction, and box, polygon and keypoint tools. That workbench is what let ToB projects pass acceptance and close contracts.
+- Turned task assignment, progress and quality review into one frontend flow, which lowered the cost of producing labeled data.
+- Built a Git and Jenkins pipeline with canary releases, removed manual deploys, and moved launch risk onto a path that could roll back.
 
 ### Lianzhijia — Frontend Engineer
 *2017.02 – 2019.02*
 
-- Core frontend for **financial-market and trading products**: real-time quotes (WebSocket), order trading and asset management.
-- Solved real-time data synchronization, cross-origin communication and high-volume chart rendering, building strong security awareness for high-frequency transaction products.
-
----
-
-## Projects
-
-### Transaction Aggregation & Settlement Service · 2024.05 – Present
-*Core backend module · Automated testing · Performance optimization · Security governance*
-
-- Independently designed a transaction aggregation service where the frontend/SDK handles quoting and parameters, while the service layer owns collection, authorization, balance-diff checks, fee calculation, distribution and event output. **Served 100+ users with zero fund loss to date.**
-- **Performance optimization:** packed fee configuration into a compact storage structure, cached external calls, extracted a unified settlement function and removed dead-code attack surface.
-- **Security governance:** 24h delayed application for fee changes (propose → wait → apply, cancellable), abnormal-transaction protection, compatibility for multiple caller types, emergency-audit events and overflow prevention.
-- **Testing & release:** 35 automated tests with zero regression; shipped red-packet, campaign distribution, points and membership-rights modules; built a MinIO-based unified configuration/resource distribution system with rollback-safe paths.
-
-### Social IM Platform (8+ Repos Full-Stack) · 2024.05 – Present
-*Flutter · Java/Spring Boot · Vue/Vben Admin · Event-driven data synchronization · WebSocket · Docker/CI-CD*
-
-- Single-handedly led the multi-platform product from 0 to 1, coordinating architecture, interface boundaries and integration order across core services, data synchronization, backend, admin, client and ops — **supporting ~40k cumulative users, 7,600+ MAU and ~2,000 DAU** in real operation.
-- Built the full app loop with WSS long-connection + reconnect/fallback, transaction-confirm retries and precision formatting for weak-network and high-frequency interaction scenarios.
-- Coordinated data synchronization with Java accounting and settlement services, secured by credential verification + whitelist checks + multi-layer reconciliation.
-
-### Membership Rights & Settlement System · 2024.09 – 2025.04
-*Java/Spring Boot · MyBatis-Plus · Data synchronization · Reconciliation · Vue/Vben Admin · Flutter*
-
-- Designed a multi-level membership-rights and settlement model driven by referral relationships and member tiers, maintaining revenue facts, settlement ledgers and pending balances with a single backend source of truth.
-- Revenue confirmation + settlement service: generated settlement tasks claimed by worker services via task_id + sub_seq with callbacks, failures routed to manual handling, fully idempotent.
-- Multi-layer reconciliation: revenue facts ↔ settlement records ↔ pending balance ↔ settlement result ↔ transaction credential, minimizing fund-loss and accounting-error risk.
-
-### Smartwatch Purchase + Health Data Incentive System (IoT) · 2025.01 – 2025.09
-*Flutter · BLE · Java/Spring Boot · Node settlement service · Tencent IM*
-
-- Closed the hardware-to-platform loop: Flutter embedded H5 purchase flow for smartwatches (shipping address → online payment → order creation → backend confirmation → watch number assignment) with Tencent IM tagging.
-- Multi-model BLE sync: F530Pro (Veepoo) / S191 (YCBT), aggregating 8 daily health metrics (steps, calories, distance) with reporting thresholds.
-- Health-data incentive: after Java eligibility checks, a Node settlement service distributes points rewards across client + backend + settlement service, strictly governed as a high-risk fund pipeline.
-
-### Revenue Settlement & Rights Management Platform · 2024.05 – 2025.09
-*Full-stack · React · Node.js · Revenue settlement · Dashboard*
-
-- Led the platform from 0 to 1, independently owning the frontend app, reward-settlement backend and dashboard, covering rights purchase, exit, revenue calculation and user asset display.
-- Became one of the team's main revenue sources, validating a sustainable profitability scenario.
-
-### AntAlpha — B2B Enterprise Technology Platform · 2023.09 – 2024.03
-*Next.js · TypeScript · Tailwind CSS*
-
-- Core web development with multi-role permission pages, service-provider console and responsive adaptation; led a shared component library and design-variable system to unify UI standards.
-
-### Feishu HR — HCM System · 2021.06 – 2023.06
-*React · TypeScript · Micro-frontends*
-
-- Owned Org Management, Employee Profile and E-Signature modules for hundreds of thousands of enterprises; led module decomposition for 10+ engineers; independently built a dynamic form engine with multi-level approval flows.
+- Built financial quote and trading screens: WebSocket quotes, order entry and asset views. Correctness on the trading path, and recovery when data failed, came first.
+- Handled live sync, cross-origin communication and dense quote charts. The same bar on numbers, state and failure later applied to asset display, transaction retry and decimal formatting.
 
 ---
 
 ## Education
 
-**Bachelor of Software Engineering** — Shanxi Agricultural University, College of Information · 2013 – 2017
+**B.E. Software Engineering** — Shanxi Agricultural University, College of Information · 2013 – 2017
