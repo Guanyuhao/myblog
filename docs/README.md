@@ -21,7 +21,7 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
 <div class="post-list">
   <PostItem 
     title="个人简历" 
-    description="我是一名前端开发工程师，喜欢研究技术，喜欢分享，喜欢学习，喜欢思考" 
+    description="创业公司 TechLead，负责 SocialFI 与 HealthFI 的端到端商业闭环，覆盖客户端、服务端与链上" 
     link="/about/resume.html" 
     date="2025-03-10" 
   />
@@ -37,15 +37,22 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
 
 <div class="project-list">
   <ProjectCard 
+    title="SocialFI / HealthFI" 
+    description="创业公司 TechLead，端到端负责社交金融与健康金融两条商业闭环，覆盖客户端、服务端与链上" 
+    tech="Flutter, Java, Go, Node.js, 智能合约" 
+    period="2024.05 - 至今" 
+    company="创业公司"
+  />
+  <ProjectCard 
     title="AntAlpha - 数字资产平台" 
-    description="基于Next.js和TypeScript构建的B2B数字资产技术平台，提供Web端和服务商平台服务" 
+    description="负责 B2B 数字资产平台的 Web 端权限、服务商后台，并落地组件库与设计变量" 
     tech="Next.js, TypeScript, TailwindCSS" 
-    period="2023.6 - 至今" 
+    period="2023.09 - 2024.03" 
     company="比特大陆"
   />
   <ProjectCard 
     title="飞书人事 - HCM系统" 
-    description="参与开发HCM系统的组织、人员、电子签模块，采用微前端架构提升开发效率" 
+    description="长期负责组织、人员、电子签三个核心模块，用微前端和动态表单支撑大客户定制" 
     tech="React, TypeScript, 微前端架构" 
     period="2021.6 - 2023.6" 
     company="字节跳动"
@@ -55,11 +62,14 @@ footer: MIT Licensed | Copyright © 2025-present Guanyuhao
 ## 技术栈
 
 <div class="tech-stack">
-  <span class="tech-item">JavaScript</span>
-  <span class="tech-item">Vue.js</span>
+  <span class="tech-item">Java</span>
+  <span class="tech-item">Go</span>
   <span class="tech-item">Node.js</span>
-  <span class="tech-item">React</span>
+  <span class="tech-item">Flutter</span>
+  <span class="tech-item">智能合约</span>
   <span class="tech-item">TypeScript</span>
+  <span class="tech-item">Vue.js</span>
+  <span class="tech-item">React</span>
 </div>
 
 ## 联系方式

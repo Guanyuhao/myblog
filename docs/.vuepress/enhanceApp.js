@@ -84,7 +84,7 @@ export default ({ Vue, router }) => {
           document.head.appendChild(style);
           
           // 设置文件名
-          const filename = '关哈哈-前端开发工程师简历.pdf';
+          const filename = '关哈哈-TechLead简历.pdf';
           
           // 使用浏览器原生打印功能，但通过样式控制只打印简历部分
           // 关键是我们修改了打印样式，使得只有简历容器可见
