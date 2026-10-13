@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /yuhao.jpg
-heroText: 哈哈的技术博客
+heroText: Lucas Tech Blog
 tagline: 探索、学习、分享，记录技术成长之路
 actionText: 开始阅读 →
 actionLink: /guide/
@@ -12,7 +12,7 @@ features:
   details: 记录日常学习过程中的心得体会，整理有价值的知识点和解决方案
 - title: 项目实践
   details: 展示个人项目开发过程，分享实际问题的解决思路和技术选型考量
-footer: MIT Licensed | Copyright © 2025-present Guanyuhao
+footer: MIT Licensed | Copyright © 2025-present Lucas Tech Blog
 ---
 <div class="features-section">
 

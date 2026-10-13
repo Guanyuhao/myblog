@@ -1,17 +1,8 @@
-# TechLead / 业务线全栈技术负责人 — 简历
+---
+title: 简历
+---
 
-英文简历：[English resume](/about/resume-en.html)
-
-## 基本信息
-
-<!-- - 姓名：关聪
-- 手机号：17600102308 -->
-- 学历：本科 · 软件工程
-- 经验：8 年
-- 当前角色：创业公司 TechLead
-- 邮箱：guanyuhao_666@163.com
-- 博客：[guanyuhao.github.io](https://guanyuhao.github.io/)
-- GitHub：[github.com/guanyuhao](https://github.com/guanyuhao)
+<ResumeSheet lang="zh" />
 
 ## 职业目标
 

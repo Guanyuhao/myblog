@@ -1,11 +1,8 @@
-# Cong Guan — TechLead / Business-Line Technical Owner
-
-中文简历：[简历](/about/resume.html)
-
-> Email: guanyuhao_666@163.com · GitHub: [github.com/guanyuhao](https://github.com/guanyuhao) · Blog: [guanyuhao.github.io](https://guanyuhao.github.io/)
-> B.E. Software Engineering · 8 years · TechLead at a startup
-
 ---
+title: Resume
+---
+
+<ResumeSheet lang="en" />
 
 ## Career target
 
